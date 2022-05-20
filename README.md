@@ -7,6 +7,10 @@
 ### Admin
 ## Design Choices
 ## Wireframes and Live Application
+### Database Wireframes
+![Database wireframe](readme/db/dbTable.jpg)
+### Application Wireframes
+### Live Application
 
 # Technology used
 
