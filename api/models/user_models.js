@@ -2,7 +2,7 @@ const db = require('../dbConfig');
 
 module.exports = {
     addAdmin,
-    logUserIn
+    findUserByName
 };
 
 // ---------------------User Auth
