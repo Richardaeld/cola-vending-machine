@@ -8,7 +8,7 @@
     "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-api": "cd api && npm install",
-    "heroku-postbuild": "npm run install-api && npm run start"
+    "heroku-postbuild": "npm run install-api && cd api npm run start"
   },
   "keywords": [],
   "author": "",
