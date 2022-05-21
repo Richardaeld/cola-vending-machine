@@ -80,3 +80,19 @@
     + Used to identify errors in markup.
 
 # Acknowledgements
++ [Bootstrap](https://getbootstrap.com/)
+    + A framework used to help speed up development and provide a better overall UX.
++ [Heroku Dev Center](https://devcenter.heroku.com/)
+    + A great source of information about Heroku, its addions, and errors that can happen.
++ [Knex.js](http://knexjs.org/)
+    + An overwhelming amount of documentation about knex.
++ [MDN Web Docs](https://developer.mozilla.org/en-US/)
+    + Invaluable source of information about JavaScript, HTML, and CSS.
++ [Stack Overflow](https://stackoverflow.com/)
+    + A great source of information to find a starting place for research.
++ [React](https://reactjs.org/)
+    + The source for everything about React.js.
++ [W3Schools](https://www.w3schools.com/)
+    + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
++ [World Wide Web Consortium (W3C)](https://www.w3.org/)
+    + Used to understand basic standardization practices for web-based apps.
