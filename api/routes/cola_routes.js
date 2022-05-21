@@ -17,7 +17,7 @@ router.post('/add', (req, res) => {
                 res.status(404).json({ message: 'Record was not inserted' });
             }
         })
-        .then((error) => {
+        .catch((error) => {
             res.status(500).json({ message: `An error has occured: ${error}` });
         });
 });
@@ -29,7 +29,7 @@ router.get('/getAll', (req, res) => {
         .then((cola) => {
             res.status(200).json({ cola });
         })
-        .then((error) => {
+        .catch((error) => {
             res.status(500).json({ message: `An error has occured: ${error}` });
         });
 });
