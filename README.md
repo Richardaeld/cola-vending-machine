@@ -41,9 +41,12 @@
 ## Design Choices
 ## Wireframes and Live Application
 ### Database Wireframes
++ Wireframe for Cola table
 ![Database Table Cola wireframe](readme/db/db_table_cola.jpg)
++ Wireframe for Users table
 ![Database Table Users wireframe](readme/db/db_table_users.jpg)
 ### API Wireframes
++ Wireframe for RESTful API
 ![Api wireframe](readme/db/api_requests.jpg)
 ### Application Wireframes
 ### Live Application
