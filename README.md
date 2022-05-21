@@ -41,7 +41,9 @@
 ## Design Choices
 ## Wireframes and Live Application
 ### Database Wireframes
-![Database wireframe](readme/db/dbTable.jpg)
+![Database wireframe](readme/db/dbTables.jpg)
+### API Wireframes
+![Api wireframe](readme/db/api_requests.jpg)
 ### Application Wireframes
 ### Live Application
 
