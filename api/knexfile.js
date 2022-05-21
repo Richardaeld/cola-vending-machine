@@ -26,7 +26,7 @@ module.exports = {
     rejectUnauthorized: false,
     migrations: {
       tableName: 'knex_migrations',
-      directory: './migrations',
+      directory: '.api/migrations',
     },
   },
 };
