@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@vscode/sqlite3": "^5.0.8",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8"
   }
 }
