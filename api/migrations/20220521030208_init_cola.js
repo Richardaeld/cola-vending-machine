@@ -7,6 +7,8 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('name', 50)
             .notNullable;
+        tbl.string('price')
+            .notNullable;
         tbl.integer('amount')
             .notNullable;
         tbl.integer('max_amount')
