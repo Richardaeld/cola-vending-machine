@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../models/cola_models');
 
-const router = expresss.Router();
+const router = express.Router();
 
 // ---------------------Cola
 // Post Cola(s)
