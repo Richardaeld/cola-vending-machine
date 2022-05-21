@@ -1,7 +1,8 @@
 const db = require('../db_config');
 
 module.exports = {
-
+addCola,
+viewAllCola,
 };
 
 // ---------------------Cola
