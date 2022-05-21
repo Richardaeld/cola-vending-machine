@@ -42,7 +42,7 @@
 ## Wireframes and Live Application
 ### Database Wireframes
 ![Database Table Cola wireframe](readme/db/db_table_cola.jpg)
-![Database Table Users wireframe](readme/db/d_table_users.jpg)
+![Database Table Users wireframe](readme/db/db_table_users.jpg)
 ### API Wireframes
 ![Api wireframe](readme/db/api_requests.jpg)
 ### Application Wireframes
