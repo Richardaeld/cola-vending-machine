@@ -13,6 +13,14 @@
 ### Live Application
 
 # Technology used
++ Node.js – Runtime application that allows JS to be used outside of a browser.
++ JavaScript - Allows for user interaction and dynamic function on the application. This also allows all the backend functions to work because of the runtime application Node.js.
++ Express.js – Backend web framework used with Node.js for server framework.
++ Knex.js – ORM (object-relational mapper) used to make SQL queries easier and faster to write.
++ PostgreSQL – Relational Database used.
++ React.js - JavaScript Library for front-end development.
++ HTML - Skeleton frame of the application.
++ CSS - Beautifies the skeleton (HTML).
 
 # Testing
 ## Developer Testing Specifications
