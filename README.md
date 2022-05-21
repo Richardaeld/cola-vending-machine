@@ -5,7 +5,7 @@
 
 [UX](#ux)
 + [User Stories](#user-stories)
-    + [Client Users](#client-users)
+    + [Clients](#clients)
     + [Admin](#admin)
 + [Design Choices](#design-choices)
 + [Wireframes and Live Application](#wireframes-and-live-application)
@@ -36,8 +36,31 @@
 
 # UX
 ## User Stories
-### Client Users
+### Clients
+#### General
++ As a client, I want to be able to view the vending machine’s entire selection of cola.
++ As a client, I want to be able to view a detailed description of a cola.
+#### Auth
++ As a client, I am a repeat customer and I want to save my purchase information.
++ As a client, I want to be able to purchase a cola.
++ As a client, I want to be able to view my login name.
+
 ### Admin
+#### General
++ As an admin, I want to add a new cola to the vending machine.
++ As an admin, I want to be able to change the name of a cola.
++ As an admin, I want to be able to update the price of a cola.
++ As an admin, I want to be able to change the amount currently stocked in the vending machine.
++ As an admin, I want to be able to change the max available of a cola.
++ As an admin, I want to be able to update the description of a cola.
++ As an admin, I want to be able to view all products including id and description.
+#### Auth
++ As an admin, I need to be able to login to preform my duties.
++ As an admin, I want to be able to update my name.
++ As an admin, I want to be able to change my password.
++ As an admin, I want to be able to change a client’s status to admin.
++ As an admin, I want to be able to view my login name.
+
 ## Design Choices
 ## Wireframes and Live Application
 ### Database Wireframes
