@@ -1,4 +1,37 @@
 # Welcome to ColaCo's Virtual Vending Machine!
+
+# Table Of Contents
+[Introduction]
+
+[UX](#ux)
++ [User Stories](#user-stories)
+    + [Client Users](#client-users)
+    + [Admin](#admin)
++ [Design Choices](#design-choices)
++ [Wireframes and Live Application](#wireframes-and-live-application)
+    + [Database Wireframes](#database-wireframes)
+    + [Application Wireframes](#application-wireframes)
+    + [Live Application](#live-application)
+
+[Technology](#technology)
+
+[Testing](#testing)
++ [Developer Testing Specifications](#developer-testing-specifications)
++ [Developer Testing Systems](#developer-testing-systems)
++ [Developer Testing Methods](#developer-testing-methods)
+
+[Bugs and Other Problems](#bugs-and-other-problems)
++ [Bugs](#bugs)
++ [Other Problems](#other-problems)
+
+[Deployment](#deployment)
++ [GitHub](#github)
++ [Heroku](#heroku)
+
+[Tools](#tools)
+
+[Acknowledgements](#Acknowledgements)
+
 ## Introduction
 
 # UX
@@ -12,7 +45,7 @@
 ### Application Wireframes
 ### Live Application
 
-# Technology used
+# Technology
 + Node.js – Runtime application that allows JS to be used outside of a browser.
 + JavaScript - Allows for user interaction and dynamic function on the application. This also allows all the backend functions to work because of the runtime application Node.js.
 + Express.js – Backend web framework used with Node.js for server framework.
