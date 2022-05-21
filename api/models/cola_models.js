@@ -6,18 +6,18 @@ viewAllCola,
 };
 
 // ---------------------Cola
-// Add Cola(s)
+// Post Cola(s)
 async function addCola (cola) {
     return await db('cola').insert(cola, ['id', 'name', 'amount', 'max_amount', 'description']);
 }
 
-// All View Cola (with description)
+// Get All Cola (with description)
 function viewAllCola () {
     return db('cola');
 }
 
-// Restocker View All Cola (without description)
-// View Single Cola
+// Restocker Get All Cola (without description)
+// Get Single Cola
 // Patch 'name' of Single Cola
 // Patch 'amount' of Single Cola
 // Patch 'max_amount' of Single Cola
