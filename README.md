@@ -44,6 +44,8 @@
 + As a client, I am a repeat customer and I want to save my purchase information.
 + As a client, I want to be able to purchase a cola.
 + As a client, I want to be able to view my login name.
++ As a client, I want to be able to update my name.
++ As a client, I want to be able to change my password.
 
 ### Admin
 #### General
