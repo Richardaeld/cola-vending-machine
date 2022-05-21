@@ -7,7 +7,7 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('name', 50)
             .notNullable;
-        tbl.string('price')
+        tbl.float('price')
             .notNullable;
         tbl.integer('amount')
             .notNullable;
