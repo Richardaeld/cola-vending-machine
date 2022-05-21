@@ -23,7 +23,7 @@ module.exports = {
       min: 2,
       max: 10,
     },
-    rejectUnauthorized: false,
+    ssl: { rejectUnauthorized: false },
     migrations: {
       tableName: 'knex_migrations',
       directory: './migrations',
