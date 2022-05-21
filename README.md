@@ -62,6 +62,9 @@
 + As an admin, I want to be able to change my password.
 + As an admin, I want to be able to change a client’s status to admin.
 + As an admin, I want to be able to view my login name.
++ As an admin, I want to see all the admins.
++ As an admin, I want to see all the customers.
+
 
 ## Design Choices
 ## Wireframes and Live Application
