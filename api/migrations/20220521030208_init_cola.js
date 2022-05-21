@@ -3,7 +3,17 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  
+    return knex.schema.createTable('cola', tbl => {
+        tbl.increments();
+        tbl.string('name', 50)
+            .notNullable;
+        tbl.integer('amount')
+            .notNullable;
+        tbl.integer('max_amount')
+            .notNullable;
+        tbl.string('description')
+            .notNullable;
+  })
 };
 
 /**
@@ -11,5 +21,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  
+    return knex.schema.dropTableIfExists('cola');
 };
