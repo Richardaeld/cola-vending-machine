@@ -9,10 +9,15 @@ const generate_token = require('./create_web_token');
 // Create one admin
 router.post('/addAdmin', (req, res) => {
     const credentials = req.body;
-    const {username, password} = credentials;
+    const {username, password, admin_secret} = credentials;
+    let isAdmin = false;
 
     if (!(username && password)) {
         return res.status(400).json({ message: 'Please enter both username and password!' });
+    }
+
+    if (admin_secret === process.env.ADMIN_SECRET) {
+        isAdmin = True;
     }
 
     const hash = bcrypt.hashSync(credentials.password, 12);
@@ -20,7 +25,12 @@ router.post('/addAdmin', (req, res) => {
 
     db.addAdmin(credentials)
         .then((user) => {
-            res.status(200).json( user );
+            if (user.isAdmin) {
+                res.status(200).json({ message: `welcome to the ColaCo family ${user}!` });
+
+            } else {
+                res.status(200).json({ message: `welcome ${user}!` });
+            }
         })
         .catch((error) => {
             if (error.errno == 2067) {
