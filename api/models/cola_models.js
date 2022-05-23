@@ -4,7 +4,8 @@ module.exports = {
 addCola,
 viewAllCola,
 viewSingleCola,
-viewAllColaRestock
+viewAllColaRestock,
+updateCola
 
 // Cola Auth
 };
@@ -17,10 +18,14 @@ async function addCola (cola) {
 }
 
 // Patch 'name' of Single Cola
-// Patch 'amount' of Single Cola
-// Patch 'max_amount' of Single Cola
-// Patch 'price' of Single Cola
-// Patch 'description' of Single Cola
+// Update cola by its Id
+function updateCola (id, changes) {
+    return db('cola')
+        .where({ id })
+        .update( changes )
+        ;
+}
+
 // Put (update) entire Single Cola
 
 // ---------------------Cola

@@ -22,11 +22,33 @@ router.post('/add', (req, res) => {
         });
 });
 
-// Patch 'name' of Single Cola
-// Patch 'amount' of Single Cola
-// Patch 'max_amount' of Single Cola
-// Patch 'price' of Single Cola
-// Patch 'description' of Single Cola
-// Put (update) entire Single Cola
+// Update Cola
+router.patch('/patch/:id', (req, res) => {
+    const { id } = req.params;
+    const changes = req.body;
 
+    console.log(id)
+    console.log(changes)
+
+    db.updateCola(id, changes)
+    .then((cola) => {
+        console.log(cola)
+        if(cola) {
+            res.status(200).json({
+                message: 'The updated cola:',
+                cola
+            });
+        } else {
+            res.status(404).json({ message: 'Record not found' })
+        }
+    })
+    .catch((error) => {
+        res.status(404).json({ message: `An error occured: ${error}` })
+    })
+})
+
+// Put (update) entire Single Cola
+// router.put('/put/oneCola/:id', (req, res) => {
+
+// })
 module.exports = router;
