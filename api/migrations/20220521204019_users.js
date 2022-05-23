@@ -11,7 +11,7 @@ exports.up = function(knex) {
             .index();
         tbl.text('password', 255)
             .notNullable();
-        tbl.boolean('admin')
+        tbl.boolean('is_admin')
             .defaultTo(false);
     })
 };
