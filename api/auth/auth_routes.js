@@ -24,7 +24,7 @@ router.post('/addAdmin', (req, res) => {
         })
         .catch((error) => {
             if (error.errno == 2067) {
-                res.status(400).json({ message: `username:(${username}) is already taken` });
+                res.status(400).json({ message: `Username:(${username}) is already taken` });
             } else {
                 res.status(500).json({ message: `An error occured!` });
             }
