@@ -10,22 +10,23 @@ const generate_token = require('./create_web_token');
 router.post('/addAdmin', (req, res) => {
     const credentials = req.body;
     const {username, password, admin_secret} = credentials;
-    let isAdmin = false;
+    credentials['is_admin'] = false;
 
     if (!(username && password)) {
         return res.status(400).json({ message: 'Please enter both username and password!' });
     }
 
     if (admin_secret === process.env.ADMIN_SECRET) {
-        isAdmin = True;
+        credentials['is_admin'] = true;
     }
 
+    delete credentials.admin_secret;
     const hash = bcrypt.hashSync(credentials.password, 12);
     credentials.password = hash;
 
     db.addAdmin(credentials)
         .then((user) => {
-            if (user.isAdmin) {
+            if (credentials.is_admin) {
                 res.status(200).json({ message: `welcome to the ColaCo family ${user}!` });
 
             } else {
@@ -54,7 +55,12 @@ router.post('/login', (req, res) => {
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generate_token(user);
 
-                res.status(200).json({ message: `Welcome ${user.username}!`, token });
+                if (user.is_admin){
+                    res.status(200).json({ message: `Welcome admin ${user.username}!`, token });
+                } else {
+                    res.status(200).json({ message: `Welcome ${user.username}!`, token });
+                }
+
             } else {
                 res.status(401).json({ message: 'Invalid credentials' });
             }
