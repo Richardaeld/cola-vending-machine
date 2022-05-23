@@ -23,7 +23,9 @@ function updateCola (id, changes) {
     return db('cola')
         .where({ id })
         .update( changes )
-        ;
+        .then(() => {
+            return viewSingleCola(id)
+        });
 }
 
 // Put (update) entire Single Cola
