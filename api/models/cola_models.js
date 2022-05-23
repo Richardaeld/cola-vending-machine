@@ -24,7 +24,7 @@ function updateCola (id, changes) {
         .where({ id })
         .update( changes )
         .then(() => {
-            return viewSingleCola(id)
+            return viewSingleCola (id)
         });
 }
 
@@ -39,7 +39,8 @@ function viewAllCola () {
 // Get Single Cola
 function viewSingleCola (id) {
     return db('cola')
-        .where(id);
+        .where({ id })
+        .first();
 }
 
 // Restocker Get All Cola (without description)
