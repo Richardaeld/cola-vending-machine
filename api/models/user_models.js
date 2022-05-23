@@ -1,4 +1,4 @@
-const db = require('../dbConfig');
+const db = require('../db_config');
 
 module.exports = {
     addAdmin,
