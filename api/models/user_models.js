@@ -1,13 +1,13 @@
 const db = require('../db_config');
 
 module.exports = {
-    addAdmin,
+    postUser,
     findUserByName
 };
 
 // ---------------------User Auth
 // Post (create) Admin
-async function addAdmin (user) {
+async function postUser (user) {
     return await db('users').insert(user, ['username']);
 }
 

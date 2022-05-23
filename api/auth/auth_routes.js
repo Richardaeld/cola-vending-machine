@@ -7,7 +7,7 @@ const generate_token = require('./create_web_token');
 
 // ---------------------Auth users
 // Create one admin
-router.post('/addAdmin', (req, res) => {
+router.post('/register', (req, res) => {
     const credentials = req.body;
     const {username, password, admin_secret} = credentials;
     credentials['is_admin'] = false;
@@ -24,7 +24,7 @@ router.post('/addAdmin', (req, res) => {
     const hash = bcrypt.hashSync(credentials.password, 12);
     credentials.password = hash;
 
-    db.addAdmin(credentials)
+    db.postUser(credentials)
         .then((user) => {
             if (credentials.is_admin) {
                 res.status(200).json({ message: `welcome to the ColaCo family ${user}!` });
