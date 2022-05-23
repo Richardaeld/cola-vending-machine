@@ -12,7 +12,7 @@ router.post('/addAdmin', (req, res) => {
     const {username, password} = credentials;
 
     if (!(username && password)) {
-        return res.status(400).json({ message: 'Please enter both name and password' });
+        return res.status(400).json({ message: 'Please enter both username and password!' });
     }
 
     const hash = bcrypt.hashSync(credentials.password, 12);
@@ -24,9 +24,9 @@ router.post('/addAdmin', (req, res) => {
         })
         .catch((error) => {
             if (error.errno == 2067) {
-                res.status(400).json({ message: `Name:(${username}) is already taken` });
+                res.status(400).json({ message: `username:(${username}) is already taken` });
             } else {
-                res.status(500).json({ message: `An error occured: ${error}` });
+                res.status(500).json({ message: `An error occured!` });
             }
         });
 });
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
             }
         })
         .catch((error) => {
-            res.status(500).json({ message: `An error occured: ${error}` });
+            res.status(500).json({ message: `An error occured!` });
         });
 });
 
