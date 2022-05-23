@@ -3,7 +3,8 @@ const express = require('express');
 // Routes
 const cola_routes = require('../routes/cola_routes');
 const cola_auth_routes = require('../routes/cola_auth_routes')
-const restricted = require('../auth/restrictedMiddleware');
+const auth_routes = require('../auth/auth_routes')
+const restricted = require('../auth/restricted_middleware');
 
 const server = express();
 
@@ -16,5 +17,6 @@ server.get('/', (req, res) => {
 // Server Route Exports
 server.use('/cola', cola_routes);
 server.use('/cola/auth', restricted, cola_auth_routes);
+server.use('/cola/auth', restricted, auth_routes)
 
 module.exports = server;
