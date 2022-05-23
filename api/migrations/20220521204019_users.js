@@ -13,6 +13,8 @@ exports.up = function(knex) {
             .notNullable();
         tbl.boolean('is_admin')
             .defaultTo(false);
+        tbl.text('purchases')
+            .defaultTo("");
     })
 };
 
