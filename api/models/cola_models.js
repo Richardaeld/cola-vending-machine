@@ -5,7 +5,9 @@ addCola,
 viewAllCola,
 viewSingleCola,
 viewAllColaRestock,
-updateCola
+updateCola,
+removeSingleCola,
+viewSingleCola
 
 // Cola Auth
 };
@@ -24,7 +26,7 @@ function updateCola (id, changes) {
         .where({ id })
         .update( changes )
         .then(() => {
-            return viewSingleCola (id)
+            return viewSingleCola (id);
         });
 }
 
@@ -49,3 +51,22 @@ function viewAllColaRestock () {
         .select('id', 'name', 'amount', 'max_amount', 'price');
 }
 
+
+
+// Remove single cola from id
+function removeSingleCola (id, change) {
+    return db('cola')
+        .where({ id })
+        .update({ "amount": change })
+        .then(() => {
+            return viewSingleCola (id);
+        });
+}
+
+// Get Single Cola
+function viewSingleCola (id) {
+    return db('cola')
+        .where({ id })
+        .first()
+        .select('amount', 'name');
+}
