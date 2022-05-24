@@ -67,6 +67,13 @@
 
 
 ## Design Choices
+### Assumptions
++ The vending machine will only dispense one cola at a time.
++ Frequent users will want to have a login to remember their card information.
++ ColaCo will want to track who is buying their cola for ‘reasons’.
++ Users will want a method of payment that does not require logging in.
+
+
 ## Wireframes and Live Application
 ### Database Wireframes
 + Wireframe for Cola table
