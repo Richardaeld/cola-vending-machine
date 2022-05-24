@@ -170,3 +170,7 @@
     + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
 + [World Wide Web Consortium (W3C)](https://www.w3.org/)
     + Used to understand basic standardization practices for web-based apps.
+
+
+## Images
+https://unsplash.com/photos/x7JSGI2ZVeY -- pille-r-priske-x7JSGI2ZVeY-unsplash
