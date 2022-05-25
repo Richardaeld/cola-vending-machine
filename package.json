@@ -10,7 +10,6 @@
     "install-api": "cd api && npm install && knex migrate:latest",
     "install-react": "cd react_app && npm install",
     "heroku-postbuild": "npm run install-react && cd react_app npm run start"
-    // "heroku-postbuild1": "npm run install-react && cd api npm run start",
   },
   "keywords": [],
   "author": "",
