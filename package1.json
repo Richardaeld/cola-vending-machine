@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start_api": "node api/index.js",
+    "start": "react-scripts react_app/start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-api": "cd api && npm install && knex migrate:latest",
+    "install-react": "cd react_app && npm install",
+    "heroku-postbuild": "npm run install-react && cd react_app npm run start1"
+  }
+}
