@@ -1,10 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useEffect} from 'react';
 import ColaButton from './components/html/elements/ColaButton';
 
 
 function App() {
 
+  const [colaInfo, setColaInfo] = React.useState([])
+
+  // Fetch for cola buttons
+  async function fetchColaData () {
+      try {
+          const response = await fetch ('https://colaco-vending-machine.herokuapp.com/cola/getAll');
+          const jsonData = await response.json();
+
+          console.log(jsonData.cola)
+          setColaInfo(jsonData.cola)
+      } catch (err) {
+          console.log(err)
+      }
+  }
+  useEffect(() => {
+      fetchColaData();
+  }, [])
+
+  const colaElement = colaInfo.map(cola => {
+      <ColaButton
+          key={cola.id}
+          name={cola.name}
+          price={cola.price}
+          amount={cola.amount}
+          details={cola.details}
+      />
+  })
 
   return (
 
@@ -24,8 +52,8 @@ function App() {
             <div class="row justify-content-around">
 
               {/* Cola Template */}
+              {colaElement}
 
-              <ColaButton />
 
 
             </div>

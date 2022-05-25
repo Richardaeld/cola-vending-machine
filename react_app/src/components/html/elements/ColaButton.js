@@ -1,26 +1,5 @@
 // Cola button for vending machine
-import React, {useEffect} from 'react';
-
 export default function ColaButton (props) {
-
-    const [colaInfo, setColaInfo] = React.useState([])
-
-    async function fetchColaData () {
-        try {
-            const response = await fetch ('https://colaco-vending-machine.herokuapp.com/cola/getAll');
-            const jsonData = await response.json();
-
-            console.log(jsonData.cola)
-            setColaInfo(jsonData.cola)
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    useEffect(() => {
-        fetchColaData();
-    }, [])
-
-
     return (
         <div class="col-3">
         {/* header */}
