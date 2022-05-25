@@ -8,7 +8,8 @@
     "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-api": "cd api && npm install && knex migrate:latest",
-    "heroku-postbuild": "npm run install-api && cd api npm run start"
+    "install-react": "cd react_app && npm install",
+    "heroku-postbuild": "npm run install-react && cd api npm run start"
   },
   "keywords": [],
   "author": "",
