@@ -104,6 +104,14 @@
 # Bugs and Other Problems
 ## Bugs
 ## Other Problems
+### React
++ After a successful deployment of React, Heroku wouldn't run the application.
+	+ Caused by:
+		+ Location of the React content. (Due to the nature of using a single git repo for tracking the application build process numerous problems were created.)
+	+ Fix:
+		+ A Second git repo was created with the sole purpose to receive a copy and paste of the entire application at deployment intervals. This was necessary because it allowed control over where the location of all the files. Unlike the node.js server for this project, React did not play nice with its nonstandard root directory.
+	+ Thoughts:
+		+ Provided with additional time, a prettier solution could be devised; however, to complete this project on time, this inelegant solution was chosen.
 
 # Deployment
 ## GitHub
