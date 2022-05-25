@@ -1,6 +1,8 @@
 // Cola button for vending machine
 export default function ColaButton (props) {
 
+    
+
     return (
         <div class="col-3">
             {/* Header */}
