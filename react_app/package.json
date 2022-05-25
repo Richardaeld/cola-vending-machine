@@ -12,12 +12,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts react_app/start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "install-react": "cd react_app && npm install",
-    "heroku-postbuild": "npm run install-react && cd react_app npm run start"
+    "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
