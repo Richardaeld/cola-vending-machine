@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {useEffect} from 'react';
 import ColaButton from './components/html/elements/ColaButton';
-
+import {CardElement} from '@stripe/react-stripe-js';
+import {CardNumberElement} from '@stripe/react-stripe-js';
 
 function App() {
 
@@ -58,6 +58,11 @@ function App() {
 
           <section className="col-3">
             <h2>Pay for cola</h2>
+            {/* stripe */}
+            <span>
+              <CardElement/>
+              {/* <CardNumberElement/> */}
+            </span>
           </section>
         </div>
       </main>
