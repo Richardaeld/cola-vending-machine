@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start_api": "node api/index.js",
-    "start_": "react_app/react-scripts start",
+    "start": "react_app/react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-api": "cd api && npm install && knex migrate:latest",
     "install-react": "cd react_app && npm install",
