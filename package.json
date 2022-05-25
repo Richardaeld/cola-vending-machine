@@ -11,6 +11,12 @@
     "install-react": "cd react_app && npm install",
     "heroku-postbuild": "npm run install-react && cd react_app npm run start"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
