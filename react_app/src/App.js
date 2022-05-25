@@ -14,7 +14,6 @@ function App() {
           const response = await fetch ('https://colaco-vending-machine.herokuapp.com/cola/getAll');
           const jsonData = await response.json();
 
-          console.log(jsonData.cola)
           setColaInfo(jsonData.cola)
       } catch (err) {
           console.log(err)
@@ -24,43 +23,41 @@ function App() {
       fetchColaData();
   }, [])
 
-  const colaElement = colaInfo.map(cola => {
+  const colaElement = colaInfo.map(cola => (
       <ColaButton
           key={cola.id}
           name={cola.name}
           price={cola.price}
           amount={cola.amount}
-          details={cola.details}
+          details={cola.description}
       />
-  })
+  ))
 
+  // console.log("I am cola info", colaInfo)
   return (
-
     <>
-      <header class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
-            <h1 class="mt-5 pt-5">ColaCo Vending</h1>
+      <header className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-12 text-center">
+            <h1 className="mt-5 pt-5">ColaCo Vending</h1>
           </div>
         </div>
       </header>
 
-      <main class="container-fluid">
-        <div class="row justify-content-between">
-          <section class="col-9">
+      <main className="container-fluid">
+        <div className="row justify-content-between">
+          <section className="col-9">
             <h2>Buy a cola</h2>
-            <div class="row justify-content-around">
+            <div className="row justify-content-around">
 
-              {/* Cola Template */}
+              {/* Colas */}
               {colaElement}
-
-
 
             </div>
           </section>
-          <section class="col-3">
-            <h2>Pay for cola</h2>
 
+          <section className="col-3">
+            <h2>Pay for cola</h2>
           </section>
         </div>
       </main>
