@@ -38,15 +38,15 @@ function App() {
     <>
       <header className="container-fluid">
         <div className="row justify-content-center">
-          <div className="col-12 text-center">
-            <h1 className="mt-5 pt-5">ColaCo Vending</h1>
+          <div className="col-10 text-start">
+            <h1 className="mt-5 pt-5 company-name">ColaCo Vending</h1>
           </div>
         </div>
       </header>
 
       <main className="container-fluid">
-        <div className="row justify-content-between">
-          <section className="col-9">
+        <div className="row justify-content-end">
+          <section className="col-12 cola-container">
             <h2>Buy a cola</h2>
             <div className="row justify-content-around">
 
@@ -56,7 +56,7 @@ function App() {
             </div>
           </section>
 
-          <section className="col-3">
+          <section className="col-3 me-3">
             <h2>Pay for cola</h2>
             {/* stripe */}
             <span>

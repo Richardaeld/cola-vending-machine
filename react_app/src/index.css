@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Macondo&family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Shadows+Into+Light&family=Smooch&display=swap');
+/*------------------  React default  ------------------*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,11 +15,26 @@ code {
     monospace;
 }
 
+/*------------------  general  ------------------*/
+
 
 body {
   background: linear-gradient(291deg, rgba(54, 235, 201, .75), rgba(0,255,0,0) 70%),
               linear-gradient(145deg, rgba(42, 235, 90, .75), rgba(0,255,0,0) 70%),
               linear-gradient(325deg, rgba(66, 174, 235, .75), rgba(0,0,255,0) 70%);
+  /* font-family: 'Shadows Into Light'; */
+  font-family: 'Roboto-Slab', sans-serif;
+}
 
-  
+.cola-name {
+  font-family: 'Macondo', sans-serif;
+}
+
+.company-name {
+  font-family: 'Smooch', sans-serif;
+}
+
+.buy-button {
+  display: flex;
+  align-items: baseline;
 }

@@ -4,9 +4,9 @@ export default function ColaButton (props) {
     
 
     return (
-        <div class="col-3">
+        <div class="col-2">
             {/* Header */}
-            <h3>{props.name}</h3>
+            <h3 className="cola-name">{props.name}</h3>
             {/* body */}
             <div>
                 <div>
