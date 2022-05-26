@@ -3,11 +3,12 @@ const db = require('../db_config');
 module.exports = {
     postUser,
     findUserByName,
-    findUserPurchases,
-    updatePurchases,
+    // findUserPurchases,
+    // updatePurchases,
     findAllUsers,
     findAllAdmin,
-    findAllAdminAndUsers
+    findAllAdminAndUsers,
+    updateUser
 };
 
 // ---------------------User Auth
@@ -21,41 +22,52 @@ function findUserByName (username) {
     return db('users').where({ username }).first();
 }
 
-function findUserPurchases (id) {
-    return db('users')
-        .where({ id })
-        .first();
-}
-
-function updatePurchases (id, changes) {
-    return db('users')
-        .where({ id })
-        .update({ "purchases": JSON.stringify(changes) })
-        .then(() => {
-            return findUserPurchases(id);
-        });
-}
-
 // Gets all users
 function findAllUsers () {
     return db('users')
-    .where({ is_admin: false })
-    .select('id', 'username');
+        .where({ is_admin: false })
+        .select('id', 'username');
 }
 // Gets all admins
 function findAllAdmin () {
     return db('users')
-    .where({ is_admin: true })
-    .select('id', 'username');
+        .where({ is_admin: true })
+        .select('id', 'username');
 }
 
 // get all user and admin
 function findAllAdminAndUsers () {
     return db('users')
-    .select('id', 'username', 'is_admin');
+        .select('id', 'username', 'is_admin');
 
 }
 
+// ---------------------Auth
+
 // Patch user to admin
+function updateUser (username, changes) {
+    return db('users')
+        .where({ username })
+        .update({ changes })
+        .then(() => {
+            return findUserByName (username);
+        });
+}
 
 
+// ---------------------create purchase history in json string
+// Scalability
+// function findUserPurchases (id) {
+//     return db('users')
+//         .where({ id })
+//         .first();
+// }
+
+// function updatePurchases (id, changes) {
+//     return db('users')
+//         .where({ id })
+//         .update({ "purchases": JSON.stringify(changes) })
+//         .then(() => {
+//             return findUserPurchases(id);
+//         });
+// }
