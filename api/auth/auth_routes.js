@@ -27,10 +27,10 @@ router.post('/register', (req, res) => {
     db.postUser(credentials)
         .then((user) => {
             if (credentials.is_admin) {
-                res.status(200).json({ message: `welcome to the ColaCo family ${user}!` });
+                res.status(200).json({ message: `welcome to the ColaCo family ${user.username}!` });
 
             } else {
-                res.status(200).json({ message: `welcome ${user}!` });
+                res.status(200).json({ message: `welcome ${user.username}!` });
             }
         })
         .catch((error) => {
