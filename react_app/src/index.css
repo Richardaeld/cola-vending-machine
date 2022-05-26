@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Macondo&family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Shadows+Into+Light&family=Smooch&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Macondo&family=Mukta:wght@200;300;400;500;600;700;800&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Shadows+Into+Light&family=Smooch&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Macondo&family=Mukta:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Shadows+Into+Light&family=Smooch&display=swap');
+
 /*------------------  React default  ------------------*/
 
 body {
@@ -23,7 +25,9 @@ body {
               linear-gradient(145deg, rgba(42, 235, 90, .75), rgba(0,255,0,0) 70%),
               linear-gradient(325deg, rgba(66, 174, 235, .75), rgba(0,0,255,0) 70%);
   /* font-family: 'Shadows Into Light'; */
-  font-family: 'Roboto-Slab', sans-serif;
+  /* font-family: 'Gideon Roman', sans-serif; */
+  /* font-family: 'Roboto-Slab', sans-serif; */
+  font-family: 'Oswald', sans-serif
 }
 
 .cola-name {
