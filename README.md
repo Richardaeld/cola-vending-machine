@@ -181,6 +181,15 @@
 
 # Bugs and Other Problems
 ## Bugs
+### API
++ When a user tries to create a login with a existing username PostgreSQL does not return a error number.
+    + Caused by:
+        + PostgreSQL's normal functions.
+    + Fix:
+        + PostgreSQL returns a undefined instead of a number so an additional error catch was added to run on a undefined error and tells the user that they need to delect a different username.
+    + Thought(s):
+        + Given more time this should be more accurately handled with determining why PostgreSQL isnt giving an error code; or find a more certain way of detecting a unique key error.
+
 ## Other Problems
 ### React
 + After a successful deployment of React, Heroku wouldn't run the application.
