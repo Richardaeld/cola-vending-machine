@@ -40,19 +40,19 @@ function updatePurchases (id, changes) {
 function findAllUsers () {
     return db('users')
     .where({ is_admin: false })
-    .select('id', 'name');
+    .select('id', 'username');
 }
 // Gets all admins
 function findAllAdmin () {
     return db('users')
     .where({ is_admin: true })
-    .select('id', 'name');
+    .select('id', 'username');
 }
 
 // get all user and admin
 function findAllAdminAndUsers () {
     return db('users')
-    .select('id', 'name');
+    .select('id', 'username');
 
 }
 
