@@ -35,6 +35,23 @@ router.get('/getAll/adminAndUser', (req, res) => {
         });
 });
 
+// ---------------------Auth
+// Delete User
+router.delete('/delete/:id', (req, res) => {
+    const { id } = req.params;
+
+    dbUser.deleteUser(id)
+        .then((user) => {
+            if (user > 0) {
+                res.status(200).json({ message: `User with id ${id} has been removed` });
+            } else {
+                res.status(404).json({ message: 'No user with that id exists' });
+            }
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error occured: ${error}` });
+        });
+});
 
 // ---------------------User Auth
 // Remove one cola at a time

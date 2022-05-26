@@ -8,7 +8,8 @@ module.exports = {
     findAllUsers,
     findAllAdmin,
     findAllAdminAndUsers,
-    updateUser
+    updateUser,
+    deleteUser
 };
 
 // ---------------------User Auth
@@ -54,6 +55,12 @@ function updateUser (username, changes) {
         });
 }
 
+// Delete user
+function deleteUser (id) {
+    return db('users')
+        .where({ id })
+        .del()
+}
 
 // ---------------------create purchase history in json string
 // Scalability
