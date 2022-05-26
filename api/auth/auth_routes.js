@@ -27,14 +27,14 @@ router.post('/register', (req, res) => {
     db.postUser(credentials)
         .then((user) => {
             if (credentials.is_admin) {
-                res.status(200).json({ message: `welcome to the ColaCo family ${user.username}!` });
+                res.status(200).json({ message: `welcome to the ColaCo family ${username}!` });
 
             } else {
-                res.status(200).json({ message: `welcome ${user.username}!` });
+                res.status(200).json({ message: `welcome ${username}!` });
             }
         })
         .catch((error) => {
-            if (error.errno == 2067) {
+            if (error.errno == 19) {
                 res.status(400).json({ message: `Username:(${username}) is already taken` });
             } else {
                 res.status(500).json({ message: `An error occured!` });
