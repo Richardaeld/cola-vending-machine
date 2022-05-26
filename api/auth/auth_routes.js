@@ -35,7 +35,7 @@ router.post('/register', (req, res) => {
         })
         .catch((error) => {
 
-            if (process.env.DB_ENVIRONMENT == development) {
+            if (process.env.DB_ENVIRONMENT == 'development') {
                 if (error.errno == 19) {
                     res.status(400).json({ message: `Username:(${username}) is already taken` });
                 } else {
@@ -79,5 +79,7 @@ router.post('/login', (req, res) => {
             res.status(500).json({ message: `An error occured! ${error}` });
         });
 });
+
+
 
 module.exports = router;
