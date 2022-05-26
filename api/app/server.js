@@ -9,6 +9,7 @@ const cola_auth_routes = require('../routes/cola_auth_routes')
 const auth_routes = require('../auth/auth_routes')
 const auth_user = require('../routes/user_auth_routes')
 const restricted = require('../auth/restricted_middleware');
+const admin_restricted = require('../auth/restricted_admin_middleware');
 
 const server = express();
 server.use(helmet());
