@@ -34,7 +34,63 @@ body {
   font-family: 'Smooch', sans-serif;
 }
 
-.buy-button {
+.flex-center {
   display: flex;
-  align-items: baseline;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.flex-stretch {
+  display: flex;
+  align-items: stretch;
+}
+
+/*------------------  Cola Template  ------------------*/
+
+.text-shadow {
+
+}
+
+.cola-header {
+  background: url('unbranded_can.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height:5em;
+  filter: drop-shadow(3px 3px 2px rgba(0,0,0,.75))
+          drop-shadow(0px 0px 1px rgba(0,0,0,.75));
+}
+
+.cola-header-text {
+  color: #2AEB5A;
+  text-shadow: 1px 1px 0px #010203,
+                -1px -1px 0px #010203,
+                0px 0px 2px #010203;
+}
+
+.cola-template-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  /* card design */
+  /* background-color: #136B29; */
+}
+
+.buy-button-position {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.buy-button {
+  border: none;
+  border-radius: 15px;
+  background-color: #EBBC1E;
+  box-shadow: 
+              inset -2px -2px 4px rgba(0,0,0,.5),
+              2px 2px 1px rgba(0,0,0,.5)
+              ;
+}
+
