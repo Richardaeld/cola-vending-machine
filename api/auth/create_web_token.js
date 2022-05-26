@@ -4,7 +4,8 @@ module.exports = user => {
     // Requires => payload, secret, options
     const payload = {
         id: user.id,
-        username:user.username
+        username:user.username,
+        admin:user.is_admin
     };
 
     const secret = process.env.SECRET;
