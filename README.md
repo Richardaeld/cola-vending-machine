@@ -70,6 +70,8 @@
 ## Design Choices
 ### API
 #### Routes
+##### Route Notes
++ A single update was used with Auth instead of having multiple routes for updates which could provide more security.
 ##### Restricted Admin Routes
 + Create new cola(s).
     + Request:
@@ -102,6 +104,7 @@
 ##### Restricted Admin/User Routes
 
 ##### Admin/User Routes
+
 
 #### Database Tables
 ##### users
