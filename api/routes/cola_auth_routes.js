@@ -47,8 +47,5 @@ router.patch('/patch/:id', (req, res) => {
     })
 })
 
-// Put (update) entire Single Cola
-// router.put('/put/oneCola/:id', (req, res) => {
 
-// })
 module.exports = router;
