@@ -32,6 +32,12 @@ body {
 
 .company-name {
   font-family: 'Smooch', sans-serif;
+  text-shadow: 
+  /* 1px 1px 2px rgba(0,0,0,.35), */
+  1px 1px 2px #faf9f6,
+  0px 0px 4px rgba(0,0,0,.5)
+  /* 0px 0px 4px #faf9f6 */
+                ;
 }
 
 .flex-center {
