@@ -7,9 +7,8 @@ viewSingleCola,
 viewAllColaRestock,
 updateCola,
 removeSingleCola,
-viewSingleCola
-
-// Cola Auth
+viewSingleCola,
+deleteCola
 };
 
 
@@ -19,7 +18,6 @@ async function addCola (cola) {
     return await db('cola').insert(cola, ['id', 'name', 'price', 'amount', 'max_amount', 'description']);
 }
 
-// Patch 'name' of Single Cola
 // Update cola by its Id
 function updateCola (id, changes) {
     return db('cola')
@@ -30,7 +28,22 @@ function updateCola (id, changes) {
         });
 }
 
-// Put (update) entire Single Cola
+// Delete Cola
+function deleteCola (id) {
+    return db('cola')
+        .where({ id })
+        .del();
+}
+
+// Remove single cola from id
+function removeSingleCola (id, change) {
+    return db('cola')
+        .where({ id })
+        .update({ "amount": change })
+        .then(() => {
+            return viewSingleCola (id);
+        });
+}
 
 // ---------------------Cola
 // Get All Cola (with description)
@@ -52,16 +65,6 @@ function viewAllColaRestock () {
 }
 
 
-
-// Remove single cola from id
-function removeSingleCola (id, change) {
-    return db('cola')
-        .where({ id })
-        .update({ "amount": change })
-        .then(() => {
-            return viewSingleCola (id);
-        });
-}
 
 // Get Single Cola
 function viewSingleCola (id) {
