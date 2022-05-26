@@ -70,9 +70,57 @@
 ## Design Choices
 ### API
 #### Routes
+##### Restricted Admin Routes
++ Create new cola(s).
+    + Request:
+        + POST
+    + Requires:
+        + name (string)
+        + price(float)
+        + amount(int)
+        + max_amount(int)
+        + description(string)
+    + Restricted:
+        + Yes
+    + Path:
+        + `/auth/cola/add`
+
++ Update Cola with single or multiple changes.
+    + Request:
+    + Requires:
+        + Single change
+    + Restricted:
+        + Yes
+    + Path:
+        + `/auth/cola/patch/:id`
+
++ View all Users
+
+
+
+
+##### Restricted Admin/User Routes
+
+##### Admin/User Routes
+
 #### Database Tables
 ##### users
++ 5 columns
+    + id - int - PostgreSQL automatically tracks this number.
+    + name - string - Name of the user.
+    + password string - password for the user.
+    + is_admin - boolean - Determines if the user is a admin
+    + purchases - string - **Scalability** A stringified JSON object that remembers purchase history of a user
+
 ##### cola
++ 6 columns:
+    + id - int - PostgreSQL automatically tracks this number
+    + name - string - Name of the cola
+    + price - float - US dollar amount to purchase this item
+    + amount - int - The 'physical' count within the vending machine
+    + max_amount - int - The maximum 'physical' count a vending machine can hold (due to production rarity)
+    + description - string - A basic description of a cola
+
 
 ### React.js
 #### Home
