@@ -42,10 +42,10 @@ router.post('/register', (req, res) => {
                     res.status(500).json({ message: `An error occured!` });
                 }
             } else {
-                if (error.errno == 239) {
+                if (error.errno == undefined) {
                     res.status(400).json({ message: `Username:(${username}) is already taken` });
                 } else {
-                    res.status(500).json({ message: `An error occured! ${error.errno} ${error.__proto__}` });
+                    res.status(500).json({ message: `An error occured! ${error.errno} ${error}` });
                 }
 
             }
