@@ -4,6 +4,38 @@ const dbCola = require('../models/cola_models');
 
 const router = express.Router();
 
+// ---------------------User Admin Auth
+router.get('/getAll/user', (req, res) => {
+    dbUser.findAllUsers()
+        .then((users) => {
+            res.status(200).json({ users });
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error has occured: ${error}` })
+        });
+});
+
+router.get('/getAll/admin', (req, res) => {
+    dbUser.findAllAdmin()
+        .then((users) => {
+            res.status(200).json({ users });
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error has occured: ${error}` })
+        });
+});
+
+router.get('/getAll/adminAndUser', (req, res) => {
+    dbUser.findAllAdminAndUsers()
+        .then((users) => {
+            res.status(200).json({ users });
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error has occured: ${error}` })
+        });
+});
+
+
 // ---------------------User Auth
 // Remove one cola at a time
 router.post('/buyCola/:id', (req, res) => {
