@@ -47,7 +47,7 @@ function App() {
       <main className="container-fluid">
         <div className="row justify-content-end">
           <section className="col-12 cola-container">
-            <h2>Buy a cola</h2>
+            {/* <h2>Click to Buy</h2> */}
             <div className="row justify-content-around">
 
               {/* Colas */}
