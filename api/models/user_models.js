@@ -52,7 +52,7 @@ function findAllAdmin () {
 // get all user and admin
 function findAllAdminAndUsers () {
     return db('users')
-    .select('id', 'username');
+    .select('id', 'username', 'is_admin');
 
 }
 
