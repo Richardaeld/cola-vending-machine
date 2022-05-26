@@ -34,10 +34,20 @@ router.post('/register', (req, res) => {
             }
         })
         .catch((error) => {
-            if (error.errno == 19) {
-                res.status(400).json({ message: `Username:(${username}) is already taken` });
+
+            if (process.env.DB_ENVIRONMENT == development) {
+                if (error.errno == 19) {
+                    res.status(400).json({ message: `Username:(${username}) is already taken` });
+                } else {
+                    res.status(500).json({ message: `An error occured! ${error.errno} ${error}` });
+                }
             } else {
-                res.status(500).json({ message: `An error occured! ${error.errno} ${error}` });
+                if (error.errno == 239) {
+                    res.status(400).json({ message: `Username:(${username}) is already taken` });
+                } else {
+                    res.status(500).json({ message: `An error occured! ${error.errno} ${error}` });
+                }
+
             }
         });
 });
