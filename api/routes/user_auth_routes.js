@@ -36,6 +36,84 @@ router.get('/getAll/adminAndUser', (req, res) => {
 });
 
 // ---------------------Auth
+// Change user is_admin status
+router.patch('/patch/is_admin/:id', (req, res) => {
+    const { id } = req.params;
+    const { change } = req.body;
+
+    if (!(change === false || change === true)) {
+        return res.status(400).json({ message: 'Please true or false' });
+    }
+
+    db.updateUserName(id, change)
+        .then((user) => {
+            if(user) {
+                res.status(200).json({
+                    message: 'The updated user:',
+                    user
+                });
+            } else {
+                res.status(404).json({ message: 'Record not found' });
+            }
+        })
+        .catch((error) => {
+            res.status(404).json({ message: `An error occured: ${error}` });
+        });
+});
+
+// Change user name
+router.patch('/patch/name/:id', (req, res) => {
+    const { id } = req.params;
+    const { change } = req.body;
+
+    if (change === "") {
+        return res.status(400).json({ message: 'Please enter a new username' });
+    }
+
+    db.updateUserName(id, change)
+        .then((user) => {
+            if(user) {
+                res.status(200).json({
+                    message: 'The updated user:',
+                    user
+                });
+            } else {
+                res.status(404).json({ message: 'Record not found' });
+            }
+        })
+        .catch((error) => {
+            res.status(404).json({ message: `An error occured: ${error}` });
+        });
+});
+
+// change user password
+router.patch('/patch/password/:id', (req, res) => {
+    const { id } = req.params;
+    const { change } = req.body;
+
+    if (change === "") {
+        return res.status(400).json({ message: 'Please enter a new password' });
+    }
+
+    const hash = bcrypt.hashSync(change.password, 12);
+    change = hash;
+
+    db.updateUserName(id, change)
+        .then((user) => {
+            if(user) {
+                res.status(200).json({
+                    message: 'The updated user:',
+                    user
+                });
+            } else {
+                res.status(404).json({ message: 'Record not found' });
+            }
+        })
+        .catch((error) => {
+            res.status(404).json({ message: `An error occured: ${error}` });
+        });
+});
+
 // Delete User
 router.delete('/delete/:id', (req, res) => {
     const { id } = req.params;

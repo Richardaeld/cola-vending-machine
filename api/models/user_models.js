@@ -1,14 +1,16 @@
 const db = require('../db_config');
 
 module.exports = {
-    postUser,
     findUserByName,
     // findUserPurchases,
     // updatePurchases,
     findAllUsers,
     findAllAdmin,
     findAllAdminAndUsers,
-    updateUser,
+    postUser,
+    updateUserName,
+    updateUserPassword,
+    updateUserIsAdmin,
     deleteUser
 };
 
@@ -45,11 +47,31 @@ function findAllAdminAndUsers () {
 
 // ---------------------Auth
 
-// Patch user to admin
-function updateUser (username, changes) {
+// Update user name
+function updateUserName (username, change) {
     return db('users')
         .where({ username })
-        .update({ changes })
+        .update({ username: change })
+        .then(() => {
+            return findUserByName (username);
+        });
+}
+
+// Update user password
+function updateUserPassword (username, change) {
+    return db('users')
+        .where({ username })
+        .update({ password: change })
+        .then(() => {
+            return findUserByName (username);
+        });
+}
+
+// Update user admin status
+function updateUserIsAdmin (username, change) {
+    return db('users')
+        .where({ username })
+        .update({ is_admin: change })
         .then(() => {
             return findUserByName (username);
         });
