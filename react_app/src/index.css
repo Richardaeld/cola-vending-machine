@@ -67,6 +67,10 @@ body {
   transform: scale(.9);
 }
 
+.width-fit {
+  width: fit-content;
+}
+
 /*------------------  Cola Template  ------------------*/
 
 .text-shadow {
