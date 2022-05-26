@@ -2,9 +2,30 @@
   "name": "colaco-api",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "node api/index.js",
     "install-api": "cd api && npm install && knex migrate:latest",
     "heroku-postbuild": "npm run install-api && cd api npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "stripe": "^9.4.0"
+  },
+  "devDependencies": {
+    "@vscode/sqlite3": "^5.0.8",
+    "nodemon": "^2.0.16",
+    "sqlite3": "^5.0.8"
   }
 }
