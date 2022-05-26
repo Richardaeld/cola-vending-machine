@@ -1,14 +1,16 @@
 import './App.css';
 import React, {useEffect} from 'react';
-import ColaButton from './components/html/elements/ColaButton';
 import {CardElement} from '@stripe/react-stripe-js';
 import {CardNumberElement} from '@stripe/react-stripe-js';
+import StripeElement from './components/html/elements/StripeElement';
+import ColaButton from './components/html/elements/ColaButton';
+// import StripeElement from './components/html/elements/StripeElement';
 
 function App() {
 
   // -------------------Cola buttons
   const [colaInfo, setColaInfo] = React.useState([])
-  const [colaBack, setColaBack] = React.useState(false)
+  const [colaDetails, setColaDetails] = React.useState(false)
 
   // Fetch for cola buttons
   async function fetchColaData () {
@@ -41,7 +43,7 @@ function App() {
         if (cola.id !== id) {
           return {...cola, display:!cola.display}
         } else {
-          setColaBack(true)
+          setColaDetails(true)
           return {
             ...cola,
             details: true,
@@ -56,7 +58,7 @@ function App() {
   }
 
   function colaButtonReset() {
-    setColaBack(false);
+    setColaDetails(false);
     fetchColaData();
   }
 
@@ -84,16 +86,16 @@ function App() {
       <header className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-10 text-start">
-            <h1 className="mt-5 pt-5 company-name">ColaCo Vending</h1>
+            <h1 className="mt-3 company-name">ColaCo Vending</h1>
           </div>
         </div>
       </header>
 
       <main className="container-fluid">
-        <div className="row justify-content-end">
+        <div className="row justify-content-center">
           <section className="col-12 cola-container">
             {/* <h2>Click to Buy</h2> */}
-            {colaBack &&
+            {colaDetails &&
             <div className="text-shadow width-fit">
                 <button className="buy-button" onClick={colaButtonReset}>Go back</button>
             </div>
@@ -107,16 +109,20 @@ function App() {
             </div>
           </section>
 
-          <section className="col-3 me-3">
-            <h2>Pay for cola</h2>
-            {/* stripe */}
-            <span>
-              <CardElement/>
-              {/* <CardNumberElement/> */}
-            </span>
-          </section>
+          {colaDetails &&
+            <section className=" col-10 col-md-3 me-3">
+              <h2>Pay for cola</h2>
+
+              {/* stripe */}
+              <StripeElement />
+            
+            </section>
+          }
         </div>
       </main>
+      <footer>
+        <p>ColaCo All Rights Reserved</p>
+      </footer>
     </>
 
 

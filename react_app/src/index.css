@@ -123,3 +123,21 @@ body {
               ;
 }
 
+/*------------------  Stripe  ------------------*/
+
+.stripe-style {
+  position: relative;
+}
+
+.stripe-style div {
+  /* position: absolute; */
+  position: relative;
+  /* border: 2px solid black; */
+  /* height: 4rem; */
+  /* padding:3rem; */
+  /* display */
+  /* bottom: 15px; */
+}
+.stripe-style input {
+  font-size: 10rem!important;
+}
