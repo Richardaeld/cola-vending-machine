@@ -5,7 +5,9 @@ module.exports = {
     findUserByName,
     findUserPurchases,
     updatePurchases,
-
+    findAllUsers,
+    findAllAdmin,
+    findAllAdminAndUsers
 };
 
 // ---------------------User Auth
