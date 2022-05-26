@@ -4,20 +4,26 @@ export default function ColaButton (props) {
     
 
     return (
-        <div class="col-6 col-md-3 flex-stretch">
+        <div class="col-6 col-md-3 flex-stretch reduce-9">
             {/* body */}
             <div className="cola-template-container row justify-content-center">
                 {/* Header */}
                 <div class="cola-header flex-center">
                     <h3 className="cola-name text-center py-3 px-3 mb-0 cola-header-text">{props.name}</h3>
                 </div>
-                <div className="text-center">
-                    <span>${ props.price.toFixed(2)}</span>
+                <div className="text-center flex-around">
+                    <span className="d-block">{props.amount > 0 ? "In stock" : "Out of Stock"} </span>
+                </div>
+                <div className="text-center mt-2 mb-4 flex-around">
+                    <span className="d-block">${ props.price.toFixed(2)}</span>
                 </div>
                 {/* Purchase Button */}
+                {/* <div className="buy-button-position  w-100">
+                    <button className="buy-button mb-1 px-4 py-1 text-shadow">Details</button>
+                </div>
                 <div className="buy-button-position  w-100">
                     <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
-                </div>
+                </div> */}
             </div>
       </div>
     )
