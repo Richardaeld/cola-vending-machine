@@ -45,7 +45,7 @@ router.post('/register', (req, res) => {
                 if (error.errno == 239) {
                     res.status(400).json({ message: `Username:(${username}) is already taken` });
                 } else {
-                    res.status(500).json({ message: `An error occured! ${error.errno} ${error}` });
+                    res.status(500).json({ message: `An error occured! ${error.errno} ${error.__proto__}` });
                 }
 
             }
