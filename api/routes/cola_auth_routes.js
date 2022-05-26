@@ -4,8 +4,19 @@ const db = require('../models/cola_models');
 const router = express.Router();
 
 // ---------------------Cola Auth
+// Restockers View
+router.get('/restockerView', (req, res) => {
+    db.viewAllColaRestock()
+        .then((cola) => {
+            res.status(200).json({ cola });
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error has occured: ${error}` });
+        });
+});
+
 // Create Cola(s)
-router.post('/add', (req, res) => {
+router.post('/addCola', (req, res) => {
     db.addCola(req.body)
         .then((cola) => {
             if (cola) {
