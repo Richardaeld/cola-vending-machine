@@ -34,6 +34,7 @@
 
 ## Introduction
 
+
 # UX
 ## User Stories
 ### Clients
@@ -67,11 +68,25 @@
 
 
 ## Design Choices
-### Assumptions
-+ The vending machine will only dispense one cola at a time.
-+ Frequent users will want to have a login to remember their card information.
-+ ColaCo will want to track who is buying their cola for ‘reasons’.
-+ Users will want a method of payment that does not require logging in.
+### API
+#### Routes
+#### Database Tables
+##### users
+##### cola
+
+### React.js
+#### Home
++ A generic and colorful linear gradient was used as a backgroud.
++ Each cola product gets its own template which includes:
+    + The Cola's name is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
+    + Each cola displays its price and if it is in stock or not.
+
+#### Product Details
++ Each detailed products page gives additional information about the product:
+    + The cola's description.
+    + A way to purchase the cola.
+    + Return to the home screen.
++ The buy button uses Stripes API to give a secure connection for uses to purchase cola(s).
 
 
 ## Wireframes and Live Application
@@ -84,7 +99,18 @@
 + Wireframe for RESTful API
 ![Api wireframe](readme/db/api_requests.jpg)
 ### Application Wireframes
+
 ### Live Application
+
+## Scalability
+
+# Assumptions
++ The vending machine will only dispense one cola at a time.
++ Frequent users will want to have a login to remember their card information. *Scalability
++ ColaCo will want to track who is buying their cola for ‘reasons’. *Scalability
++ Users will want a method of payment that does not require logging in.
++ Users will only use credit or debit cards.
+
 
 # Technology
 + Node.js – Runtime application that allows JS to be used outside of a browser.
@@ -93,6 +119,7 @@
 + Knex.js – ORM (object-relational mapper) used to make SQL queries easier and faster to write.
 + PostgreSQL – Relational Database used.
 + React.js - JavaScript Library for front-end development.
++ Stripe - API that accepts payment information.
 + HTML - Skeleton frame of the application.
 + CSS - Beautifies the skeleton (HTML).
 
@@ -114,9 +141,80 @@
 		+ Provided with additional time, a prettier solution could be devised; however, to complete this project on time, this inelegant solution was chosen.
 
 # Deployment
+## Stripe
++ Go to **Stripe.com** and click **Start Now**.
++ Create a new account.
++ Click **Developer** tab.
++ Click **API Keys** to find **Publishable Key** and **Secret Key**.
++ Click **Webhooks** tab.
+<!-- + click **Add Endpoint** and enter the new apps Heroku address with **/invoice/wh/** at the end of the address.
++ Stripe will now provide you with a **Signing Secret Key**. -->
+
 ## GitHub
++ This will require two separate github repos to deploy properly to Heroku.
+### API Repo
++ Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
++ Click on the **Code** button to get the drop-down menu.
++ Copy the HTTPS address provided.
++ Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
++ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
++ A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
++ Unpack everything from this new folder to the root of the GitPod project tree and the foundation of the project will be setup.
++ (Optional) The **react_app** folder can be deleted anlong with the **cola-vending-machine** folder.
+### React.js Repo
++ Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
++ Click on the **Code** button to get the drop-down menu.
++ Copy the HTTPS address provided.
++ Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
++ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
++ A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
++ Unpack **react_app** from this new folder to the root of the GitPod project tree and delete the imported folder, "cola-vending-machine".
+
 ## Heroku
-### Notes
++ This will require two separate heroku apps to deploy properly and function.
+### API
++ Log into Heroku.
++ Create a new app on Heroku by clicking **New** and following the directions.
+### Link Heroku and GitHub:
++ Log into Heroku.
++ From the **Personal Apps** page, click on the new app that was just created in Heroku.
++ Click on **Deploy**.
++ Click on **GitHub** from **Deployment Method** section.
++ Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
+### Create a Postgres SQL Server.
++ From your new apps base page, click on **Resources**.
++ Click on **Find More Add-Ons**.
++ Select **Postgres**.
++ Finish setup.
+## Heroku Variables For API
++ Share `env.py` information with Heroku.
+    + Click on **Settings**.
+    + Click on **Reveal Config Vars** from **Config Vars** section.
+    + Add all of the `env.py` key and value pairs without their quotations.
+        + Ex. (key) == (value)
+        <!-- + ADMIN_CREATION_KEY == *Any string you come up with* -->
+        <!-- + ADMIN_SECRET == *Any string you come up with* -->
+        + COOKIESECURE == false
+        + DATABASE_URL == (key provided from Postgres server)
+        + DB_ENVIRONMENT == production
+        + PGSSLMODE == no-verify
+        + SAVEUNITITIALIZED == true
+        + SECRET == *Any string you come up with*
+        + USE_AWS == True
+        <!-- + STRIPE_PUBLIC_KEY == (provided by **Stripe** as **Publishable key**) -->
+        <!-- + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**) -->
+        <!-- + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**) -->
+### React.js
++ Log into Heroku.
++ Create a new app on Heroku by clicking **New** and following the directions.
+### Link Heroku and GitHub:
++ Log into Heroku.
++ From the **Personal Apps** page, click on the new app that was just created in Heroku.
++ Click on **Deploy**.
++ Click on **GitHub** from **Deployment Method** section.
++ Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
+
+### Heroku Notes
 + Postgres requires a secure connect by default
     + The work around is:
         + Add a config to heroku config vars: (PGSSLMODE=no-verify)
@@ -128,6 +226,9 @@
     + Potientially forward AND backwards migrations can be made here but each will be made at the end of a successful herou build and careful attention must be paid to the process.
         + 2 additional scripts required for this are **heroku-postbuild** and **install-api**.
         + **heroku-postbuild** will be the first script called and will force heroku to call **install-api** next which will allow a non-root dir installation to heroku.
++ Due to the requirements of this project (api and user interface sharing single github repo) React.js would not deploy from the repo it was build in.
+    + To deploy the entire project needs to be copied to a new repo and extracted from its react_app folder to the root of the repo.
+    + With this step completed the new repo can be successfully deployed.
 
 # Tools
 + [Adobe Color Wheel](https://color.adobe.com/create/color-wheel)
@@ -152,6 +253,8 @@
     + Used to read long strings of JSON
 + [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     + Used to check for performance, accessibility, best practices, and SEO.
++ [Stripe](https://stripe.com/)
+    + Used to allow users to make payments with credit cards.
 + [Techsini](https://techsini.com/multi-mockup/)
     + Used for their viewable responsiveness PNG.
 + [TinyPNG](https://tinypng.com/)
@@ -172,6 +275,8 @@
     + Invaluable source of information about JavaScript, HTML, and CSS.
 + [Stack Overflow](https://stackoverflow.com/)
     + A great source of information to find a starting place for research.
++ [Stripe api docs](https://stripe.com/docs)
+    + Detailed instructions on how to use their api.
 + [React](https://reactjs.org/)
     + The source for everything about React.js.
 + [W3Schools](https://www.w3schools.com/)
@@ -182,5 +287,4 @@
 
 ## Images
 https://unsplash.com/photos/x7JSGI2ZVeY -- pille-r-priske-x7JSGI2ZVeY-unsplash
-
 https://unsplash.com/photos/nbrvUKkWP0Q -- unbranded_can.jpg
