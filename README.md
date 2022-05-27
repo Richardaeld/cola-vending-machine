@@ -473,6 +473,12 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 ### React
 #### Home
 + A generic and colorful linear gradient was used as a background.
++ A vending container that holds:
+    + This container would have a beverage themed hero image. **Scalability** (Not implemented)
+    + The ColaCo logo at the top of the container
+    + All the cola templates offered (with pagination as the product list grows) at the middle of the container.
+    + A additional container that is modeled as a cola distributer. **Scalability** (Not implemented)
+    + Over all the vending container should look like a modern vending machine. **Scalability** (Not fully implemented)
 + Each cola product gets its own template which includes:
     + The Cola's name, which is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
     + Each cola displays its price and if it is in stock or not.
@@ -517,22 +523,28 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Creating a method for front-end users to login and update their username and password.
 + Creating a way for users to delete their own accounts.
 + Stripe was chosen as a payment API and its integration process was not finished.
-### Purchase and Download
-#### Anonymous
++ An additional route needs to be created for restocking the vending machine:
+    + Currently beacuse of the nature of a PATCH request a stocker can over fill the vending machine.
+    + By creating an additional route an additional layer of logic can be added to check a cola's max_amount and ensure it cannot be overfilled.
+    + This route could use a comparison operator to and similar setup to the **Update user to admin**. This Route would have a fixed position to amount and use comparison operators to prevent it from over being greater than max_amount.
+
+### React
+#### Purchase and Download Flow
+##### Anonymous
 + These users will not be creating accounts. Instead they will:
     + Click on a cola they like and go to the details page.
     + They will click the buy button on the details page for a cola.
     + A stripe interface will be created and the user can then enter their card information.
     + After successfully submitting their card information a stripe webhook will allow the API and React applications to know they have received payment.
     + A anonymous webtoken will be created and saved on the users browser.
-    + A new download button will be made visible and have a fetch on it to the decrement cola address or 'updates amount of cola in -1 increment' (as its labeled on the API Wireframes image, api_request.jpg)
+    + A new download button will be made visible and have a fetch on it to the decrement cola address or **Remove single cola after purchase** (as its labeled **Routes** of this README)
     + The user can click to download their soda json file.
     + After a single click the button will be disabled and then removed.
 + There are some potential issues with this method.
     + If a user refreshes they will lose the download button.
     + The server is currently not designed to track anonymous or logged in users and if they have actually downloaded their file.
 
-#### Logged in Users
+##### Logged in Users
 + These users will be creating accounts and logging in each time they wish to make a purchase. Their purchase flow will look like:
     + Click on login button
     + provide their log in information and a webtoken will be created and saved on the users browser.
@@ -540,7 +552,7 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + Once on the details page, they will click the buy button to buy a cola.
     + A stripe interface will be created and the user can then enter their card information.
     + After successfully submitting their card information a stripe webhook will allow the API and React applications to know they have received payment.
-    + A new download button will be made visible and have a fetch on it to the decrement cola address or 'updates amount of cola in -1 increment' (as its labeled on the API Wireframes image, api_request.jpg)
+    + A new download button will be made visible and have a fetch on it to the decrement cola address or **Remove single cola after purchase** (as its labeled **Routes** of this README)
     + The user can click to download their soda json file.
     + After a single click the button will be disabled and then removed.
 + There are some potential issues with this method.
