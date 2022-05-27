@@ -49,7 +49,7 @@
 [Acknowledgements](#Acknowledgements)
 
 ## Introduction
-
+This is ColaCo's very first vending machine! We are small upstart that has amazingly fresh cola flavors! Please try out our vending machine at: [https://colaco-vending-machine-react.herokuapp.com/](https://colaco-vending-machine-react.herokuapp.com/).
 
 # UX
 ## User Stories
