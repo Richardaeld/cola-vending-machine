@@ -8,7 +8,7 @@
     + [Clients](#clients)
     + [Admin](#admin)
 + [Design Choices](#design-choices)
-    + [API]
+    + [API](#api)
         + [Database Tables](#database-tables)
         + [Routes](#routes)
     + [React.js](#react.js)
