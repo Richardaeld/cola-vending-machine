@@ -7,12 +7,17 @@ export default function ColaButton (props) {
         display: props.display ? "flex" : "none",
     }
 
-    // console.log(" btosadhf", props.details)
+    const jsonObj = {
+        "name": props.name,
+        "amount":1,
+        "description":props.description
+    }
 
     return (
         <>
 
-            <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles} onClick={props.details ? props.noClick : props.click}>
+            {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles} onClick={props.details ? props.noClick : props.click}> */}
+            <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}>
                 {/* body */}
                 <div className="cola-template-container row justify-content-center">
                     {/* Header */}
@@ -34,9 +39,28 @@ export default function ColaButton (props) {
 
                     {/* Purchase Button */}
                     {props.details &&
-                        <div className="buy-button-position  w-100">
-                            <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
-                        </div>
+                        <>
+                            <div className="buy-button-position  w-100">
+                                <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
+                            </div>
+
+                            {/* Proof of concept */}
+                            <div className="buy-button-position  w-100">
+                                <a className="buy-button mb-4 px-4 py-1 text-shadow"
+                                    href={`data:text/json;charset=utf-8, ${encodeURIComponent(
+                                        JSON.stringify(jsonObj)
+                                        )}`}
+                                        download={props.name + '.json'}
+                                        >
+                                    {`Download ${props.name}`}
+                                </a>
+                            </div>
+
+                            {/* Proof of concept */}
+                            <div className="buy-button-position  w-100">
+                                <button className="buy-button mb-4 px-4 py-1 text-shadow">Cola Decrement</button>
+                            </div>
+                        </>
                     }
                 </div>
         </div>
