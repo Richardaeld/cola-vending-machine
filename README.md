@@ -154,6 +154,8 @@
 ### Live Application
 
 ## Scalability
++ Finalizing a way for users to login, and update their username and password.
++ Creating a way for a user to delete their own account.
 
 # Assumptions
 + The vending machine will only dispense one cola at a time.
