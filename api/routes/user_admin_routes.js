@@ -39,13 +39,14 @@ router.get('/getAll/adminAndUser', (req, res) => {
 // Change user is_admin status
 router.patch('/patch/is_admin/:id', (req, res) => {
     const { id } = req.params;
-    const { change } = req.body;
+    const changes = req.body;
+    const change = changes.is_admin
 
     if (!(change === false || change === true)) {
         return res.status(400).json({ message: 'Please true or false' });
     }
 
-    db.updateUserName(id, change)
+    dbUser.updateUserIsAdmin(id, change)
         .then((user) => {
             if(user) {
                 res.status(200).json({

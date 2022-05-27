@@ -1,6 +1,7 @@
 const db = require('../db_config');
 
 module.exports = {
+    findUserById,
     findUserByName,
     // findUserPurchases,
     // updatePurchases,
@@ -8,8 +9,8 @@ module.exports = {
     findAllAdmin,
     findAllAdminAndUsers,
     postUser,
-    updateUserName,
-    updateUserPassword,
+    // updateUserName,
+    // updateUserPassword,
     updateUserIsAdmin,
     deleteUser
 };
@@ -23,6 +24,10 @@ async function postUser (user) {
 // Gets one user by username
 function findUserByName (username) {
     return db('users').where({ username }).first();
+}
+
+function findUserById (id) {
+    return db('users').where({ id }).first();
 }
 
 // Gets all users
@@ -48,32 +53,32 @@ function findAllAdminAndUsers () {
 // ---------------------Auth
 
 // Update user name
-function updateUserName (username, change) {
-    return db('users')
-        .where({ username })
-        .update({ username: change })
-        .then(() => {
-            return findUserByName (username);
-        });
-}
+// function updateUserName (username, change) {
+//     return db('users')
+//         .where({ username })
+//         .update({ username: change })
+//         .then(() => {
+//             return findUserByName (username);
+//         });
+// }
 
 // Update user password
-function updateUserPassword (username, change) {
-    return db('users')
-        .where({ username })
-        .update({ password: change })
-        .then(() => {
-            return findUserByName (username);
-        });
-}
+// function updateUserPassword (username, change) {
+//     return db('users')
+//         .where({ username })
+//         .update({ password: change })
+//         .then(() => {
+//             return findUserByName (username);
+//         });
+// }
 
 // Update user admin status
-function updateUserIsAdmin (username, change) {
+function updateUserIsAdmin (id, change) {
     return db('users')
-        .where({ username })
+        .where({ id })
         .update({ is_admin: change })
         .then(() => {
-            return findUserByName (username);
+            return findUserById (id);
         });
 }
 
