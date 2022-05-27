@@ -86,7 +86,7 @@
     + Requires:
         + ---
     + Returns:
-        + All cola:
+        + All cola (object):
             + id
             + name
             + amount
@@ -101,7 +101,7 @@
     + Request:
         + POST
     + Requires:
-        + Cola
+        + Cola (object)
             + name (string)
             + price(float)
             + amount(int)
@@ -119,9 +119,11 @@
     + Request:
         + PATCH
     + Requires:
-        + Any single change or multiple changes to cola.
-        + Ex. `"amount":25`
+        + cola (object)
+            + Any single change or multiple changes to cola.
+            + Ex. `"amount":25`
     + Returns:
+        + cola Object
         + The entire cola object that was modified.
     + Restricted:
         + Yes, admin
@@ -133,9 +135,9 @@
         + Delete
     + Requires:
         + user
-            + id
+            + id (params)
     + Returns:
-        + Id of the deleted user.
+        + Id of the deleted user in a string.
     + Restricted:
         + Yes, admin
     + Path:
@@ -147,7 +149,7 @@
     + Requires:
         + ---
     + Returns:
-        + All users that are not of admin status
+        + All users that are not of admin status in object
         + user:
             + id
             + name
@@ -162,7 +164,7 @@
     + Requires:
         + ---
     + Returns:
-        + All users that are not of admin status
+        + All users that are not of admin status in object
         + user:
             + id
             + name
@@ -177,7 +179,7 @@
     + Requires:
         + ---
     + Returns:
-        + All users that are not of admin status
+        + All users that are not of admin status in object
         + user:
             + id
             + name
@@ -188,62 +190,120 @@
 
 + Update user to admin.
     + Request:
-        + POST
+        + UPDATE
     + Requires:
-        + user
+        + user object
+            + id
             + `is_admin: <boolean>`
     + Returns:
-        
+        + All user information in object
+        + This includes the users hashed password
     + Restricted:
+        + Yes, admin
     + Path:
+        + `admin/user/patch/:id`
+
 + Delete user.
     + Request:
+        + DELETE
     + Requires:
+        + user
+            + id (params)
     + Returns:
+        + The id of the deleted user in a string
     + Restricted:
+        + Yes, admin
     + Path:
+        + `admin/user/delete/:id`
 
 ##### Restricted Admin/User Routes
 + Remove single cola after purchase.
     + Request:
+        + POST
     + Requires:
-    + Returns
+        + cola
+             + id (params)
+    + Returns:
+        + The amount of colas left in a string
     + Restricted:
+        + Yes, user
     + Path:
+        + `restrict/user/getOne/:id`
+
 + Update user name.
-    + Not implemented
+    + Not implemented, commented out
 + Update user password
-    + Not implemented
+    + Not implemented, commented out
 + View single user by name
-    + Not implemented
+    + Not implemented, commented out
 
 ##### Admin/User Routes
 + Get all colas
     + Request:
+        + GET
     + Requires:
+        + ---
     + Returns:
+        + cola object
+            + id
+            + name
+            + price
+            + amount
+            + max_amount
+            + description
     + Restricted:
+        + no
     + Path:
+        + `cola/getAll`
+
 + Get single cola
     + Request:
+        + GET
     + Requires:
+        + ---
     + Returns:
+        + cola object
+            + id
+            + name
+            + price
+            + amount
+            + max_amount
+            + description
     + Restricted:
+        + no
     + Path:
+        + `cola/getOne/:id`
 
 ##### Authentication Routes
 + Register admin/user
     + Request:
+        + POST
     + Requires:
+        + In order to create a admin account the user must know and accurately enter the admin_secret. If this is correctly done the return message will welcome you to the Colaco family.
+        + user object
+            + name
+            + password
+            + admin_secret
     + Returns:
+        + A string welcomeing the user with the user name
     + Restricted:
+        + no
     + Path:
+        + `user/auth/register`
+
 + Login admin/user
     + Request:
+        + POST
     + Requires:
+        + user object
+            + username
+            + password
     + Returns:
+        + welcome message string and token string
     + Restricted:
+        + no
     + Path:
+        + `user/auth/login`
 
 #### Database Tables
 ##### users
