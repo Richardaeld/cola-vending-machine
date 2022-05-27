@@ -49,7 +49,7 @@
 [Acknowledgements](#Acknowledgements)
 
 ## Introduction
-This is ColaCo's very first vending machine! We are small upstart that has amazingly fresh cola flavors! Please try out our vending machine at: [https://colaco-vending-machine-react.herokuapp.com/](https://colaco-vending-machine-react.herokuapp.com/).
+This is ColaCo's very first vending machine! We are a small upstart that has amazingly fresh cola flavors! Please try out our vending machine at: [https://colaco-vending-machine-react.herokuapp.com/](https://colaco-vending-machine-react.herokuapp.com/).
 
 # UX
 ## User Stories
@@ -75,7 +75,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + As an admin, I want to be able to update the description of a cola.
 + As an admin, I want to be able to view all products including id and description.
 + As an admin, I want to be able to view all basic cola information minus the description while I refill the vending machine.
-+ As an admin, I want to view a customers purchase history. **Scalability** (Not implemented)
++ As an admin, I want to view a customer's purchase history. **Scalability** (Not implemented)
 #### Auth
 + As an admin, I need to be able to login to preform my duties.
 + As an admin, I want to be able to update my name. **Scalability** (Not implemented)
@@ -108,10 +108,10 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 
 #### Routes
 ##### Route Notes
-+ In order to keep the site more secure multiple routes for updating user information will be used rather than one update route as was used in cola table.
++ To keep the site more secure, multiple routes for updating user information will be used rather than one update route. This is inversely true for the cola table as it does not contain any user information.
 + There are two levels of middleware restriction, admin (restricted_admin_middleware.js) and user(restricted_middleware.js).
 + All paths start on the root of the api or `https://colaco-vending-machine.herokuapp.com/` for this application.
-+ There currently is no front-end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement a api request program like insomnia or postman must be used.
++ There currently is no front-end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement an API request program like insomnia or postman must be used.
     + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in. Details of this can be found below.
     + In order to receive a admin token an accurate `admin_secret: <secret>` must be submitted with login information when creating a user. Details of this can be found below.
     + These middleware tokens only last a total of 1 hour after login. This could easily be shortened (to improve security) or extended depending upon preference.
@@ -364,11 +364,11 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
     + Path:
         + `restrict/user/getOne/:id`
 
-+ **Update user name.**
++ **Update user name**
     + Not implemented, commented out
-+ **Update user password.**
++ **Update user password**
     + Not implemented, commented out
-+ **View single user by name.**
++ **View single user by name**
     + Not implemented, commented out
 
 ##### Admin/User Routes
@@ -427,7 +427,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
         + POST
     + Requires:
         + Object
-        + In order to create a admin account the user must know and accurately enter the admin_secret. If this is correctly done the return message will welcome you to the Colaco family.
+        + In order to create an admin account the user must know and accurately enter the admin_secret. If this is correctly done the return message will welcome you to the Colaco family.
         + User as:
             + `{`
                 + `"username": <string>,`
@@ -436,7 +436,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
             + `}`
     + Returns:
         + Object
-        + A string welcomeing the user with the user name
+        + A string welcoming the user with the user name
         + Message as:
             + `{`
                 + `"message": <string>`
@@ -473,7 +473,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 
 ### React
 #### Home
-+ A generic and colorful linear gradient was used as a backgroud.
++ A generic and colorful linear gradient was used as a background.
 + Each cola product gets its own template which includes:
     + The Cola's name, which is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
     + Each cola displays its price and if it is in stock or not.
@@ -506,9 +506,9 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 ![live application](readme/front-end/responsive.jpg)
 
 ## Scalability
-+ Numerous parts of this application were left unfinished and documentation was added to help describe what their purpose was supposed to be.
-+ Finalizing a way for users to login, and update their username and password.
-+ Creating a way for a user to delete their own account.
++ Numerous parts of this application were left unfinished, and documentation was added to help describe what their purpose was supposed to be.
++ Creating a method for front-end users to login and update their username and password.
++ Creating a way for users to delete their own accounts.
 + Stripe was chosen as a payment API and its integration process was not finished.
 
 # Assumptions
@@ -525,7 +525,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + Express.js – Backend web framework used with Node.js for server framework.
 + Knex.js – ORM (object-relational mapper) used to make SQL queries easier and faster to write.
 + PostgreSQL – Relational Database used.
-+ React.js - JavaScript Library for front-end development.
++ React - JavaScript Library for front-end development.
 + Stripe - API that accepts payment information.
 + HTML - Skeleton frame of the application.
 + CSS - Beautifies the skeleton (HTML).
@@ -542,9 +542,9 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
     + Caused by:
         + PostgreSQL's normal functions.
     + Fix:
-        + PostgreSQL returns a undefined instead of a error number so an additional error catch was added to catch a undefined error. Then it tells the user that they need to select a different username.
+        + PostgreSQL returns an undefined instead of an error number so an additional error catch was added to catch a undefined error. Then it tells the user that they need to select a different username.
     + Thought(s):
-        + Given more time this should be more accurately handled with determining why PostgreSQL isnt giving an error code; or find a more certain way of detecting a unique key error.
+        + Given more time, this should be more accurately handled with determining why PostgreSQL is not giving an error code; or find a more certain way of detecting a unique key error.
 
 ## Other Problems
 ### React
@@ -570,7 +570,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
  **Scalability** (Not fully implemented)
 
 ## GitHub
-+ This will require two separate github repos to deploy properly to Heroku.
++ This will require two separate GitHub repos to deploy properly to Heroku.
     + Due to deployment bugs this inelegant solution was chosen in order to save time.
 
 ### API Repo
@@ -581,7 +581,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
 + Unpack everything from this new folder to the root of the project tree and the foundation of the project will be setup.
-+ (Optional) The **react_app** folder can be deleted anlong with the **cola-vending-machine** folder (after it has been emptied).
++ (Optional) The **react_app** folder can be deleted along with the **cola-vending-machine** folder (after it has been emptied).
 + Go to the Bash and type, `npm install`.
 + All the needed packages will be installed.
 + Open **Source Control** in VSCode and click on the **Remote** tab.
@@ -606,7 +606,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 
 ## Heroku
 + This will require two separate heroku apps to deploy properly and function.
-+ The IDE refered to here is VSCode and you will need to install the extensions: Heroku and GitLens -- Git Supercharged
++ The IDE referred to here is VSCode and you will need to install the extensions: Heroku and GitLens -- Git Supercharged
 
 ### API App
 + Log into Heroku.
@@ -624,12 +624,12 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + Restart your IDE if it was on.
 + Go to the Bash and type, `heroku login`
 + Follow instructions to login.
-+ Connect your IDE to your heroku app by:
++ Connect your IDE to your Heroku app by:
     + Going to the Bash and typing, `heroku git:remote -a <heroku app name>`
-    + `<heroku app name>` is the name of the app created just after logging into heroku.
+    + `<heroku app name>` is the name of the app created just after logging into Heroku.
 + Now your app is connected to your IDE.
 + As long as you stay on you master branch:
-    + You can push up to heroku by typing, `git push heroku` into the bash.
+    + You can push up to Heroku by typing, `git push heroku` into the bash.
     + *You will need to have a git version to push, which looks like:
         + `git add .`
         + `git commit -m <comment>`
@@ -669,12 +669,12 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 ##### Use Heroku cli
 + Go to the Bash and type, `heroku login`
 + Follow instructions to login.
-+ Connect your IDE to your heroku app by:
++ Connect your IDE to your Heroku app by:
     + Going to the Bash and typing, `heroku git:remote -a <heroku app name>`
-    + `<heroku app name>` is the name of the app created just after logging into heroku.
+    + `<heroku app name>` is the name of the app created just after logging into Heroku.
 + Now your app is connected to your IDE.
 + As long as you stay on you master branch:
-    + You can push up to heroku by typing, `git push heroku` into the bash.
+    + You can push up to Heroku by typing, `git push heroku` into the bash.
     + *You will need to have a git version to push, which looks like:
         + `git add .`
         + `git commit -m <comment>`
@@ -692,15 +692,15 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 ### Heroku Notes
 + Postgres requires a secure connection by default. This can cause numerous problems.
     + The work around is:
-        + Add a config to heroku config vars: (PGSSLMODE=no-verify)
+        + Add a config to Heroku config vars: (PGSSLMODE=no-verify)
         + Add an additional line to knexfile.js under the production object:
             + `ssl: { rejectUnauthorized: false },`
-+ Due to the requirements of this project (api and user interface sharing a single github repo) the migrations for the PostgreSQL database must be done at deployment.
++ Due to the requirements of this project (API and user interface sharing a single GitHub repo) the migrations for the PostgreSQL database must be done at deployment.
     + The migration string can be found in the scripts of package.json
-    + Potientially forward AND backwards migrations can be made here but each will be made at the end of a successful herou build and careful attention must be paid to the process.
+    + Potentially forward AND backwards migrations can be made here but each will be made at the end of a successful Heroku build and careful attention must be paid to the process.
         + 2 additional scripts are required for this and they are **heroku-postbuild** and **install-api**.
-        + **heroku-postbuild** will be the first script called and will force heroku to call **install-api**. This will allow a non-root dir installation to heroku.
-+ Due to the requirements of this project (api and user interface sharing single github repo) React.js would not deploy from the repo it was build in.
+        + **heroku-postbuild** will be the first script called and will force Heroku to call **install-api**. This will allow a non-root dir installation to Heroku.
++ Due to the requirements of this project (API and user interface sharing single GitHub repo) React would not deploy from the repo it was build in.
     + In order to deploy the React app the entire project needs to be copied to a new repo and extracted from its react_app folder to the root of the repo.
     + With this step completed the new repo can be successfully deployed.
     + This is detailed under **Deployment** and **Other Problems**.
@@ -743,7 +743,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + [Bootstrap](https://getbootstrap.com/)
     + A framework used to help speed up development and provide a better overall UX.
 + [Heroku Dev Center](https://devcenter.heroku.com/)
-    + A great source of information about Heroku, its addions, and errors that can happen.
+    + A great source of information about Heroku, its additions, and errors that can happen.
 + [Knex.js](http://knexjs.org/)
     + An overwhelming amount of documentation about knex.
 + [MDN Web Docs](https://developer.mozilla.org/en-US/)
@@ -753,7 +753,7 @@ This is ColaCo's very first vending machine! We are small upstart that has amazi
 + [Stripe api docs](https://stripe.com/docs)
     + Detailed instructions on how to use their api.
 + [React](https://reactjs.org/)
-    + The source for everything about React.js.
+    + The source for everything about React.
 + [W3Schools](https://www.w3schools.com/)
     + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
 + [World Wide Web Consortium (W3C)](https://www.w3.org/)
