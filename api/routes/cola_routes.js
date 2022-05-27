@@ -16,7 +16,21 @@ router.get('/getAll', (req, res) => {
 });
 
 // Get Single Cola
-// Restocker Get All Cola (without description)
+router.get('/getOne/:id', (req, res) => {
+    const { id } = req.params;
 
+    db.viewSingleCola(id)
+        .then((cola) => {
+            if (cola > 0) {
+                res.status(200).json({ cola });
+            } else {
+                res.status(404).json({ message: 'No cola with that id exists' });
+            }
+
+        })
+        .catch((error) => {
+            res.status(500).json({ message: `An error has occured: ${error}` });
+        });
+});
 
 module.exports = router;
