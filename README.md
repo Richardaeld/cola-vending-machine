@@ -528,9 +528,11 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Stripe was chosen as a payment API and its integration process was not finished.
 + An additional route needs to be created for restocking the vending machine:
     + Currently beacuse of the nature of a PATCH request a stocker can over fill the vending machine.
-    + By creating an additional route with a extra layer of logic it is possible to check a cola's max_amount and ensure it cannot be overfilled.**Scalability** (Not implemented)
+    + By creating an additional route with a extra layer of logic it is possible to check a cola's max_amount and ensure it cannot be overfilled.
         + This project was not implemented because a bug in insomnia's newest version slowed down development and took some time to run down.
     + This route would use a similar setup to the **Update user to admin**. This Route would have a patch position ("amount": <num>) and use comparison operators to prevent it from updated to a number larger than max_amount.
++ Expanding server respones for the API because only the most basic logic was implemented.
++ Adding an additional row to the **Routes** section of this README for displaying error response and how it is returned.
 
 ### React
 #### Purchase and Download Flow
@@ -566,8 +568,8 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 # Assumptions
 + The vending machine will only dispense one cola at a time.
 + Frequent users will want to have a login to remember their card information. **Scalability** (Not fully implemented)
-+ ColaCo will want to track who is buying their cola for ‘reasons’. **Scalability** (Not fully implemented)
-+ Users will want a method of payment that does not require logging in. **Scalability** (Not fully implemented)
++ ColaCo will want to track who is buying their cola for ‘reasons’. **Scalability** (Not implemented)
++ Users will want a method of payment that does not require logging in. **Scalability** (Not implemented)
 + Users will only use credit or debit cards. **Scalability** (Not fully implemented)
 
 
@@ -636,6 +638,7 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 ## GitHub
 + This will require two separate GitHub repos to deploy properly to Heroku.
     + Due to deployment bugs this inelegant solution was chosen in order to save time.
++ For VSCode to function properly and you will need to install the extension: GitLens -- Git Supercharged
 
 ### API Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
@@ -649,9 +652,18 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Go to the Bash and type, `npm install`.
 + All the needed packages will be installed.
 + Open **Source Control** in VSCode and click on the **Remote** tab.
-+ Click on the **+** icon and enter the name of the new GitHub repo and click enter.
++ Click on the **+** icon and enter the name of the new GitHub repo created for this project and click enter.
 + Enter the http address of this same repo.
 + Now VSCode should be connected to your GitHub repo.
++ In the api folder create a new file called `.env`
+    + Now you will need to create your environment key value pairs.
+        + Ex. (key) = (value)
+        + PORT=5000
+        + COOKIESECURE=false
+        + DB_ENVIRONMENT='development'
+        + SAVEUNITITIALIZED=true
+        + SECRET=*Any string you come up with*
+        + ADMIN_SECRET=*Any string you come up with*
 
 ### React Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
@@ -660,20 +672,20 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Create a new project in GitHub and VSCode (to house the new clone) and then open this new project.
 + Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
-+ Unpack everything within **react_app** to the root of the project tree and delete the imported folder, "cola-vending-machine".
++ Unpack everything within the **react_app** folder to the root of the project tree and delete the imported folder, "cola-vending-machine".
 + Go to the Bash and type, `npm install`.
 + All the needed packages will be installed.
 + Open **Source Control** in VSCode and click on the **Remote** tab.
-+ Click on the **+** icon and enter the name of the new GitHub repo and click enter.
++ Click on the **+** icon and enter the name of the new GitHub repo created for this project and click enter.
 + Enter the http address of this same repo.
 + Now VSCode should be connected to your GitHub repo.
 
 ## Heroku
 + This will require two separate heroku apps to deploy properly and function.
-+ The IDE referred to here is VSCode and you will need to install the extensions: Heroku and GitLens -- Git Supercharged
++ The IDE referred to here is VSCode and you will need to install the extension: Heroku
 
 ### API App
-+ Log into Heroku.
++ Log into Heroku. (Create a new account if necessary.)
 + Create a new app on Heroku by clicking **New** and following the directions.
 
 #### Create a Postgres SQL Server.
@@ -701,7 +713,7 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
         + `git push heroku`
 
 ##### Link Heroku and GitHub
-+ (This method my still be disabled by Heroku)
++ (This method my still be disabled by Heroku )
 + Log into the Heroku web page.
 + From the **Personal Apps** page, click on the new app that was just created in Heroku.
 + Click on **Deploy**.
