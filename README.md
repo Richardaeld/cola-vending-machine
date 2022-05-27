@@ -8,10 +8,20 @@
     + [Clients](#clients)
     + [Admin](#admin)
 + [Design Choices](#design-choices)
+    + [API]
+        + [Database Tables](#database-tables)
+        + [Routes](#routes)
+    + [React.js](#react.js)
+        + [Home](#home)
+        + [Product Details](#product-details)
 + [Wireframes and Live Application](#wireframes-and-live-application)
     + [Database Wireframes](#database-wireframes)
+    + [API Wireframes](#api-wireframes)
     + [Application Wireframes](#application-wireframes)
     + [Live Application](#live-application)
++ [Scalability](#scalability)
+
+[Assumptions](#assumptions)
 
 [Technology](#technology)
 
@@ -25,8 +35,14 @@
 + [Other Problems](#other-problems)
 
 [Deployment](#deployment)
++ [Stripe](#stripe)
 + [GitHub](#github)
+    + [API Repo](#api-repo)
+    + [React.js Repo](#react.js-repo)
 + [Heroku](#heroku)
+    + [API App](#api-app)
+    + [React.js App](#react.js-app)
+    + [Heroku Notes](#heroku-notes)
 
 [Tools](#tools)
 
@@ -557,30 +573,38 @@
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
 + Click on the **Code** button to get the drop-down menu.
 + Copy the HTTPS address provided.
-+ Create a new project in GitHub/GitPod/VSCode (to house the new clone) and then open this new project.
++ Create a new project in GitHub and VSCode (to house the new clone) and then open this new project.
 + Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
 + Unpack everything from this new folder to the root of the project tree and the foundation of the project will be setup.
 + (Optional) The **react_app** folder can be deleted anlong with the **cola-vending-machine** folder (after it has been emptied).
 + Go to the Bash and type, `npm install`.
 + All the needed packages will be installed.
++ Open **Source Control** in VSCode and click on the **Remote** tab.
++ Click on the **+** icon and enter the name of the new GitHub repo and click enter.
++ Enter the http address of this same repo.
++ Now VSCode should be connected to your GitHub repo.
 
 ### React.js Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
 + Click on the **Code** button to get the drop-down menu.
 + Copy the HTTPS address provided.
-+ Create a new project in GitHub/GitPod/VSCode (to house the new clone) and then open this new project.
++ Create a new project in GitHub and VSCode (to house the new clone) and then open this new project.
 + Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
 + Unpack everything within **react_app** to the root of the project tree and delete the imported folder, "cola-vending-machine".
 + Go to the Bash and type, `npm install`.
 + All the needed packages will be installed.
++ Open **Source Control** in VSCode and click on the **Remote** tab.
++ Click on the **+** icon and enter the name of the new GitHub repo and click enter.
++ Enter the http address of this same repo.
++ Now VSCode should be connected to your GitHub repo.
 
 ## Heroku
 + This will require two separate heroku apps to deploy properly and function.
 + The IDE refered to here is VSCode and you will need to install the extensions: Heroku and GitLens -- Git Supercharged
 
-### API
+### API App
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
 
@@ -598,13 +622,19 @@
 + Follow instructions to login.
 + Connect your IDE to your heroku app by:
     + Going to the Bash and typing, `heroku git:remote -a <heroku app name>`
+    + `<heroku app name>` is the name of the app created just after logging into heroku.
 + Now your app is connected to your IDE.
 + As long as you stay on you master branch:
-    + You can go to the Bash and typing, `git push heroku`
+    + You can push up to heroku by typing, `git push heroku` into the bash.
+    + *You will need to have a git version to push, which looks like:
+        + `git add .`
+        + `git commit -m <comment>`
+        + `git push`
+        + `git push heroku`
 
 ##### Link Heroku and GitHub
 + (This method my still be disabled by Heroku)
-+ Log into Heroku.
++ Log into the Heroku web page.
 + From the **Personal Apps** page, click on the new app that was just created in Heroku.
 + Click on **Deploy**.
 + Click on **GitHub** from **Deployment Method** section.
@@ -615,45 +645,61 @@
     + Click on **Settings**.
     + Click on **Reveal Config Vars** from **Config Vars** section.
     + Add all of the `env.py` key and value pairs without their quotations.
-        + Ex. (key) == (value)
-        <!-- + ADMIN_CREATION_KEY == *Any string you come up with* -->
-        <!-- + ADMIN_SECRET == *Any string you come up with* -->
-        + COOKIESECURE == false
-        + DATABASE_URL == (key provided from Postgres server)
-        + DB_ENVIRONMENT == production
-        + PGSSLMODE == no-verify
-        + SAVEUNITITIALIZED == true
-        + SECRET == *Any string you come up with*
-        + USE_AWS == True
+        + Ex. (key) = (value)
+        + COOKIESECURE = false
+        + DATABASE_URL = (key provided from Postgres server)
+        + DB_ENVIRONMENT = production
+        + PGSSLMODE = no-verify
+        + SAVEUNITITIALIZED = true
+        + SECRET = *Any string you come up with*
+        + ADMIN_SECRET = *Any string you come up with*
         <!-- + STRIPE_PUBLIC_KEY == (provided by **Stripe** as **Publishable key**) -->
         <!-- + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**) -->
         <!-- + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**) -->
 
-### React.js
+### React.js App
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
+
+#### Use Heroku cli Or Link Heroku and GitHub:
+##### Use Heroku cli
++ Go to the Bash and type, `heroku login`
++ Follow instructions to login.
++ Connect your IDE to your heroku app by:
+    + Going to the Bash and typing, `heroku git:remote -a <heroku app name>`
+    + `<heroku app name>` is the name of the app created just after logging into heroku.
++ Now your app is connected to your IDE.
++ As long as you stay on you master branch:
+    + You can push up to heroku by typing, `git push heroku` into the bash.
+    + *You will need to have a git version to push, which looks like:
+        + `git add .`
+        + `git commit -m <comment>`
+        + `git push`
+        + `git push heroku`
+
 ### Link Heroku and GitHub:
-+ Log into Heroku.
++ (This method my still be disabled by Heroku)
++ Log into the Heroku web page.
 + From the **Personal Apps** page, click on the new app that was just created in Heroku.
 + Click on **Deploy**.
 + Click on **GitHub** from **Deployment Method** section.
 + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
 
 ### Heroku Notes
-+ Postgres requires a secure connect by default
++ Postgres requires a secure connection by default. This can cause numerous problems.
     + The work around is:
         + Add a config to heroku config vars: (PGSSLMODE=no-verify)
-        + Add an additional line to knexfile.js:
-            + ssl: { rejectUnauthorized: false },
-            + This should be added after the connection string
-+ Due to the requirements of this project (api and user interface sharing single github repo) the migrations for the PostgreSQL database must be done at deployment.
+        + Add an additional line to knexfile.js under the production object:
+            + `ssl: { rejectUnauthorized: false },`
++ Due to the requirements of this project (api and user interface sharing a single github repo) the migrations for the PostgreSQL database must be done at deployment.
     + The migration string can be found in the scripts of package.json
     + Potientially forward AND backwards migrations can be made here but each will be made at the end of a successful herou build and careful attention must be paid to the process.
-        + 2 additional scripts required for this are **heroku-postbuild** and **install-api**.
-        + **heroku-postbuild** will be the first script called and will force heroku to call **install-api** next which will allow a non-root dir installation to heroku.
+        + 2 additional scripts are required for this and they are **heroku-postbuild** and **install-api**.
+        + **heroku-postbuild** will be the first script called and will force heroku to call **install-api**. This will allow a non-root dir installation to heroku.
 + Due to the requirements of this project (api and user interface sharing single github repo) React.js would not deploy from the repo it was build in.
-    + To deploy the entire project needs to be copied to a new repo and extracted from its react_app folder to the root of the repo.
+    + In order to deploy the React app the entire project needs to be copied to a new repo and extracted from its react_app folder to the root of the repo.
     + With this step completed the new repo can be successfully deployed.
+    + This is detailed under **Deployment** and **Other Problems**.
 
 # Tools
 + [Adobe Color Wheel](https://color.adobe.com/create/color-wheel)
@@ -708,8 +754,9 @@
     + Extremely helpful for explaining base HTML, CSS, and JavaScript principles.
 + [World Wide Web Consortium (W3C)](https://www.w3.org/)
     + Used to understand basic standardization practices for web-based apps.
++ [Upsplash](https://unsplash.com/)
+    + A great place to find free high quality images
+    + The image: https://unsplash.com/photos/nbrvUKkWP0Q -- unbranded_can.jpg was used as a background default image for the cola cans.
+        + This image is from upslash and is free to use.
 
 
-## Images
-https://unsplash.com/photos/x7JSGI2ZVeY -- pille-r-priske-x7JSGI2ZVeY-unsplash
-https://unsplash.com/photos/nbrvUKkWP0Q -- unbranded_can.jpg
