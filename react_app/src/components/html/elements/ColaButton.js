@@ -13,11 +13,25 @@ export default function ColaButton (props) {
         "description":props.description
     }
 
+    console.log(props.id)
+
+    async function RemoveOneCola () {
+        try {
+            const response = await fetch(`https://colaco-vending-machine.herokuapp.com/restrict/user/buyCola/${props.id}`)
+            const jsonData = await response.json();
+
+            console.log(jsonData)
+            
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     return (
         <>
 
-            {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles} onClick={props.details ? props.noClick : props.click}> */}
-            <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}>
+            <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles} onClick={props.details ? props.noClick : props.click}>
+            {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}> */}
                 {/* body */}
                 <div className="cola-template-container row justify-content-center">
                     {/* Header */}
@@ -40,6 +54,7 @@ export default function ColaButton (props) {
                     {/* Purchase Button */}
                     {props.details &&
                         <>
+                            {/* Will be real button */}
                             <div className="buy-button-position  w-100">
                                 <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
                             </div>
@@ -58,7 +73,7 @@ export default function ColaButton (props) {
 
                             {/* Proof of concept */}
                             <div className="buy-button-position  w-100">
-                                <button className="buy-button mb-4 px-4 py-1 text-shadow">Cola Decrement</button>
+                                <button className="buy-button mb-4 px-4 py-1 text-shadow" onClick={RemoveOneCola}>Cola Decrement</button>
                             </div>
                         </>
                     }

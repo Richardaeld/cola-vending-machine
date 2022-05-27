@@ -65,6 +65,7 @@ function App() {
   const colaElement = colaInfo.map(cola => (
       <ColaButton
           key={cola.id}
+          id={cola.id}
           name={cola.name}
           price={cola.price}
           amount={cola.amount}
