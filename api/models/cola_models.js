@@ -25,12 +25,12 @@ function viewSingleCola (id) {
 }
 
 // Get Single Cola
-function viewSingleCola (id) {
-    return db('cola')
-        .where({ id })
-        .first()
-        .select('amount', 'name');
-}
+// function viewSingleCola (id) {
+//     return db('cola')
+//         .where({ id })
+//         .first()
+//         .select('name', 'amount');
+// }
 
 // ---------------------Cola Auth
 // Restocker Get All Cola (without description)
