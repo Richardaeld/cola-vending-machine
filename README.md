@@ -96,9 +96,10 @@
     + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in.
     + In order to receive a admin token a accurate `admin_secret: <secret>` must be submitted with login information when creating a user.
     + These middleware tokens only last a total of 1 hour after login.
++ All params are entered in the address bar in place of `:id`.
 
 ##### Restricted Admin Routes
-+ Restockers cola view.
++ **Restockers cola view**
     + Request:
         + GET
     + Requires:
@@ -107,14 +108,14 @@
         + Object->array->objects
         + All colas as:
             + `{`
-                + `message:<string>`
-                + `cola: [`
+                + `"message":<string>`
+                + `"cola": [`
                     + `{`
-                        + `id: <int>`
-                        + `name: <string>`
-                        + `amount: <int>`
-                        + `max_amount: <int>`
-                        + `price: <float>`
+                        + `"id": <int>,`
+                        + `"name": <string>,`
+                        + `"amount": <int>,`
+                        + `"max_amount": <int>,`
+                        + `"price": <float>`
                     + `}`
                 + `]`
             + `}`
@@ -124,211 +125,321 @@
     + Path:
         + `/admin/cola/restockerView`
 
-+ Create new cola(s).
++ **Create new cola(s)**
     + Request:
         + POST
     + Requires:
         + Object -- or -- array->objects
-        + Cola
-            + name (string)
-            + price (float)
-            + amount (int)
-            + max_amount (int)
-            + description (string)
+        + Cola as:
+            + `[`
+                + `{`
+                    + `"name": <string>,`
+                    + `"price": <float>,`
+                    + `"amount": <int>,`
+                    + `"max_amount": <int>,`
+                    + `"description": <string>`
+                + `}`
+            + `]`
     + Returns:
         + Object -- or -- array->objects
-        + Number of cola(s) entered
-        + Full print out of all cola information for each cola.
+        + Same number of cola(s) entered and their values
+            + `{`
+                + `"message":<string>`
+                + `"cola": [`
+                    + `{`
+                        + `"id": <int>,`
+                        + `"name": <string>,`
+                        + `"price": <float>,`
+                        + `"amount": <int>,`
+                        + `"max_amount": <int>,`
+                        + `"description": <string>`
+                    + `}`
+                + `]`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `/admin/cola/addCola`
 
-+ Update cola with single or multiple changes.
++ **Update cola with single or multiple changes**
     + Request:
         + PATCH
     + Requires:
-        + Cola (object)
-            + Any single change or multiple changes to cola.
-            + Ex. `"amount":25`
+        + Object
+        + Any single change or multiple changes to cola.
+        + Cola as:
+            + `{`
+                + `"price": <float>,`
+                + `"max_amount": <int>`
+            + `}`
     + Returns:
-        + Cola (object)
+        + Object->object
         + The entire cola object that was modified.
+        + Cola as:
+            + `{`
+                + `"message":<string>`
+                + `"cola": {`
+                    + `"id": <int>,`
+                    + `"name": <string>,`
+                    + `"price": <float>,`
+                    + `"amount": <int>,`
+                    + `"max_amount": <int>,`
+                    + `"description": <string>`
+                + `}`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `/admin/cola/patch/:id`
 
-+ Delete Cola
++ **Delete Cola**
     + Request:
         + Delete
     + Requires:
-        + user
+        + User with:
             + id (params)
     + Returns:
+        + Object
         + Id of the deleted user in a string.
+        + User message as:
+            + `{`
+                + `"message":<string>`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `/admin/user/delete/:id`
 
-+ View all users.
++ **View all users**
     + Request:
         + GET
     + Requires:
         + --
     + Returns:
-        + All users (object) that are not of admin status.
-        + user:
-            + id
-            + name
+        + Object->array->objects
+        + All users that are not of admin status.
+        + Users as:
+            + `{`
+                + `"users": [`
+                    + `{`
+                        + `"id": <int>,`
+                        + `"username": <string>`
+                    + `}`
+                + `]`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         `/admin/user/getAll/user`
 
-+ View all admin.
++ **View all admin**
     + Request:
         + GET
     + Requires:
         + --
     + Returns:
-        + All users (object) that are of admin status.
-        + user:
-            + id
-            + name
+        + Object->array->objects
+        + All users that are of admin status.
+        + Users as:
+            + `{`
+                + `"users": [`
+                    + `{`
+                        + `"id": <int>,`
+                        + `"username": <string>`
+                    + `}`
+                + `]`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         `admin/user/getAll/admin`
 
-+ View all admin and users.
++ **View all admin and users**
     + Request:
         + GET
     + Requires:
         + --
     + Returns:
-        + All users (object)
-        + user:
-            + id
-            + name
+        + Object->array->objects
+        + All users.
+        + Users as:
+            + `{`
+                + `"users": [`
+                    + `{`
+                        + `"id": <int>,`
+                        + `"username": <string>`
+                    + `}`
+                + `]`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `admin/user/getAll/adminAndUser`
 
-+ Update user to admin.
++ **Update user to admin**
     + Request:
         + UPDATE
     + Requires:
-        + user object
-            + id
-            + `is_admin: <boolean>`
+        + Object
+        + User as:
+            + `{`
+                + `"is_admin": <boolean>`
+            + `}`
+        + User with:
+            + id (params)
     + Returns:
+        + Object->object
         + All user information in object.
         + This includes the users hashed password.
+        + User as:
+            + `{`
+                + `"message":<string>,`
+                + `"user": {`
+                    + `"id": <int>,`
+                    + `"username": <string>,`
+                    + `"password": <string>,`
+                    + `"is_admin": <boolean>`
+                + `}`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `admin/user/patch/:id`
 
-+ Delete user.
++ **Delete user**
     + Request:
         + DELETE
     + Requires:
-        + user
+        + user with:
             + id (params)
     + Returns:
+        + Object
         + The id of the deleted user in a string.
+        + `{`
+            + `"message": <string>`
+        + `}`
     + Restricted:
         + Yes, admin
     + Path:
         + `admin/user/delete/:id`
 
 ##### Restricted Admin/User Routes
-+ Remove single cola after purchase.
++ **Remove single cola after purchase**
     + Request:
         + POST
     + Requires:
-        + cola
+        + cola with:
              + id (params)
     + Returns:
-        + The amount of colas left in a string
+        + Object
+        + The amount of colas left in a string.
+        + `{`
+            + `"message": <string>`
+        + `}`
     + Restricted:
         + Yes, user
     + Path:
         + `restrict/user/getOne/:id`
 
-+ Update user name.
++ **Update user name.**
     + Not implemented, commented out
-+ Update user password
++ **Update user password.**
     + Not implemented, commented out
-+ View single user by name
++ **View single user by name.**
     + Not implemented, commented out
 
 ##### Admin/User Routes
-+ Get all colas
++ **Get all colas**
     + Request:
         + GET
     + Requires:
         + --
     + Returns:
-        + cola object
-            + id
-            + name
-            + price
-            + amount
-            + max_amount
-            + description
+        + Object->array->object
+        + Cola as:
+            + `{`
+                + `"cola": [`
+                    + `{`
+                        + `"id": <int>,`
+                        + `"name": <string>,`
+                        + `"price": <float>,`
+                        + `"amount": <int>,`
+                        + `"max_amount": <int>,`
+                        + `"description": <string>`
+                    + `}`
+                + `]`
+            + `}`
     + Restricted:
         + no
     + Path:
         + `cola/getAll`
 
-+ Get single cola
++ **Get single cola**
     + Request:
         + GET
     + Requires:
         + --
     + Returns:
-        + cola object
-            + id
-            + name
-            + price
-            + amount
-            + max_amount
-            + description
+        + Object->object
+        + Cola as:
+            + `{`
+                + `"cola": {`
+                    + `"id": <int>,`
+                    + `"name": <string>,`
+                    + `"price": <float>,`
+                    + `"amount": <int>,`
+                    + `"max_amount": <int>,`
+                    + `"description": <string>`
+                + `}`
+            + `}`
     + Restricted:
         + no
     + Path:
         + `cola/getOne/:id`
 
 ##### Authentication Routes
-+ Register admin/user
++ **Register admin/user**
     + Request:
         + POST
     + Requires:
+        + Object
         + In order to create a admin account the user must know and accurately enter the admin_secret. If this is correctly done the return message will welcome you to the Colaco family.
-        + user object
-            + name
-            + password
-            + admin_secret
+        + User as:
+            + `{`
+                + `"username": <string>,`
+                + `"password": <string>,`
+                + `"admin_secret": <string>`
+            + `}`
     + Returns:
+        + Object
         + A string welcomeing the user with the user name
+        + Message as:
+            + `{`
+                + `"message": <string>`
+            + `}`
     + Restricted:
         + no
     + Path:
         + `user/auth/register`
 
-+ Login admin/user
++ **Login admin/user**
     + Request:
         + POST
     + Requires:
-        + user object
-            + username
-            + password
+        + Object
+        + User as:
+            + `{`
+                + `"username": <string>,`
+                + `"password": <string>`
+            + `}`
     + Returns:
-        + welcome message string and token string
+        + Object
+        + Welcome message string and token string
+        + Message as:
+            + `{`
+                + `"message": <string>,`
+                + `"token": <string>`
+            + `}`
     + Restricted:
         + no
     + Path:
