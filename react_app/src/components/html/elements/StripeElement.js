@@ -9,7 +9,7 @@ export default function StripeElement(props) {
         <form id="payment-form" className="stripe-style">
             <label htmlFor="card-element">Payment</label>
             <CardElement id="card-element"/>
-            <button>cash out</button>
+            <button>Buy with Card</button>
         </form>
 
     )
