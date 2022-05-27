@@ -10,6 +10,8 @@ module.exports = (req, res, next) => {
                 res.status(401).json({ message: 'Invalid token' });
             } else {
                 req.decodedToken = decodedToken;
+
+                console.log(decodedToken.admin)
                 if (decodedToken.admin === 1) {
                     next();
                 } else {
