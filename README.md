@@ -84,7 +84,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + All cola (object):
             + id
