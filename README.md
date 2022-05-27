@@ -147,7 +147,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + All users that are not of admin status in object
         + user:
@@ -162,7 +162,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + All users that are not of admin status in object
         + user:
@@ -177,7 +177,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + All users that are not of admin status in object
         + user:
@@ -242,7 +242,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + cola object
             + id
@@ -260,7 +260,7 @@
     + Request:
         + GET
     + Requires:
-        + -
+        + --
     + Returns:
         + cola object
             + id
