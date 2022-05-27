@@ -1,7 +1,7 @@
 # Welcome to ColaCo's Virtual Vending Machine!
 
 # Table Of Contents
-[Introduction]
+[Introduction](introduction)
 
 [UX](#ux)
 + [User Stories](#user-stories)
