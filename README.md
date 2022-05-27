@@ -499,8 +499,8 @@
 ![Api wireframe](readme/db/api_requests.jpg)
 ### Application Wireframes
 + Concept wireframes
-![home](readme/front-end/home-wireframe.jpg)
-![details](readme/front-end/details-wireframe.jpg)
+![Home concept drawing](readme/front-end/home-wireframe.jpg)
+![Details concept drawing](readme/front-end/details-wireframe.jpg)
 ### Live Application
 + Live app
 ![live application](readme/front-end/responsive.jpg)
@@ -761,6 +761,5 @@
 + [Upsplash](https://unsplash.com/)
     + A great place to find free high quality images
     + The image: https://unsplash.com/photos/nbrvUKkWP0Q -- unbranded_can.jpg was used as a background default image for the cola cans.
-        + This image is from upslash and is free to use.
 
 
