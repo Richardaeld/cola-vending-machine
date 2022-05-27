@@ -59,7 +59,8 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + As a client, I want to be able to view a detailed description of a cola.
 #### Auth
 + As a client, I am a repeat customer and I want to save my purchase information.
-+ As a client, I want to be able to purchase a cola. **Scalability** (Not implemented on the front end)
++ As a client, I want to be able to purchase a cola. **Scalability** (Only proof of concept implemented)
++ As a client, I want to be able to download my purchased cola. **Scalability** (Only proof of concept implemented)
 + As a client, I want to be able to view my login name. **Scalability** (Not implemented)
 + As a client, I want to be able to update my name. **Scalability** (Not implemented)
 + As a client, I want to be able to change my password. **Scalability** (Not implemented)
@@ -469,8 +470,6 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + Path:
         + `user/auth/login`
 
-
-
 ### React
 #### Home
 + A generic and colorful linear gradient was used as a background.
@@ -479,7 +478,6 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + Each cola displays its price and if it is in stock or not.
 + A footer with ColaCo's name on it. **Scalability** (Not fully implemented)
 
-
 #### Product Details
 + Each detailed products page gives additional information about the product:
     + The cola's description.
@@ -487,6 +485,15 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + A return to the home screen.
 + The buy button uses Stripes API to give a secure connection for uses to purchase cola(s). **Scalability** (Not fully implemented)
     + Stripes base import was left unhidden for development purposes.
+
+#### Login Page
++ Will have 3 inputs and a checkbox
+    + Username (input)
+    + Password (input)
+    + Admin secret (input that is hidden behind a checkbox)
+    + Are you a admin (checkbox)
++ Will return error messages below the input boxes
++ Will store the webtoken in system memory
 
 ## Wireframes and Live Application
 ### Database Wireframes
@@ -510,6 +517,35 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Creating a method for front-end users to login and update their username and password.
 + Creating a way for users to delete their own accounts.
 + Stripe was chosen as a payment API and its integration process was not finished.
+### Purchase and Download
+#### Anonymous
++ These users will not be creating accounts. Instead they will:
+    + Click on a cola they like and go to the details page.
+    + They will click the buy button on the details page for a cola.
+    + A stripe interface will be created and the user can then enter their card information.
+    + After successfully submitting their card information a stripe webhook will allow the API and React applications to know they have received payment.
+    + A anonymous webtoken will be created and saved on the users browser.
+    + A new download button will be made visible and have a fetch on it to the decrement cola address or 'updates amount of cola in -1 increment' (as its labeled on the API Wireframes image, api_request.jpg)
+    + The user can click to download their soda json file.
+    + After a single click the button will be disabled and then removed.
++ There are some potential issues with this method.
+    + If a user refreshes they will lose the download button.
+    + The server is currently not designed to track anonymous or logged in users and if they have actually downloaded their file.
+
+#### Logged in Users
++ These users will be creating accounts and logging in each time they wish to make a purchase. Their purchase flow will look like:
+    + Click on login button
+    + provide their log in information and a webtoken will be created and saved on the users browser.
+    + The user will then be able to select a cola they want to buy.
+    + Once on the details page, they will click the buy button to buy a cola.
+    + A stripe interface will be created and the user can then enter their card information.
+    + After successfully submitting their card information a stripe webhook will allow the API and React applications to know they have received payment.
+    + A new download button will be made visible and have a fetch on it to the decrement cola address or 'updates amount of cola in -1 increment' (as its labeled on the API Wireframes image, api_request.jpg)
+    + The user can click to download their soda json file.
+    + After a single click the button will be disabled and then removed.
++ There are some potential issues with this method.
+    + If a user refreshes they will lose the download button.
+    + The server is currently not designed to track anonymous or logged in users and if they have actually downloaded their file.
 
 # Assumptions
 + The vending machine will only dispense one cola at a time.
