@@ -5,57 +5,57 @@ const dbCola = require('../models/cola_models');
 const router = express.Router();
 
 // Change user name
-router.patch('/patch/name/:id', (req, res) => {
-    const { id } = req.params;
-    const { change } = req.body;
+// router.patch('/patch/name/:id', (req, res) => {
+//     const { id } = req.params;
+//     const { change } = req.body;
 
-    if (change === "") {
-        return res.status(400).json({ message: 'Please enter a new username' });
-    }
+//     if (change === "") {
+//         return res.status(400).json({ message: 'Please enter a new username' });
+//     }
 
-    db.updateUserName(id, change)
-        .then((user) => {
-            if(user) {
-                res.status(200).json({
-                    message: 'The updated user:',
-                    user
-                });
-            } else {
-                res.status(404).json({ message: 'Record not found' });
-            }
-        })
-        .catch((error) => {
-            res.status(404).json({ message: `An error occured: ${error}` });
-        });
-});
+//     db.updateUserName(id, change)
+//         .then((user) => {
+//             if(user) {
+//                 res.status(200).json({
+//                     message: 'The updated user:',
+//                     user
+//                 });
+//             } else {
+//                 res.status(404).json({ message: 'Record not found' });
+//             }
+//         })
+//         .catch((error) => {
+//             res.status(404).json({ message: `An error occured: ${error}` });
+//         });
+// });
 
-// change user password
-router.patch('/patch/password/:id', (req, res) => {
-    const { id } = req.params;
-    const { change } = req.body;
+// // change user password
+// router.patch('/patch/password/:id', (req, res) => {
+//     const { id } = req.params;
+//     const { change } = req.body;
 
-    if (change === "") {
-        return res.status(400).json({ message: 'Please enter a new password' });
-    }
+//     if (change === "") {
+//         return res.status(400).json({ message: 'Please enter a new password' });
+//     }
 
-    const hash = bcrypt.hashSync(change.password, 12);
-    change = hash;
+//     const hash = bcrypt.hashSync(change.password, 12);
+//     change = hash;
 
-    db.updateUserName(id, change)
-        .then((user) => {
-            if(user) {
-                res.status(200).json({
-                    message: 'The updated user:',
-                    user
-                });
-            } else {
-                res.status(404).json({ message: 'Record not found' });
-            }
-        })
-        .catch((error) => {
-            res.status(404).json({ message: `An error occured: ${error}` });
-        });
-});
+//     db.updateUserName(id, change)
+//         .then((user) => {
+//             if(user) {
+//                 res.status(200).json({
+//                     message: 'The updated user:',
+//                     user
+//                 });
+//             } else {
+//                 res.status(404).json({ message: 'Record not found' });
+//             }
+//         })
+//         .catch((error) => {
+//             res.status(404).json({ message: `An error occured: ${error}` });
+//         });
+// });
 
 // ---------------------User Auth
 // Remove one cola at a time
