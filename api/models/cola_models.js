@@ -24,14 +24,6 @@ function viewSingleCola (id) {
         .first();
 }
 
-// Get Single Cola
-// function viewSingleCola (id) {
-//     return db('cola')
-//         .where({ id })
-//         .first()
-//         .select('name', 'amount');
-// }
-
 // ---------------------Cola Auth
 // Restocker Get All Cola (without description)
 function viewAllColaRestock () {
