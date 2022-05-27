@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
                 req.decodedToken = decodedToken;
 
                 console.log(decodedToken.admin)
-                if (decodedToken.admin === 1) {
+                if (decodedToken.admin == true) {
                     next();
                 } else {
                     res.status(401).json({ message: 'Admins only' })
