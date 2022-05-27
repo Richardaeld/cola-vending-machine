@@ -43,10 +43,11 @@
 + As a client, I want to be able to view a detailed description of a cola.
 #### Auth
 + As a client, I am a repeat customer and I want to save my purchase information.
-+ As a client, I want to be able to purchase a cola.
-+ As a client, I want to be able to view my login name.
-+ As a client, I want to be able to update my name.
-+ As a client, I want to be able to change my password.
++ As a client, I want to be able to purchase a cola. **Scalability** (Not implemented on the front end)
++ As a client, I want to be able to view my login name. **Scalability** (Not implemented)
++ As a client, I want to be able to update my name. **Scalability** (Not implemented)
++ As a client, I want to be able to change my password. **Scalability** (Not implemented)
++ As a client, I want to be able to view my purchase history. **Scalability** (Not implemented)
 
 ### Admin
 #### General
@@ -57,12 +58,14 @@
 + As an admin, I want to be able to change the max available of a cola.
 + As an admin, I want to be able to update the description of a cola.
 + As an admin, I want to be able to view all products including id and description.
++ As an admin, I want to be able to view all basic cola information minus the description while I refill the vending machine.
++ As an admin, I want to view a customers purchase history. **Scalability** (Not implemented)
 #### Auth
 + As an admin, I need to be able to login to preform my duties.
-+ As an admin, I want to be able to update my name.
-+ As an admin, I want to be able to change my password.
++ As an admin, I want to be able to update my name. **Scalability** (Not implemented)
++ As an admin, I want to be able to change my password. **Scalability** (Not implemented)
 + As an admin, I want to be able to change a client’s status to admin.
-+ As an admin, I want to be able to view my login name.
++ As an admin, I want to be able to view my login name. **Scalability** (Not implemented)
 + As an admin, I want to see all the admins.
 + As an admin, I want to see all the customers.
 
@@ -76,7 +79,7 @@
     + name (string) - Name of the user.
     + password (string) - password for the user.
     + is_admin (boolean) - Determines if the user is a admin.
-    + purchases (string) - Not implemented and commented on in **Scalability** section. A stringified JSON object that remembers purchase history of a user.
+    + purchases (string) - A stringified JSON object that remembers purchase history of a user.  **Scalability** (Not implemented)
 
 ##### cola
 + 6 columns:
@@ -89,13 +92,13 @@
 
 #### Routes
 ##### Route Notes
-+ A single update was used with Auth instead of having multiple routes for updates which could provide more security.
-+ There are two levels of middleware restriction admin (restricted_admin_middleware.js) and user(restricted_middleware.js).
++ In order to keep the site more secure multiple routes for updating user information will be used rather than one update route as was used in cola table.
++ There are two levels of middleware restriction, admin (restricted_admin_middleware.js) and user(restricted_middleware.js).
 + All paths start on the root of the api or `https://colaco-vending-machine.herokuapp.com/` for this application.
-+ There currently is no front end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement a api request program like insomnia or postman must be used.
-    + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in.
-    + In order to receive a admin token a accurate `admin_secret: <secret>` must be submitted with login information when creating a user.
-    + These middleware tokens only last a total of 1 hour after login.
++ There currently is no front-end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement a api request program like insomnia or postman must be used.
+    + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in. Details of this can be found below.
+    + In order to receive a admin token an accurate `admin_secret: <secret>` must be submitted with login information when creating a user. Details of this can be found below.
+    + These middleware tokens only last a total of 1 hour after login. This could easily be shortened (to improve security) or extended depending upon preference.
 + All params are entered in the address bar in place of `:id`.
 
 ##### Restricted Admin Routes
@@ -172,6 +175,8 @@
                 + `"price": <float>,`
                 + `"max_amount": <int>`
             + `}`
+        + Cola with:
+            + id (params)
     + Returns:
         + Object->object
         + The entire cola object that was modified.
@@ -310,7 +315,7 @@
     + Request:
         + DELETE
     + Requires:
-        + user with:
+        + User with:
             + id (params)
     + Returns:
         + Object
@@ -329,7 +334,7 @@
     + Request:
         + POST
     + Requires:
-        + cola with:
+        + Cola with:
              + id (params)
     + Returns:
         + Object
@@ -380,7 +385,8 @@
     + Request:
         + GET
     + Requires:
-        + --
+        + Cola with:
+             + id (params)
     + Returns:
         + Object->object
         + Cola as:
