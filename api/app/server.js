@@ -6,7 +6,7 @@ const cors = require('cors');
 // Routes
 const cola_routes = require('../routes/cola_routes');
 const cola_admin_routes = require('../routes/cola_admin_routes');
-const auth_routes = require('../auth/auth_routes');
+const auth_routes = require('../routes/auth_routes');
 const restrict_user_routes = require('../routes/user_restrict_routes');
 const admin_user_routes = require('../routes/user_admin_routes');
 const restricted = require('../auth/restricted_middleware');
