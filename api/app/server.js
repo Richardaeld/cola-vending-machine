@@ -1,13 +1,14 @@
 const express = require('express');
 const logger = require('morgan');
 const helmet = require('helmet');
-const cors = require('cors')
+const cors = require('cors');
 
 // Routes
 const cola_routes = require('../routes/cola_routes');
-const cola_auth_routes = require('../routes/cola_auth_routes')
-const auth_routes = require('../auth/auth_routes')
-const auth_user = require('../routes/user_auth_routes')
+const cola_auth_routes = require('../routes/cola_admin_routes');
+const auth_routes = require('../auth/auth_routes');
+const auth_user = require('../routes/user_auth_routes');
+const admin_user = require('../routes/user_admin_routes');
 const restricted = require('../auth/restricted_middleware');
 const admin_restricted = require('../auth/restricted_admin_middleware');
 
@@ -23,8 +24,9 @@ server.get('/', (req, res) => {
 
 // Server Route Exports
 server.use('/cola', cola_routes);
-server.use('/auth/cola', restricted, cola_auth_routes);
-server.use('/user', auth_routes)
-server.use('/auth/user', auth_user)
+server.use('/admin/cola', restricted, cola_auth_routes);
+server.use('/user', auth_routes);
+server.use('/auth/user', auth_user);
+server.use('/admin/user', admin_restricted);
 
 module.exports = server;
