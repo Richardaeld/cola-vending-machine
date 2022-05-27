@@ -109,10 +109,11 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 
 #### Routes
 ##### Route Notes
-+ To keep the site more secure, multiple routes for updating user information will be used rather than one update route. This is inversely true for the cola table as it does not contain any user information.
++ To keep the site more secure, multiple routes for updating user information will be used rather than one update route. This is inversely true for the cola table as it does not contain any user information. **Scalability** (Not fully implemented)
 + There are two levels of middleware restriction, admin (restricted_admin_middleware.js) and user(restricted_middleware.js).
+    + This allows admins to work on the vending machine and gives clients the ability to make purchases and not unintended alterations to the vending machine.
 + All paths start on the root of the api or `https://colaco-vending-machine.herokuapp.com/` for this application.
-+ There currently is no front-end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement an API request program like insomnia or postman must be used.
++ There currently is no front-end ability to pass a restricted point. In order to access the API routes with restricted middleware reinforcement an API request program like insomnia or postman must be used.
     + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in. Details of this can be found below.
     + In order to receive a admin token an accurate `admin_secret: <secret>` must be submitted with login information when creating a user. Details of this can be found below.
     + These middleware tokens only last a total of 1 hour after login. This could easily be shortened (to improve security) or extended depending upon preference.
@@ -474,10 +475,10 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 #### Home
 + A generic and colorful linear gradient was used as a background.
 + A vending container that holds:
-    + This container would have a beverage themed hero image. **Scalability** (Not implemented)
-    + The ColaCo logo at the top of the container
+    + A beverage themed hero image. **Scalability** (Not implemented)
+    + The ColaCo logo at the top of the container.
     + All the cola templates offered (with pagination as the product list grows) at the middle of the container.
-    + A additional container that is modeled as a cola distributer. **Scalability** (Not implemented)
+    + An additional container at the bottom of this parent container that is modeled as a cola distributer. **Scalability** (Not implemented)
     + Over all the vending container should look like a modern vending machine. **Scalability** (Not fully implemented)
 + Each cola product gets its own template which includes:
     + The Cola's name, which is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
@@ -491,15 +492,17 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + A return to the home screen.
 + The buy button uses Stripes API to give a secure connection for uses to purchase cola(s). **Scalability** (Not fully implemented)
     + Stripes base import was left unhidden for development purposes.
++ A download button to for users to download their cola json object.
+    + This button was left unhidden for development purposes.
 
 #### Login Page
-+ Will have 3 inputs and a checkbox
++ Will have 3 inputs and a checkbox:
     + Username (input)
     + Password (input)
     + Admin secret (input that is hidden behind a checkbox)
     + Are you a admin (checkbox)
-+ Will return error messages below the input boxes
-+ Will store the webtoken in system memory
++ Will return error messages below the input boxes.
++ Will store the webtoken in system memory.
 
 ## Wireframes and Live Application
 ### Database Wireframes
@@ -525,8 +528,9 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + Stripe was chosen as a payment API and its integration process was not finished.
 + An additional route needs to be created for restocking the vending machine:
     + Currently beacuse of the nature of a PATCH request a stocker can over fill the vending machine.
-    + By creating an additional route an additional layer of logic can be added to check a cola's max_amount and ensure it cannot be overfilled.
-    + This route could use a comparison operator to and similar setup to the **Update user to admin**. This Route would have a fixed position to amount and use comparison operators to prevent it from over being greater than max_amount.
+    + By creating an additional route with a extra layer of logic it is possible to check a cola's max_amount and ensure it cannot be overfilled.**Scalability** (Not implemented)
+        + This project was not implemented because a bug in insomnia's newest version slowed down development and took some time to run down.
+    + This route would use a similar setup to the **Update user to admin**. This Route would have a patch position ("amount": <num>) and use comparison operators to prevent it from updated to a number larger than max_amount.
 
 ### React
 #### Purchase and Download Flow
@@ -536,13 +540,13 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + They will click the buy button on the details page for a cola.
     + A stripe interface will be created and the user can then enter their card information.
     + After successfully submitting their card information a stripe webhook will allow the API and React applications to know they have received payment.
-    + A anonymous webtoken will be created and saved on the users browser.
+    + An anonymous webtoken will be created and saved on the users browser.
     + A new download button will be made visible and have a fetch on it to the decrement cola address or **Remove single cola after purchase** (as its labeled **Routes** of this README)
     + The user can click to download their soda json file.
     + After a single click the button will be disabled and then removed.
 + There are some potential issues with this method.
     + If a user refreshes they will lose the download button.
-    + The server is currently not designed to track anonymous or logged in users and if they have actually downloaded their file.
+    + The server is currently not designed to track anonymous or logged in users and if they have downloaded their file.
 
 ##### Logged in Users
 + These users will be creating accounts and logging in each time they wish to make a purchase. Their purchase flow will look like:
@@ -557,7 +561,7 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
     + After a single click the button will be disabled and then removed.
 + There are some potential issues with this method.
     + If a user refreshes they will lose the download button.
-    + The server is currently not designed to track anonymous or logged in users and if they have actually downloaded their file.
+    + The server is currently not designed to track anonymous or logged in users and if they have downloaded their file.
 
 # Assumptions
 + The vending machine will only dispense one cola at a time.
