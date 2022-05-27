@@ -459,16 +459,18 @@
 #### Home
 + A generic and colorful linear gradient was used as a backgroud.
 + Each cola product gets its own template which includes:
-    + The Cola's name is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
+    + The Cola's name, which is displayed on a blank can png. This effect gives the appearance of colas being displayed in a vending machine.
     + Each cola displays its price and if it is in stock or not.
++ A footer with ColaCo's name on it. **Scalability** (Not fully implemented)
+
 
 #### Product Details
 + Each detailed products page gives additional information about the product:
     + The cola's description.
     + A way to purchase the cola.
-    + Return to the home screen.
-+ The buy button uses Stripes API to give a secure connection for uses to purchase cola(s).
-
+    + A return to the home screen.
++ The buy button uses Stripes API to give a secure connection for uses to purchase cola(s). **Scalability** (Not fully implemented)
+    + Stripes base import was left unhidden for development purposes.
 
 ## Wireframes and Live Application
 ### Database Wireframes
@@ -484,16 +486,17 @@
 ### Live Application
 
 ## Scalability
++ Numerous parts of this application were left unfinished and documentation was added to help describe what their purpose was supposed to be.
 + Finalizing a way for users to login, and update their username and password.
 + Creating a way for a user to delete their own account.
-+ A frame has been created to give the ability to have selective views for different users. (Ex. Admins and users)
++ Stripe was chosen as a payment API and its integration process was not finished.
 
 # Assumptions
 + The vending machine will only dispense one cola at a time.
-+ Frequent users will want to have a login to remember their card information. *Scalability
-+ ColaCo will want to track who is buying their cola for ‘reasons’. *Scalability
-+ Users will want a method of payment that does not require logging in.
-+ Users will only use credit or debit cards.
++ Frequent users will want to have a login to remember their card information. **Scalability** (Not fully implemented)
++ ColaCo will want to track who is buying their cola for ‘reasons’. **Scalability** (Not fully implemented)
++ Users will want a method of payment that does not require logging in. **Scalability** (Not fully implemented)
++ Users will only use credit or debit cards. **Scalability** (Not fully implemented)
 
 
 # Technology
@@ -515,11 +518,11 @@
 # Bugs and Other Problems
 ## Bugs
 ### API
-+ When a user tries to create a login with a existing username PostgreSQL does not return a error number.
++ When a user tries to create a login with a existing username PostgreSQL does not return a error number. So the user visible error is a 500.
     + Caused by:
         + PostgreSQL's normal functions.
     + Fix:
-        + PostgreSQL returns a undefined instead of a number so an additional error catch was added to run on a undefined error and tells the user that they need to delect a different username.
+        + PostgreSQL returns a undefined instead of a error number so an additional error catch was added to catch a undefined error. Then it tells the user that they need to select a different username.
     + Thought(s):
         + Given more time this should be more accurately handled with determining why PostgreSQL isnt giving an error code; or find a more certain way of detecting a unique key error.
 
@@ -529,57 +532,85 @@
 	+ Caused by:
 		+ Location of the React content. (Due to the nature of using a single git repo for tracking the application build process numerous problems were created.)
 	+ Fix:
-		+ A Second git repo was created with the sole purpose to receive a copy and paste of the entire application at deployment intervals. This was necessary because it allowed control over where the location of all the files. Unlike the node.js server for this project, React did not play nice with its nonstandard root directory.
+		+ A Second git repo was created with the sole purpose to receive a copy and paste of the entire application at deployment intervals. This was necessary because it allowed control over where the files were located. Unlike the node.js server for this project, React did not play nice with its nonstandard root directory.
 	+ Thoughts:
-		+ Provided with additional time, a prettier solution could be devised; however, to complete this project on time, this inelegant solution was chosen.
+		+ Provided with additional time, a prettier solution should be devised. Considering the limited development time, this inelegant solution was chosen.
 
 # Deployment
 ## Stripe
 + Go to **Stripe.com** and click **Start Now**.
 + Create a new account.
-+ Click **Developer** tab.
-+ Click **API Keys** to find **Publishable Key** and **Secret Key**.
++ Click **Developer** tab and **Documentation** button.
++ Click **Payments** button
++ Click **Accept online payments**
+<!-- + Click **API Keys** to find **Publishable Key** and **Secret Key**.
 + Click **Webhooks** tab.
-<!-- + click **Add Endpoint** and enter the new apps Heroku address with **/invoice/wh/** at the end of the address.
++ click **Add Endpoint** and enter the new apps Heroku address with **/invoice/wh/** at the end of the address.
 + Stripe will now provide you with a **Signing Secret Key**. -->
+ **Scalability** (Not fully implemented)
 
 ## GitHub
 + This will require two separate github repos to deploy properly to Heroku.
+    + Due to deployment bugs this inelegant solution was chosen in order to save time.
+
 ### API Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
 + Click on the **Code** button to get the drop-down menu.
 + Copy the HTTPS address provided.
-+ Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
-+ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
++ Create a new project in GitHub/GitPod/VSCode (to house the new clone) and then open this new project.
++ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
-+ Unpack everything from this new folder to the root of the GitPod project tree and the foundation of the project will be setup.
-+ (Optional) The **react_app** folder can be deleted anlong with the **cola-vending-machine** folder.
++ Unpack everything from this new folder to the root of the project tree and the foundation of the project will be setup.
++ (Optional) The **react_app** folder can be deleted anlong with the **cola-vending-machine** folder (after it has been emptied).
++ Go to the Bash and type, `npm install`.
++ All the needed packages will be installed.
+
 ### React.js Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
 + Click on the **Code** button to get the drop-down menu.
 + Copy the HTTPS address provided.
-+ Create a new GitHub/GitPod project (to house the new clone) and then open this new project.
-+ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page (don't forget the space after "clone") and press enter.
++ Create a new project in GitHub/GitPod/VSCode (to house the new clone) and then open this new project.
++ Go to the Bash and type, `git clone <HTTPS>`, paste the HTTPS address found in the GitHub page and press enter.
 + A clone will be created within a new folder called "cola-vending-machine" (name of the original repository).
-+ Unpack **react_app** from this new folder to the root of the GitPod project tree and delete the imported folder, "cola-vending-machine".
++ Unpack everything within **react_app** to the root of the project tree and delete the imported folder, "cola-vending-machine".
++ Go to the Bash and type, `npm install`.
++ All the needed packages will be installed.
 
 ## Heroku
 + This will require two separate heroku apps to deploy properly and function.
++ The IDE refered to here is VSCode and you will need to install the extensions: Heroku and GitLens -- Git Supercharged
+
 ### API
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
-### Link Heroku and GitHub:
+
+#### Create a Postgres SQL Server.
++ From your new apps base page, click on **Resources**.
++ Click on **Find More Add-Ons**.
++ Select **Postgres**.
++ Finish setup.
+
+#### Use Heroku cli Or Link Heroku and GitHub:
+##### Use Heroku cli
++ Download and install the Heroku cli (https://devcenter.heroku.com/articles/heroku-cli)
++ Restart your IDE if it was on.
++ Go to the Bash and type, `heroku login`
++ Follow instructions to login.
++ Connect your IDE to your heroku app by:
+    + Going to the Bash and typing, `heroku git:remote -a <heroku app name>`
++ Now your app is connected to your IDE.
++ As long as you stay on you master branch:
+    + You can go to the Bash and typing, `git push heroku`
+
+##### Link Heroku and GitHub
++ (This method my still be disabled by Heroku)
 + Log into Heroku.
 + From the **Personal Apps** page, click on the new app that was just created in Heroku.
 + Click on **Deploy**.
 + Click on **GitHub** from **Deployment Method** section.
 + Enter your GitHub information and the name of the cloned repository into the "Connect to GitHub" section.
-### Create a Postgres SQL Server.
-+ From your new apps base page, click on **Resources**.
-+ Click on **Find More Add-Ons**.
-+ Select **Postgres**.
-+ Finish setup.
-## Heroku Variables For API
+
+#### Heroku Variables For API
 + Share `env.py` information with Heroku.
     + Click on **Settings**.
     + Click on **Reveal Config Vars** from **Config Vars** section.
@@ -597,6 +628,7 @@
         <!-- + STRIPE_PUBLIC_KEY == (provided by **Stripe** as **Publishable key**) -->
         <!-- + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**) -->
         <!-- + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**) -->
+
 ### React.js
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
