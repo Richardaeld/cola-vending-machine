@@ -156,6 +156,7 @@
 ## Scalability
 + Finalizing a way for users to login, and update their username and password.
 + Creating a way for a user to delete their own account.
++ A frame has been created to give the ability to have selective views for different users. (Ex. Admins and users)
 
 # Assumptions
 + The vending machine will only dispense one cola at a time.
