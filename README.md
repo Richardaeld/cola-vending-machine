@@ -315,9 +315,10 @@
     + Returns:
         + Object
         + The id of the deleted user in a string.
-        + `{`
-            + `"message": <string>`
-        + `}`
+        + Message as:
+            + `{`
+                + `"message": <string>`
+            + `}`
     + Restricted:
         + Yes, admin
     + Path:
@@ -333,9 +334,10 @@
     + Returns:
         + Object
         + The amount of colas left in a string.
-        + `{`
-            + `"message": <string>`
-        + `}`
+        + Message as:
+            + `{`
+                + `"message": <string>`
+            + `}`
     + Restricted:
         + Yes, user
     + Path:
