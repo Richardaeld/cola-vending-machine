@@ -69,10 +69,28 @@
 
 ## Design Choices
 ### API
+#### Database Tables
+##### users
++ 5 columns
+    + id (int) - PostgreSQL automatically tracks this number.
+    + name (string) - Name of the user.
+    + password (string) - password for the user.
+    + is_admin (boolean) - Determines if the user is a admin.
+    + purchases (string) - Not implemented and commented on in **Scalability** section. A stringified JSON object that remembers purchase history of a user.
+
+##### cola
++ 6 columns:
+    + id (int) - PostgreSQL automatically tracks this number.
+    + name (string) - Name of the cola.
+    + price (float) - US dollar amount to purchase this item.
+    + amount (int) - The 'physical' count within the vending machine.
+    + max_amount (int) - The maximum 'physical' count a vending machine can hold (due to production rarity).
+    + description (string) - A basic description of a cola.
+
 #### Routes
 ##### Route Notes
 + A single update was used with Auth instead of having multiple routes for updates which could provide more security.
-+ There are two levels of middleware restriction admin (restricted_admin_middleware.js) and user(restricted_middleware.js)
++ There are two levels of middleware restriction admin (restricted_admin_middleware.js) and user(restricted_middleware.js).
 + All paths start on the root of the api or `https://colaco-vending-machine.herokuapp.com/` for this application.
 + There currently is no front end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement a api request program like insomnia or postman must be used.
     + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in.
@@ -86,12 +104,21 @@
     + Requires:
         + --
     + Returns:
-        + All cola (object):
-            + id
-            + name
-            + amount
-            + max_amount
-            + price
+        + Object->array->objects
+        + All colas as:
+            + `{`
+                + `message:<string>`
+                + `cola: [`
+                    + `{`
+                        + `id: <int>`
+                        + `name: <string>`
+                        + `amount: <int>`
+                        + `max_amount: <int>`
+                        + `price: <float>`
+                    + `}`
+                + `]`
+            + `}`
+
     + Restricted:
         + Yes, admin
     + Path:
@@ -101,13 +128,15 @@
     + Request:
         + POST
     + Requires:
-        + Cola (object)
+        + Object -- or -- array->objects
+        + Cola
             + name (string)
-            + price(float)
-            + amount(int)
-            + max_amount(int)
-            + description(string)
+            + price (float)
+            + amount (int)
+            + max_amount (int)
+            + description (string)
     + Returns:
+        + Object -- or -- array->objects
         + Number of cola(s) entered
         + Full print out of all cola information for each cola.
     + Restricted:
@@ -119,11 +148,11 @@
     + Request:
         + PATCH
     + Requires:
-        + cola (object)
+        + Cola (object)
             + Any single change or multiple changes to cola.
             + Ex. `"amount":25`
     + Returns:
-        + cola Object
+        + Cola (object)
         + The entire cola object that was modified.
     + Restricted:
         + Yes, admin
@@ -149,7 +178,7 @@
     + Requires:
         + --
     + Returns:
-        + All users that are not of admin status in object
+        + All users (object) that are not of admin status.
         + user:
             + id
             + name
@@ -164,7 +193,7 @@
     + Requires:
         + --
     + Returns:
-        + All users that are not of admin status in object
+        + All users (object) that are of admin status.
         + user:
             + id
             + name
@@ -179,7 +208,7 @@
     + Requires:
         + --
     + Returns:
-        + All users that are not of admin status in object
+        + All users (object)
         + user:
             + id
             + name
@@ -196,8 +225,8 @@
             + id
             + `is_admin: <boolean>`
     + Returns:
-        + All user information in object
-        + This includes the users hashed password
+        + All user information in object.
+        + This includes the users hashed password.
     + Restricted:
         + Yes, admin
     + Path:
@@ -210,7 +239,7 @@
         + user
             + id (params)
     + Returns:
-        + The id of the deleted user in a string
+        + The id of the deleted user in a string.
     + Restricted:
         + Yes, admin
     + Path:
@@ -305,23 +334,6 @@
     + Path:
         + `user/auth/login`
 
-#### Database Tables
-##### users
-+ 5 columns
-    + id - int - PostgreSQL automatically tracks this number.
-    + name - string - Name of the user.
-    + password string - password for the user.
-    + is_admin - boolean - Determines if the user is a admin
-    + purchases - string - **Scalability** A stringified JSON object that remembers purchase history of a user
-
-##### cola
-+ 6 columns:
-    + id - int - PostgreSQL automatically tracks this number
-    + name - string - Name of the cola
-    + price - float - US dollar amount to purchase this item
-    + amount - int - The 'physical' count within the vending machine
-    + max_amount - int - The maximum 'physical' count a vending machine can hold (due to production rarity)
-    + description - string - A basic description of a cola
 
 
 ### React.js
