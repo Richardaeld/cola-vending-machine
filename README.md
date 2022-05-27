@@ -570,6 +570,18 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 ## Developer Testing Specifications
 ### Developer Testing Systems
 ### Developer Testing Methods
+#### API
++ During the creation of the final version of API Wireframes, api_requests.jpg:
+    + Each API request was check for success.
+    + Each API request was check for failure.
+    + If the API request had restricting middleware for admins:
+        + A correct admin webtoken was tried.
+        + A correct nonadmin webtoken was tried.
+        + A incorrect webtoken was tried.
+    + If the API request had restricting middleware for clients:
+        + A correct admin webtoken was tried.
+        + A correct nonadmin webtoken was tried.
+        + A incorrect webtoken was tried.
 
 # Bugs and Other Problems
 ## Bugs
