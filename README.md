@@ -17,7 +17,7 @@
 + [Wireframes and Live Application](#wireframes-and-live-application)
     + [Database Wireframes](#database-wireframes)
     + [API Wireframes](#api-wireframes)
-    + [Application Wireframes](#application-wireframes)
+    + [Application Concept Drawings](#application-concept-drawings)
     + [Live Application](#live-application)
 + [Scalability](#scalability)
 
@@ -497,12 +497,12 @@
 ### API Wireframes
 + Wireframe for RESTful API
 ![Api wireframe](readme/db/api_requests.jpg)
-### Application Wireframes
-+ Concept wireframes
+### Application Concept Drawings
++ Concept Drawings
 ![Home concept drawing](readme/front-end/home-wireframe.jpg)
 ![Details concept drawing](readme/front-end/details-wireframe.jpg)
 ### Live Application
-+ Live app
++ Live App
 ![live application](readme/front-end/responsive.jpg)
 
 ## Scalability
