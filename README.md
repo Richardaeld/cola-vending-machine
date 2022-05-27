@@ -502,6 +502,8 @@
 ![home](readme/front-end/home-wireframe.jpg)
 ![details](readme/front-end/details-wireframe.jpg)
 ### Live Application
++ Live app
+![live application](readme/front-end/responsive.jpg)
 
 ## Scalability
 + Numerous parts of this application were left unfinished and documentation was added to help describe what their purpose was supposed to be.
