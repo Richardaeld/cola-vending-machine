@@ -3,7 +3,7 @@ const router = express.Router();
 
 const db = require('../models/user_models');
 const bcrypt = require('bcryptjs');
-const generate_token = require('./create_web_token');
+const generate_token = require('../auth/create_web_token');
 
 // ---------------------Auth users
 // Create one admin
