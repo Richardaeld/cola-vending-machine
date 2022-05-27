@@ -72,39 +72,178 @@
 #### Routes
 ##### Route Notes
 + A single update was used with Auth instead of having multiple routes for updates which could provide more security.
++ There are two levels of middleware restriction admin (restricted_admin_middleware.js) and user(restricted_middleware.js)
++ All paths start on the root of the api or `https://colaco-vending-machine.herokuapp.com/` for this application.
++ There currently is no front end ability to pass a restricted point. In order to access the API with restricted middleware reinforcement a api request program like insomnia or postman must be used.
+    + Additionally the header must have `authorization: <webtoken>` within it. The webtoken can be found as a return from logging in.
+    + In order to receive a admin token a accurate `admin_secret: <secret>` must be submitted with login information when creating a user.
+    + These middleware tokens only last a total of 1 hour after login.
+
 ##### Restricted Admin Routes
++ Restockers cola view.
+    + Request:
+        + GET
+    + Requires:
+        + ---
+    + Returns:
+        + All cola:
+            + id
+            + name
+            + amount
+            + max_amount
+            + price
+    + Restricted:
+        + Yes, admin
+    + Path:
+        + `/admin/cola/restockerView`
+
 + Create new cola(s).
     + Request:
         + POST
     + Requires:
-        + name (string)
-        + price(float)
-        + amount(int)
-        + max_amount(int)
-        + description(string)
+        + Cola
+            + name (string)
+            + price(float)
+            + amount(int)
+            + max_amount(int)
+            + description(string)
+    + Returns:
+        + Number of cola(s) entered
+        + Full print out of all cola information for each cola.
     + Restricted:
-        + Yes
+        + Yes, admin
     + Path:
-        + `/auth/cola/add`
+        + `/admin/cola/addCola`
 
-+ Update Cola with single or multiple changes.
++ Update cola with single or multiple changes.
+    + Request:
+        + PATCH
+    + Requires:
+        + Any single change or multiple changes to cola.
+        + Ex. `"amount":25`
+    + Returns:
+        + The entire cola object that was modified.
+    + Restricted:
+        + Yes, admin
+    + Path:
+        + `/admin/cola/patch/:id`
+
++ Delete Cola
+    + Request:
+        + Delete
+    + Requires:
+        + user
+            + id
+    + Returns:
+        + Id of the deleted user.
+    + Restricted:
+        + Yes, admin
+    + Path:
+        + `/admin/user/delete/:id`
+
++ View all users.
+    + Request:
+        + GET
+    + Requires:
+        + ---
+    + Returns:
+        + All users that are not of admin status
+        + user:
+            + id
+            + name
+    + Restricted:
+        + Yes, admin
+    + Path:
+        `/admin/user/getAll/user`
+
++ View all admin.
+    + Request:
+        + GET
+    + Requires:
+        + ---
+    + Returns:
+        + All users that are not of admin status
+        + user:
+            + id
+            + name
+    + Restricted:
+        + Yes, admin
+    + Path:
+        `admin/user/getAll/admin`
+
++ View all admin and users.
+    + Request:
+        + GET
+    + Requires:
+        + ---
+    + Returns:
+        + All users that are not of admin status
+        + user:
+            + id
+            + name
+    + Restricted:
+        + Yes, admin
+    + Path:
+        + `admin/user/getAll/adminAndUser`
+
++ Update user to admin.
+    + Request:
+        + POST
+    + Requires:
+        + user
+            + `is_admin: <boolean>`
+    + Returns:
+        
+    + Restricted:
+    + Path:
++ Delete user.
     + Request:
     + Requires:
-        + Single change
+    + Returns:
     + Restricted:
-        + Yes
     + Path:
-        + `/auth/cola/patch/:id`
-
-+ View all Users
-
-
-
 
 ##### Restricted Admin/User Routes
++ Remove single cola after purchase.
+    + Request:
+    + Requires:
+    + Returns
+    + Restricted:
+    + Path:
++ Update user name.
+    + Not implemented
++ Update user password
+    + Not implemented
++ View single user by name
+    + Not implemented
 
 ##### Admin/User Routes
++ Get all colas
+    + Request:
+    + Requires:
+    + Returns:
+    + Restricted:
+    + Path:
++ Get single cola
+    + Request:
+    + Requires:
+    + Returns:
+    + Restricted:
+    + Path:
 
+##### Authentication Routes
++ Register admin/user
+    + Request:
+    + Requires:
+    + Returns:
+    + Restricted:
+    + Path:
++ Login admin/user
+    + Request:
+    + Requires:
+    + Returns:
+    + Restricted:
+    + Path:
 
 #### Database Tables
 ##### users
