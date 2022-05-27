@@ -11,7 +11,7 @@
     + [API](#api)
         + [Database Tables](#database-tables)
         + [Routes](#routes)
-    + [React.js](#react.js)
+    + [React](#react)
         + [Home](#home)
         + [Product Details](#product-details)
 + [Wireframes and Live Application](#wireframes-and-live-application)
@@ -38,10 +38,10 @@
 + [Stripe](#stripe)
 + [GitHub](#github)
     + [API Repo](#api-repo)
-    + [React.js Repo](#react.js-repo)
+    + [React Repo](#react-repo)
 + [Heroku](#heroku)
     + [API App](#api-app)
-    + [React.js App](#react.js-app)
+    + [React App](#react-app)
     + [Heroku Notes](#heroku-notes)
 
 [Tools](#tools)
@@ -471,7 +471,7 @@
 
 
 
-### React.js
+### React
 #### Home
 + A generic and colorful linear gradient was used as a backgroud.
 + Each cola product gets its own template which includes:
@@ -585,7 +585,7 @@
 + Enter the http address of this same repo.
 + Now VSCode should be connected to your GitHub repo.
 
-### React.js Repo
+### React Repo
 + Go to the location of the original repository in GitHub, [https://github.com/Richardaeld/cola-vending-machine](https://github.com/Richardaeld/cola-vending-machine).
 + Click on the **Code** button to get the drop-down menu.
 + Copy the HTTPS address provided.
@@ -657,7 +657,7 @@
         <!-- + STRIPE_SECRET_KEY == (provided by **Stripe** as **Secret Key**) -->
         <!-- + STRIPE_WH_SECRET == (provided by **Stripe** as **Webhook Signing Secret**) -->
 
-### React.js App
+### React App
 + Log into Heroku.
 + Create a new app on Heroku by clicking **New** and following the directions.
 
