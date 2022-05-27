@@ -24,9 +24,9 @@ server.get('/', (req, res) => {
 
 // Server Route Exports
 server.use('/cola', cola_routes);
-server.use('/admin/cola', restricted, cola_auth_routes);
 server.use('/user', auth_routes);
-server.use('/auth/user', auth_user);
-server.use('/admin/user', admin_restricted);
+server.use('/auth/user', restricted, auth_user);
+server.use('/admin/cola', admin_restricted, cola_auth_routes);
+server.use('/admin/user', admin_restricted, admin_user);
 
 module.exports = server;
