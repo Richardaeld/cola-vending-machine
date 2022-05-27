@@ -21,7 +21,7 @@ router.get('/getOne/:id', (req, res) => {
 
     db.viewSingleCola(id)
         .then((cola) => {
-            if (cola > 0) {
+            if (cola) {
                 res.status(200).json({ cola });
             } else {
                 res.status(404).json({ message: 'No cola with that id exists' });
