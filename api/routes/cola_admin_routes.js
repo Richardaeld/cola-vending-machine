@@ -71,4 +71,33 @@ router.delete('/delete/:id', (req, res) => {
         });
 });
 
+// Restock machine
+// router.patch('/patch/restock/:id', (req, res) => {
+//     const { id } = req.params;
+//     const changes = req.body;
+//     const change = changes.amount;
+
+//     db.viewSingleCola(id)
+//         .then((cola) => {
+//             if (change <= cola.max_amount) {
+//                 db.restockMachine(id, change)
+//                     .then((updateCola) => {
+//                         res.status(200).json({
+//                             message: 'The updated cola:',
+//                             updateCola
+//                         });
+//                     })
+//                     .catch((updateError) => {
+//                         res.status(500).json({ message: `An error occured: ${updateError}` });
+//                     })
+//             } else {
+//                 res.status(400).json({ message: `You cannot over fill the machine. Max space is: ${cola.max_amount}` });
+//             }
+//         })
+//         .catch((error) => {
+//             res.status(500).json({ message: `An error occured: ${error}` });
+//         });
+
+// });
+
 module.exports = router;
