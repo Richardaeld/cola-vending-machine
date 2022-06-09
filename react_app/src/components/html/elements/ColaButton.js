@@ -21,7 +21,7 @@ export default function ColaButton (props) {
             const jsonData = await response.json();
 
             console.log(jsonData)
-            
+
         } catch (err) {
             console.error(err);
         }
@@ -55,7 +55,7 @@ export default function ColaButton (props) {
                     {props.details &&
                         <>
                             {/* Will be real button */}
-                            <div className="buy-button-position  w-100">
+                            <div className="buy-button-position w-100">
                                 <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
                             </div>
 
