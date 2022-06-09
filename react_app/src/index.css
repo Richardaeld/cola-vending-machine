@@ -71,6 +71,69 @@ body {
   width: fit-content;
 }
 
+/*------------------  Vending Maching Body ------------------*/
+
+.vending-body {
+  /* background-color:orange; */
+  position: relative;
+  height: 45rem;
+  background: linear-gradient(291deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
+              linear-gradient(145deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
+              linear-gradient(3225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
+  border: 2px solid #010203;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  z-index: 3;
+}
+
+.left-foot,
+.right-foot {
+  position: absolute;
+  z-index: -3;
+  height: 3rem;
+  width: 15px;
+  background-color: #bec2cb;
+  /* background: linear-gradient(45deg, rgba(190,194,203,0.7), rgba(192,192,192,.9)); */
+  bottom: calc(-3rem + -2px);
+  /* box-shadow: 20px 1px 4px black; */
+  filter: drop-shadow(4px 0px 2px rgba(0,0,0,0.75))
+}
+
+.left-foot {
+  left: 5rem;
+}
+
+.right-foot {
+  right: 5rem;
+}
+
+.right-foot::after,
+.right-foot::before,
+.left-foot::after,
+.left-foot::before {
+  content: "";
+  font-size: 0;
+  position: relative;
+  top:calc(-1rem + -3px);
+  border-bottom: 3rem solid transparent;
+  border-top: 0rem solid transparent;
+}
+
+.right-foot::after,
+.left-foot::after {
+  left: -31px;
+  border-left: 0rem solid transparent;
+  border-right: 1rem solid #c0c0c0;
+}
+
+.right-foot::before,
+.left-foot::before {
+  left: 15px;
+  border-left: 1rem solid #bec2cb;
+  border-right: 0rem solid transparent;
+  /* filter: drop-shadow(2px 0px 0px black); */
+}
+
 /*------------------  Cola Template  ------------------*/
 
 .text-shadow {
