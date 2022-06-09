@@ -86,14 +86,20 @@ function App() {
     <>
 
 
-      <main className="container-fluid ">
-        <div className="row justify-content-center m-5">
+      <main className="container-fluid main-props">
+        <div className="row justify-content-center m-5 padding-top">
 
 
 
           {/* Vending Body */}
-          <section className="col-md-12 col-lg-8 cola-container vending-body p-5">
-
+          <section className="col-md-12 col-lg-8 col-xl-5 vending-body p-5">
+            {/* Body */}
+            <div class="vending-body-solid-backgound"></div>
+            <div class="vending-body-side"></div>
+            <div class="vending-body-top"></div>
+            {/* Feet Divs */}
+            <div class="left-foot"></div>
+            <div class="right-foot"></div>
             {/* Logo */}
             <header className="container-fluid">
               <div className="row justify-content-center">
@@ -103,9 +109,7 @@ function App() {
               </div>
             </header>
 
-            {/* Feet Divs */}
-            <div class="left-foot"></div>
-            <div class="right-foot"></div>
+
             {/* <h2>Click to Buy</h2> */}
             {colaDetails &&
             <div className="text-shadow width-fit">

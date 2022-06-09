@@ -38,10 +38,12 @@ export default function ColaButton (props) {
                     <div class="cola-header flex-center">
                         <h3 className="cola-name text-center py-3 px-3 mb-0 cola-header-text">{props.name}</h3>
                     </div>
-                    <div className="text-center flex-around">
+                    {/* in-stock */}
+                    <div className="text-center flex-around cola-button-text">
                         <span className="d-block">{props.amount > 0 ? "In stock" : "Out of Stock"} </span>
                     </div>
-                    <div className="text-center mt-2 mb-4 flex-around">
+                    {/* Price */}
+                    <div className="text-center mt-2 mb-4 flex-around cola-button-text">
                         <span className="d-block">${ props.price.toFixed(2)}</span>
                     </div>
 

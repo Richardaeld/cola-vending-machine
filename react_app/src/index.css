@@ -71,30 +71,100 @@ body {
   width: fit-content;
 }
 
+.main-props {
+  position: relative;
+  z-index: 0;
+}
+
+.padding-top {
+  padding-top: 10rem;
+}
+
 /*------------------  Vending Maching Body ------------------*/
 
 .vending-body {
   /* background-color:orange; */
+  z-index: initial;
   position: relative;
   height: 45rem;
   background: linear-gradient(291deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
               linear-gradient(145deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
               linear-gradient(3225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
-  border: 2px solid #010203;
+  /* border: 2px solid #010203; */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  z-index: 3;
+  box-shadow: 
+              inset 0px 0px 4px rgba(0,0,0,.75),
+              /* inset 2px 2px 4px rgba(0,0,0,.75) */
+
+                    0px -2px 0px rgba(0,0,0,.5),
+                    2px 2px 6px rgba(0,0,0,.75)
+              
+              ;
 }
+/* Acts as a divider for vending body side */
+.vending-body-solid-backgound {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #fff;
+  left: 0rem;
+  top: 0rem;
+}
+
+/* .vending-body-side {
+  z-index: -3;
+  position: absolute;
+  height: 45rem;
+  width: 10rem;
+  right: -10rem;
+  bottom: 77px;
+  transform: skew(0deg, -45deg);
+  background-color: orange;
+  background: linear-gradient(29deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
+              linear-gradient(345deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
+              linear-gradient(225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
+} */
+/* .vending-body-side {
+  z-index: -3;
+  position: absolute;
+  height: 45rem;
+  width: 2rem;
+  right: -2rem;
+  bottom: 15px;
+  transform: skew(0deg, -45deg);
+  background-color: orange;
+  background: linear-gradient(29deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
+              linear-gradient(345deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
+              linear-gradient(225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
+} */
+
+
+/* .vending-body-top {
+  z-index: 3;
+  position: absolute;
+  height: 10rem;
+  width: 30rem;
+  right: -6rem;
+  top: -10rem;
+  transform: skew(-45deg, 0deg);
+  background: linear-gradient(29deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
+              linear-gradient(345deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
+              linear-gradient(225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
+} */
 
 .left-foot,
 .right-foot {
-  position: absolute;
   z-index: -3;
+  position: absolute;
   height: 3rem;
   width: 15px;
   background-color: #bec2cb;
   /* background: linear-gradient(45deg, rgba(190,194,203,0.7), rgba(192,192,192,.9)); */
-  bottom: calc(-3rem + -2px);
+  bottom: calc(-3rem + 2px);
   /* box-shadow: 20px 1px 4px black; */
   filter: drop-shadow(4px 0px 2px rgba(0,0,0,0.75))
 }
@@ -114,14 +184,14 @@ body {
   content: "";
   font-size: 0;
   position: relative;
-  top:calc(-1rem + -3px);
+  top:calc(-1rem + -4px);
   border-bottom: 3rem solid transparent;
   border-top: 0rem solid transparent;
 }
 
 .right-foot::after,
 .left-foot::after {
-  left: -31px;
+  left: -32px;
   border-left: 0rem solid transparent;
   border-right: 1rem solid #c0c0c0;
 }
@@ -137,7 +207,6 @@ body {
 /*------------------  Cola Template  ------------------*/
 
 .text-shadow {
-
 }
 
 .cola-header {
@@ -158,6 +227,14 @@ body {
                 0px 0px 2px #010203;
 }
 
+.cola-button-text {
+  color: #faf9f6;
+  /* text-shadow: 2px 2px #010203; */
+  text-shadow: 1px 1px 2px #010203,
+              -1px -1px 2px #010203,
+              0px 0px 4px #010203;
+}
+
 .cola-template-container {
   display: flex;
   flex-wrap: wrap;
@@ -169,7 +246,8 @@ body {
   background: repeating-linear-gradient(45deg, rgba(17,245,233, .5) 30%, rgba(29,141,245, .5) 50%,rgba(17,245,233, .5)80%);
   border-radius: 15px;
   box-shadow: 2px 2px 4px rgba(0,0,0,.5),
-              inset -2px -2px 4px rgba(0,0,0,.5);
+              inset -5px -5px 4px rgba(0,0,0,.5),
+              inset 5px 5px 2px rgba(0,0,0,.25);
 }
 
 .buy-button-position {
