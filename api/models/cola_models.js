@@ -9,6 +9,7 @@ module.exports = {
     removeSingleCola,
     viewSingleCola,
     deleteCola
+    // restockMachine
 };
 
 // ---------------------Cola
@@ -57,9 +58,18 @@ function deleteCola (id) {
 function removeSingleCola (id, change) {
     return db('cola')
         .where({ id })
-        .update({ "amount": change })
+        .update({ amount: change })
         .then(() => {
             return viewSingleCola (id);
         });
 }
 
+// Restocker update amount
+// function restockMachine (id, change) {
+//     return db('cola')
+//         .where({ id })
+//         .update({ amount: change })
+//         .then(() => {
+//             return viewSingleCola (id);
+//         });
+// }
