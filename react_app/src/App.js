@@ -88,39 +88,65 @@ function App() {
 
       <main className="container-fluid main-props">
         <div className="row justify-content-center m-5 padding-top">
-
-
-
           {/* Vending Body */}
-          <section className="col-md-12 col-lg-8 col-xl-5 vending-body p-5">
+          <section className="col-md-12 col-lg-8 vending-body p-3">
             {/* Body */}
             <div class="vending-body-solid-backgound"></div>
-            <div class="vending-body-side"></div>
-            <div class="vending-body-top"></div>
-            {/* Feet Divs */}
             <div class="left-foot"></div>
             <div class="right-foot"></div>
             {/* Logo */}
-            <header className="container-fluid">
-              <div className="row justify-content-center">
-                <div className="col-12 text-start">
-                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
-                </div>
-              </div>
-            </header>
+            {/* <header className="container-fluid"> */}
+              {/* <div className="row"> */}
+                {/* <div className="col-6"> */}
+                  {/* <h1 className="mt-3 company-name">ColaCo Vending</h1> */}
+                {/* </div> */}
+              {/* </div> */}
+            {/* </header> */}
 
 
-            {/* <h2>Click to Buy</h2> */}
             {colaDetails &&
             <div className="text-shadow width-fit">
                 <button className="buy-button" onClick={colaButtonReset}>Go back</button>
             </div>
             }
-            <div className="row justify-content-around">
 
+            <div className="row">
+              <div className="col-10">
+                <div className="row justify-content-around">
 
-              {/* Colas */}
-              {colaElement}
+                  
+                  {/* Colas */}
+                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
+
+                  {colaElement}
+                </div>
+              </div>
+
+            <div className="col-2 cola-body-payment-panel">
+            <div className="card-input"></div>
+            <div className="coin-input"></div>
+            <div className="selection-input">
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+              <div className="selection-button"></div>
+            </div>
+            <div className="coin-return"></div>
+
+              someting
+            </div>
 
             </div>
           </section>
