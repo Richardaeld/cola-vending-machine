@@ -89,17 +89,20 @@ function App() {
       <main className="container-fluid ">
         <div className="row justify-content-center m-5">
 
-          {/* Logo */}
-          <header className="container-fluid">
-            <div className="row justify-content-center">
-              <div className="col-10 text-start">
-                <h1 className="mt-3 company-name">ColaCo Vending</h1>
-              </div>
-            </div>
-          </header>
+
 
           {/* Vending Body */}
-          <section className="col-12 cola-container vending-body p-5">
+          <section className="col-md-12 col-lg-8 cola-container vending-body p-5">
+
+            {/* Logo */}
+            <header className="container-fluid">
+              <div className="row justify-content-center">
+                <div className="col-12 text-start">
+                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
+                </div>
+              </div>
+            </header>
+
             {/* Feet Divs */}
             <div class="left-foot"></div>
             <div class="right-foot"></div>
