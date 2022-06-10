@@ -101,9 +101,9 @@ function App() {
 
       <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
-          <div className="col-12 background-wall-stripe"></div>
-          <div className="col-12 background-floor-trim"></div>
-          <div className="col-12 background-floor"></div>
+          <div className="background-wall-stripe"></div>
+          <div className="background-floor-trim"></div>
+          <div className="background-floor"></div>
           {/* Vending Body */}
           <section className="col-md-12 col-lg-6 vending-body p-3">
             {/* Body */}
@@ -153,6 +153,7 @@ function App() {
               <div className="card-reader depth-shadow">
                 <p>Card</p>
               </div>
+              <div className="coin-output depth-shadow"></div>
 
               <div className="selection-input">
                 <div className="selection-button depth-shadow"></div>
