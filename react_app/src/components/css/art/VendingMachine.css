@@ -1,0 +1,313 @@
+/*------------------  Vending Machine Body ------------------*/
+.company-name {
+    letter-spacing: 2px;
+    font-family: 'Smooch', sans-serif;
+    text-shadow: 1px 0px 0px #41F8D5,
+                  0px 1px 0px #41F8D5,
+                  -1px 0px 0px #41F8D5,
+                  0px -1px 0px #41F8D5,
+                  0px 0px 10px #41F8D5,
+                  0px 0px 15px #41F8D5,
+                  0px 0px 25px #41F8D5,
+                  0px 0px 50px #41F8D5,
+                  0px 0px 75px #41F8D5,
+                  0px 0px 100px #41F8D5,
+                  /* 2px 2px 2px #010203, */
+                  4px 4px 4px #010203;
+    color: #010203;
+    font-size: 3rem;
+    /* font-weight: 900; */
+  }
+  
+  .vending-body {
+    z-index: initial;
+    position: relative;
+    bottom: 0;
+    /* height: 45rem; */
+    height: 90vh;
+    background-color:#4bb6ef;
+    background-color:#3785B0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: inset 0px 0px 4px rgba(0,0,0,.75),
+                      0px -2px 0px rgba(0,0,0,.5),
+                      2px 2px 6px rgba(0,0,0,.75);
+  }
+  
+  /* Acts as a divider for vending body side */
+  .vending-body-solid-backgound {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+    left: 0rem;
+    top: 0rem;
+  }
+  
+  .vending-window {
+    position: absolute;
+    z-index: 1;
+    height: 70%;
+    width: 77%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2) 5%, rgba(255, 255, 255, 0.0) 15%,rgba(255, 255, 255, 0.2) 28%,rgba(255, 255, 255, 0.0) 38%,rgba(255, 255, 255, 0.2) 79%,rgba(255, 255, 255, 0.0) 98%);
+    box-shadow: inset -2px -2px 4px rgba(0,0,0,.75),
+                inset 2px 2px 4px rgba(0,0,0,.75);
+    border-radius: 15px;
+  }
+  
+  .vending-window-background {
+    position: absolute;
+    z-index: 0;
+    /* background-color: #010203; */
+    background-color: #1B4257;
+    border-radius: 15px;
+    height: 70%;
+    width: 77%;
+  }
+  
+  /*------------------  Vending Machine payment selection panel ------------------*/
+  
+  .depth-shadow{
+    box-shadow: 2px 2px 3px #010203,
+                0px 0px 4px #010203,
+                inset 0px 0px 2px #010203;
+  }
+  
+  .cola-body-payment-panel {
+    height: 42.5rem;
+    border-radius: 10px;
+    background-color: #555454;
+    position: relative;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-input {
+    position: absolute;
+    top:40%;
+    height:10px;
+    width: 50px;
+    background-color: #faf9f6;
+    border-radius: 15px;
+  }
+  
+  .card-input::after {
+    position: absolute;
+    content: "";
+    font-size: 0;
+    border-radius: 15px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 20px solid black;
+    border-left: 20px solid black;
+    left: 5px;
+    top: 3px;
+  }
+  
+  .coin-input {
+    position: absolute;
+    top:43%;
+    height:20px;
+    width: 6px;
+    background-color: #faf9f6;
+    border-radius: 15px;
+  }
+  
+  .coin-input::before {
+    content: "";
+    font-size: 0;
+    border: 5px solid #c2c2c2;
+    border-radius: 50%;
+    position: absolute;
+    left: 15px;
+    box-shadow: 2px 2px 3px #010203,
+                0px 0px 4px #010203,
+                inset 0px 0px 2px #010203;
+  }
+  
+  .coin-input::after {
+    position: absolute;
+    content: "";
+    font-size: 0;
+    border-top: 8px solid black;
+    border-bottom: 8px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-radius: 15px;
+    left: 2px;
+    top: 2px;
+  }
+  
+  .selection-input {
+    position: absolute;
+    padding-left: 2px;
+    top: 20%;
+    width: 83px;
+    height: 83px;
+    background-color: #c2c2c2;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .selection-button {
+    margin: 2px;
+    height:15px;
+    width:15px;
+    background-color: #8b8b8b;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+  }
+  
+  .display-screen {
+    position: absolute;
+    top: 14%;
+    width: 90px;
+    height: 20px;
+    background-color: skyblue;
+  }
+  
+  .card-reader {
+    position: absolute;
+    top:50%;
+    height: 40px;
+    width: 80px;
+    background-color: #c2c2c2;
+    display: flex;
+    justify-content: center;
+  }
+  .card-reader p {
+    position: relative;
+    bottom: 3px
+  }
+  
+  .card-reader::before {
+    content: "";
+    font-size: 0;
+    position: absolute;
+    bottom: 2px;
+    height: 20px;
+    width: 70px;
+    background-color: #696969;
+    border-radius: 4px;
+  }
+  
+  .card-reader::after {
+    content: "";
+    font-size: 0;
+    position: absolute;
+    bottom: 10px;
+    height: 5px;
+    width: 60px;
+    background-color: #010203;
+    border-radius: 4px;
+  }
+  
+  .coin-output {
+    position: absolute;
+    bottom: 25%;
+    background-color: #a8a8a8;
+    width: 50px;
+    height: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  /*------------------  Vending Machine feet ------------------*/
+  
+  .left-foot,
+  .right-foot {
+    z-index: -1;
+    position: absolute;
+    height: 3rem;
+    width: 15px;
+    background-color: #bec2cb;
+    /* background: linear-gradient(45deg, rgba(190,194,203,0.7), rgba(192,192,192,.9)); */
+    bottom: calc(-3rem + 2px);
+    /* box-shadow: 20px 1px 4px black; */
+    filter: drop-shadow(4px 0px 2px rgba(0,0,0,0.75))
+  }
+  
+  .left-foot {
+    left: 5rem;
+  }
+  
+  .right-foot {
+    right: 5rem;
+  }
+  
+  .right-foot::after,
+  .right-foot::before,
+  .left-foot::after,
+  .left-foot::before {
+    content: "";
+    font-size: 0;
+    position: relative;
+    top:calc(-1rem + -4px);
+    border-bottom: 3rem solid transparent;
+    border-top: 0rem solid transparent;
+  }
+  
+  .right-foot::after,
+  .left-foot::after {
+    left: -32px;
+    border-left: 0rem solid transparent;
+    border-right: 1rem solid #c0c0c0;
+  }
+  
+  .right-foot::before,
+  .left-foot::before {
+    left: 15px;
+    border-left: 1rem solid #bec2cb;
+    border-right: 0rem solid transparent;
+    /* filter: drop-shadow(2px 0px 0px black); */
+  }
+
+  .vending-machine-row {
+    position: absolute;
+    z-index: 0;
+    height: 25px;
+    background-color: #444444;
+    /* border: 2px solid green; */
+    /* left: 2%; */
+    width: 73%;
+    top: 23%;
+    /* border-radius: 15px; */
+  }
+  
+  .cola-holder {
+    position: absolute;
+    z-index: 4;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    border-left: 3px solid #9e9e9e;
+    border-top: 3px solid #9e9e9e;
+    border: 3px solid #9e9e9e;
+    border-radius: 50%;
+    bottom: 0%;
+    left: 20%;
+  }
+
+  .vending-output {
+    position: absolute;
+    background-color: #a8a8a8;
+    height: 5rem;
+    bottom: 1rem;
+    width:25rem;
+    box-shadow: inset 2px -2px 4px rgba(0,0,0,.75),
+                inset -2px 0px 4px rgba(0,0,0,.75),
+                      0px -1px 1px rgba(0,0,0,.25);
+  
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .vending-output p {
+    font-size: 3rem;
+    color: #555454;
+    text-shadow: 2px 2px 1px #010203;
+  }
