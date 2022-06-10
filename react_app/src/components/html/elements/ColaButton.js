@@ -34,7 +34,6 @@ export default function ColaButton (props) {
             <div class="col-6 col-md-3" style={styles} onClick={props.details ? props.noClick : props.click}>
             {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}> */}
 
-
                 {/* body */}
                 {/* <div className="cola-template-container row justify-content-center"> */}
                 <div className="row justify-content-center cola-container">

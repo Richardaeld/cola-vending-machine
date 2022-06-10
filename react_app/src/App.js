@@ -87,8 +87,6 @@ function App() {
           display={cola.display}
           click={() => clickCola(cola.id)}
           noClick={() => noClick(cola.id)}
-
-          // posts={currentPost}
       />
   ))
 
@@ -131,10 +129,13 @@ function App() {
                   <div className="row justify-content-around">
                     <div className="vending-window"></div>
                     <div className="vending-window-background"></div>
+                    <div className="vending-output">
+                      <p className="text-center">Push</p>
+                    </div>
 
-                  
-                    {/* Colas */}
-                    {colaElement}
+            
+                      {/* Colas */}
+                      {colaElement}
 
 
 
@@ -164,7 +165,7 @@ function App() {
             </div>
             <div className="coin-return"></div>
 
-              someting
+              
             </div>
 
             </div>
