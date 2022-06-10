@@ -125,19 +125,20 @@ function App() {
             </div>
             }
 
-            <div className="row justify-content-between">
+            <div className="row justify-content-between position-relative">
               <div className="col-9 ms-4">
-                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
-                <div className="row justify-content-around vending-window">
+                  <h1 className="mt-3 company-name">Pop-a-Cola Vending</h1>
+                  <div className="row justify-content-around">
+                    <div className="vending-window"></div>
+                    <div className="vending-window-background"></div>
 
                   
-                  {/* Colas */}
-
+                    {/* Colas */}
                     {colaElement}
 
 
 
-                </div>
+                  </div>
               </div>
 
             <div className="col-2 cola-body-payment-panel">

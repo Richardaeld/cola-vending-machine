@@ -31,16 +31,16 @@ export default function ColaButton (props) {
     return (
         <>
 
-            <div class="col-6 col-md-3 flex-stretch px-3" style={styles} onClick={props.details ? props.noClick : props.click}>
+            <div class="col-6 col-md-3" style={styles} onClick={props.details ? props.noClick : props.click}>
             {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}> */}
 
 
                 {/* body */}
                 {/* <div className="cola-template-container row justify-content-center"> */}
-                <div className="row justify-content-center">
+                <div className="row justify-content-center cola-container">
                     {/* Header */}
                     <div class="cola-header flex-center">
-                        <h3 className="cola-name text-center px-5 mb-0 cola-header-text">{props.name}</h3>
+                        <h3 className="cola-name text-center mb-0 cola-header-text">{props.name}</h3>
                     </div>
                     {/* in-stock */}
                     {/* <div className="text-center flex-around cola-button-text">

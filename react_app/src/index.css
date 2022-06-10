@@ -118,9 +118,27 @@ body {
 }
 
 .vending-window {
-  background-color: #a7a7a7;
+  position: absolute;
+  z-index: 1;
+  height: 70%;
+  width: 77%;
+  background: repeating-linear-gradient(145deg, rgba(182, 255, 251, 0.5) 30%, rgba(245, 250, 255, 0.5) 50%,rgba(182, 255, 251, 0.5)80%);
   /* border-bottom: 15px solid green */
   /* border: 5px solid orange; */
+  box-shadow: 
+  inset -2px -2px 4px rgba(0,0,0,.75),
+  inset 2px 2px 4px rgba(0,0,0,.75)
+  ;
+  border-radius: 15px;
+}
+
+.vending-window-background {
+  position: absolute;
+  z-index: 0;
+  background-color: #010203;
+  border-radius: 15px;
+  height: 70%;
+  width: 77%;
 }
 
 /*------------------  Vending Machine payment selection panel ------------------*/
@@ -272,6 +290,7 @@ body {
 
 .cola-header-text {
   color: #2AEB5A;
+  padding: 2.5rem;
   text-shadow: 1px 1px 0px #010203,
                 -1px -1px 0px #010203,
                 0px 0px 2px #010203;
@@ -285,10 +304,16 @@ body {
               0px 0px 4px #010203;
 }
 
+.cola-container {
+  position: relative;
+  z-index: 2;
+}
+
 .cola-template-container {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  
 
   /* card design */
   background-color: rgba(250,249,246, .5);
