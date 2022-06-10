@@ -116,6 +116,13 @@ body {
   left: 0rem;
   top: 0rem;
 }
+
+.vending-window {
+  background-color: #a7a7a7;
+  /* border-bottom: 15px solid green */
+  /* border: 5px solid orange; */
+}
+
 /*------------------  Vending Machine payment selection panel ------------------*/
 
 .cola-body-payment-panel {
@@ -291,6 +298,13 @@ body {
   box-shadow: 2px 2px 4px rgba(0,0,0,.5),
               inset -5px -5px 4px rgba(0,0,0,.5),
               inset 5px 5px 2px rgba(0,0,0,.25);
+
+  /* margin-top:3rem; */
+}
+
+.test123 {
+  /* margin-top: 0; */
+  /* background-color: #2AEB5A; */
 }
 
 .buy-button-position {

@@ -12,10 +12,16 @@ function App() {
   const [colaInfo, setColaInfo] = React.useState([])
   const [colaDetails, setColaDetails] = React.useState(false)
 
+
+  const [posts, setPosts] = React.useState([])
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [colaPerPage, setColaPerPage] = React.useState(3);
+
   // Fetch for cola buttons
   async function fetchColaData () {
       try {
-          const response = await fetch ('https://colaco-vending-machine.herokuapp.com/cola/getAll');
+          // const response = await fetch ('https://colaco-vending-machine.herokuapp.com/cola/getAll');
+          const response = await fetch ('http://localhost:5000/cola/getAll');
           const jsonData = await response.json();
 
           jsonData.cola.map(x => (
@@ -24,6 +30,9 @@ function App() {
             )
           )
           setColaInfo(jsonData.cola)
+          const indexOfLastCola = currentPage * colaPerPage;
+          const indexOfFirstCola = indexOfLastCola - colaPerPage;
+          const currentPost = setColaInfo(jsonData.cola.slice(indexOfFirstCola, indexOfLastCola));
           console.log(jsonData.cola)
         } catch (err) {
           console.log(err)
@@ -32,6 +41,10 @@ function App() {
   useEffect(() => {
       fetchColaData();
   }, [])
+
+  // const indexOfLastCola = currentPage * colaPerPage;
+  // const indexOfFirstCola = indexOfLastCola - colaPerPage;
+  // const currentPost = setColaInfo(colaData.slice(indexOfFirstCola, indexOfLastCola));
 
   function detailsClick(id) {
     console.log("I am ehre to")
@@ -74,6 +87,8 @@ function App() {
           display={cola.display}
           click={() => clickCola(cola.id)}
           noClick={() => noClick(cola.id)}
+
+          // posts={currentPost}
       />
   ))
 
@@ -110,15 +125,18 @@ function App() {
             </div>
             }
 
-            <div className="row">
-              <div className="col-10">
-                <div className="row justify-content-around">
+            <div className="row justify-content-between">
+              <div className="col-9 ms-4">
+                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
+                <div className="row justify-content-around vending-window">
 
                   
                   {/* Colas */}
-                  <h1 className="mt-3 company-name">ColaCo Vending</h1>
 
-                  {colaElement}
+                    {colaElement}
+
+
+
                 </div>
               </div>
 
