@@ -17,13 +17,22 @@ code {
     monospace;
 }
 
+main {
+  min-height: 100vh;
+}
+
 /*------------------  general  ------------------*/
 
 
 body {
-  background: linear-gradient(291deg, rgba(54, 235, 201, .75), rgba(0,255,0,0) 70%),
+  /* background: linear-gradient(291deg, rgba(54, 235, 201, .75), rgba(0,255,0,0) 70%),
               linear-gradient(145deg, rgba(42, 235, 90, .75), rgba(0,255,0,0) 70%),
-              linear-gradient(325deg, rgba(66, 174, 235, .75), rgba(0,0,255,0) 70%);
+              linear-gradient(325deg, rgba(66, 174, 235, .75), rgba(0,0,255,0) 70%); */
+  background-color: #B7f7f7;
+  /* background-image: url('images/hallway.jpg');
+  background-size:cover;
+  background-position: bottom;
+  background-repeat: no-repeat; */
   /* font-family: 'Shadows Into Light'; */
   /* font-family: 'Gideon Roman', sans-serif; */
   /* font-family: 'Roboto-Slab', sans-serif; */
@@ -31,21 +40,51 @@ body {
   min-height: 100vh;
 }
 
+.background-wall-stripe {
+  position: absolute;
+  background-color: #7cdedf;
+  width: 100vw;
+  height:10vh;
+  top: 50%;
+}
+
+.background-wall-stripe::before {
+  content: "sdf";
+  font-size: 0;
+  background-color: #6EC3C4;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.background-wall-stripe::after {
+  content: "sdf";
+  font-size: 0;
+  background-color: #6EC3C4;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  /* padding-right: calc(var(--bs-gutter-x) * .5); */
+  /* padding-left: calc(var(--bs-gutter-x) * .5); */
+  width:100%;
+  height: 10px;
+}
+
+.background-floor {
+  position: absolute;
+  background-color: #fde896;
+  width:100%;
+  height: 10vh;
+  bottom: 0;
+}
+
 .cola-name {
   font-family: 'Macondo', sans-serif;
 }
 
-.company-name {
-  font-family: 'Smooch', sans-serif;
-  text-shadow: 
-  /* 1px 1px 2px rgba(0,0,0,.35), */
-  1px 1px 2px #faf9f6,
-  0px 0px 4px rgba(0,0,0,.5)
-  /* 0px 0px 4px #faf9f6 */
-                ;
-  /* width: 100%; */
-  /* margin-right: 0!important; */
-}
+
 
 .flex-center {
   display: flex;
@@ -78,21 +117,63 @@ body {
   z-index: 0;
 }
 
-.padding-top {
+/* .padding-top {
   padding-top: 10rem;
-}
+} */
 
 /*------------------  Vending Machine Body ------------------*/
+.company-name {
+  font-family: 'Smooch', sans-serif;
+  text-shadow: 
+  /* 1px 1px 2px rgba(0,0,0,.35), */
+  /* 1px 1px 2px #696969, */
+  3px 3px 1px #424242,
+  0px 0px 4px rgba(0,0,0,1)
+  /* -2px -2px 1px #424242 */
+  /* 0px 0px 4px #faf9f6 */
+  ;
+  text-shadow: 
+  /* -2px -2px 2px #faedc65b, */
+  /* 0px 0px #010203, */
+  1px 0px 0px #41F8D5,
+  0px 1px 0px #41F8D5,
+  -1px 0px 0px #41F8D5,
+  0px -1px 0px #41F8D5,
+  2px 2px 2px #010203,
+  4px 4px 4px #010203;
+
+
+  /* 1px 1px 0px #9c7d21, */
+
+  /* text-shadow: 1px 0px 1px #010203,
+  0px 1px 1px #010203,
+  -1px 0px 1px #010203,
+  0px -1px 1px #010203; */
+
+  /* color: transparent; */
+  color: #010203;
+}
 
 .vending-body {
+  /* top:50%; */
+  /* transform: translateY(50%); */
   /* background-color:orange; */
   z-index: initial;
   position: relative;
-  height: 45rem;
-  background: linear-gradient(291deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
+  /* height: 45rem; */
+  height: 80vh;
+  /* background: linear-gradient(291deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%),
               linear-gradient(145deg, rgba(250,249,246,.3), rgba(245,52,41,.3), rgba(250,249,246,.3) 70%),
-              linear-gradient(3225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%);
-  /* border: 2px solid #010203; */
+              linear-gradient(3225deg, rgba(245,52,41,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%); */
+  /* background: linear-gradient(291deg, rgba(17,245,233,.3), rgba(250,249,246,.3), rgba(17,245,233,.3) 70%),
+              linear-gradient(145deg, rgba(250,249,246,.3), rgba(13,181,173,.3), rgba(250,249,246,.3) 70%),
+              linear-gradient(3225deg, rgba(15,219,209,.3), rgba(250,249,246,.3), rgba(245,52,41,.3) 70%); */
+  /* background: linear-gradient(291deg, rgba(255, 255, 255, 0.5), rgba(250,249,246,.3), rgba(255, 255, 255, 0.5) 70%),
+              linear-gradient(145deg, rgba(11, 52, 167, 0.5), rgba(13,181,173,.3), rgba(11, 52, 167, 0.5) 70%),
+              linear-gradient(3225deg, rgba(15,219,209,.3), rgba(11, 52, 167, 0.5), rgba(245,52,41,.3) 70%); */
+              /* border: 2px solid #010203; */
+              background-color:#0096d6;
+              background-color:#4bb6ef;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   box-shadow: 
@@ -143,15 +224,25 @@ body {
 
 /*------------------  Vending Machine payment selection panel ------------------*/
 
+.depth-shadow{
+  box-shadow: 2px 2px 3px #010203,
+              0px 0px 4px #010203,
+              inset 0px 0px 2px #010203;
+}
+
 .cola-body-payment-panel {
   height: 42.5rem;
   border-radius: 10px;
-  background-color: rgba(153, 11, 11, 0.9);
+  background-color: #555454;
+  position: relative;
+  right: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .card-input {
   position: absolute;
-  right: 5%;
+  /* right: 25%; */
   top:40%;
   height:10px;
   width: 50px;
@@ -175,12 +266,25 @@ body {
 
 .coin-input {
   position: absolute;
-  right: 8%;
+  /* right: 42%; */
   top:43%;
   height:20px;
   width: 6px;
   background-color: #faf9f6;
   border-radius: 15px;
+}
+
+.coin-input::before {
+  content: "";
+  font-size: 0;
+  border: 5px solid #c2c2c2;
+  border-radius: 50%;
+  /* background-color: #2AEB5A; */
+  position: absolute;
+  left: 15px;
+  box-shadow: 2px 2px 3px #010203,
+              0px 0px 4px #010203,
+              inset 0px 0px 2px #010203;
 }
 
 .coin-input::after {
@@ -200,7 +304,7 @@ body {
 .selection-input {
   position: absolute;
   padding-left: 2px;
-  right: 3%;
+  /* right: 15%; */
   top: 20%;
   width: 83px;
   height: 83px;
@@ -217,10 +321,51 @@ body {
   background-color: #8b8b8b;
   border-radius: 50%;
   border: 2px solid rgb(255, 255, 255);
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,.5),
-              2px 2px 3px #010203;
 }
 
+.display-screen {
+  position: absolute;
+  top: 14%;
+  width: 90px;
+  height: 20px;
+  background-color: skyblue;
+}
+
+.card-reader {
+  position: absolute;
+  top:50%;
+  height: 40px;
+  width: 80px;
+  background-color: #c2c2c2;
+  display: flex;
+  justify-content: center;
+}
+.card-reader p {
+  position: relative;
+  bottom: 3px
+}
+
+.card-reader::before {
+  content: "";
+  font-size: 0;
+  position: absolute;
+  bottom: 2px;
+  height: 20px;
+  width: 70px;
+  background-color: #696969;
+  border-radius: 4px;
+}
+
+.card-reader::after {
+  content: "";
+  font-size: 0;
+  position: absolute;
+  bottom: 10px;
+  height: 5px;
+  width: 60px;
+  background-color: #010203;
+  border-radius: 4px;
+}
 
 /*------------------  Vending Machine feet ------------------*/
 
@@ -289,11 +434,16 @@ body {
 }
 
 .cola-header-text {
-  color: #2AEB5A;
+  color: #ff9595;
   padding: 2.5rem;
-  text-shadow: 1px 1px 0px #010203,
+  /* text-shadow: 1px 1px 0px #010203,
                 -1px -1px 0px #010203,
-                0px 0px 2px #010203;
+                0px 0px 2px #010203; */
+
+  text-shadow: 1px 0px 1px #010203,
+                0px 1px 1px #010203,
+                -1px 0px 1px #010203,
+                0px -1px 1px #010203;
 }
 
 .cola-button-text {

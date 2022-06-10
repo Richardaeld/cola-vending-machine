@@ -99,10 +99,13 @@ function App() {
     <>
 
 
-      <main className="container-fluid main-props">
+      <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
+          <div className="col-12 background-wall-stripe"></div>
+          <div className="background-floor-trim"></div>
+          <div className="background-floor"></div>
           {/* Vending Body */}
-          <section className="col-md-12 col-lg-8 vending-body p-3">
+          <section className="col-md-12 col-lg-6 vending-body p-3">
             {/* Body */}
             <div class="vending-body-solid-backgound"></div>
             <div class="left-foot"></div>
@@ -143,29 +146,32 @@ function App() {
               </div>
 
             <div className="col-2 cola-body-payment-panel">
-            <div className="card-input"></div>
-            <div className="coin-input"></div>
-            <div className="selection-input">
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-              <div className="selection-button"></div>
-            </div>
-            <div className="coin-return"></div>
+              <div className="card-input depth-shadow"></div>
+              <div className="coin-input depth-shadow"></div>
+              <div className="coin-return depth-shadow"></div>
+              <div className="display-screen depth-shadow"></div>
+              <div className="card-reader depth-shadow">
+                <p>Card</p>
+              </div>
 
-              
+              <div className="selection-input">
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+                <div className="selection-button depth-shadow"></div>
+              </div>
             </div>
 
             </div>
@@ -181,10 +187,10 @@ function App() {
             </section>
           }
         </div>
-      </main>
       <footer>
         <p>ColaCo All Rights Reserved</p>
       </footer>
+      </main>
     </>
 
 

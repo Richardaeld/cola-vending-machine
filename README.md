@@ -837,5 +837,3 @@ This is ColaCo's very first vending machine! We are a small upstart that has ama
 + [Upsplash](https://unsplash.com/)
     + A great place to find free high quality images
     + The image: https://unsplash.com/photos/nbrvUKkWP0Q -- unbranded_can.jpg was used as a background default image for the cola cans.
-
-
