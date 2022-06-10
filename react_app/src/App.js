@@ -101,24 +101,17 @@ function App() {
 
       <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
+          {/* Background details */}
           <div className="background-wall-stripe"></div>
           <div className="background-floor-trim"></div>
           <div className="background-floor"></div>
-          {/* Vending Body */}
+          {/* Vending Machine Body */}
           <section className="col-md-12 col-lg-6 vending-body p-3">
             {/* Body */}
             <div class="vending-body-solid-backgound"></div>
+            {/* Legs */}
             <div class="left-foot"></div>
             <div class="right-foot"></div>
-            {/* Logo */}
-            {/* <header className="container-fluid"> */}
-              {/* <div className="row"> */}
-                {/* <div className="col-6"> */}
-                  {/* <h1 className="mt-3 company-name">ColaCo Vending</h1> */}
-                {/* </div> */}
-              {/* </div> */}
-            {/* </header> */}
-
 
             {colaDetails &&
             <div className="text-shadow width-fit">
@@ -130,24 +123,19 @@ function App() {
               <div className="col-9 ms-4">
                   <h1 className="mt-3 company-name">Pop-<span className="flicker">A</span>-Cola</h1>
                   <div className="row justify-content-around">
+                    {/* Vending machine window  */}
                     <div className="vending-window"></div>
                     <div className="vending-window-background"></div>
+                    {/* Cola Outlet */}
                     <div className="vending-output">
                       <p className="text-center">Push</p>
                     </div>
-                    <div className=" vending-machine-row depth-shadow"></div>
-
-            
-
-
-                      {/* Colas */}
+                      {/* Cola row */}
+                      <div className=" vending-machine-row depth-shadow"></div>
                       {colaElement}
-
-
-
                   </div>
               </div>
-
+            {/* Vending machine payment and selection panel */}
             <div className="col-2 cola-body-payment-panel">
               <div className="card-input depth-shadow"></div>
               <div className="coin-input depth-shadow"></div>
