@@ -102,8 +102,8 @@ function App() {
       <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
           <div className="col-12 background-wall-stripe"></div>
-          <div className="background-floor-trim"></div>
-          <div className="background-floor"></div>
+          <div className="col-12 background-floor-trim"></div>
+          <div className="col-12 background-floor"></div>
           {/* Vending Body */}
           <section className="col-md-12 col-lg-6 vending-body p-3">
             {/* Body */}
@@ -187,10 +187,10 @@ function App() {
             </section>
           }
         </div>
-      <footer>
-        <p>ColaCo All Rights Reserved</p>
-      </footer>
       </main>
+      {/* <footer>
+        <p>ColaCo All Rights Reserved</p>
+      </footer> */}
     </>
 
 
