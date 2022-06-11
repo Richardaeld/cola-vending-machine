@@ -175,3 +175,14 @@ body {
 .stripe-style input {
   font-size: 10rem!important;
 }
+
+/*------------------  Footer  ------------------*/
+.colaco-footer {
+  position: absolute;
+  bottom: 0;
+  text-shadow: 1px 1px 0px #a7a7a7;
+}
+
+/* .colaco-footer {
+  position: absolute;
+} */

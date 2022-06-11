@@ -4,10 +4,6 @@ import {CardElement} from '@stripe/react-stripe-js';
 import {CardNumberElement} from '@stripe/react-stripe-js';
 import StripeElement from './components/html/elements/StripeElement';
 import VendingMachingContainer from './components/html/elements/VendingMachineContainer';
-import ColaButton from './components/html/elements/ColaButton';
-import VendingSelectionPanel from './components/html/elements/VendingSelectionPanel';
-import VendingSelectionPanelButton from './components/html/elements/VendingSelectionPanelButton';
-import VendingWindowOutput from './components/html/elements/VendingWindowOutput';
 import IndexBackground from './components/html/elements/IndexBackground';
 
 // import StripeElement from './components/html/elements/StripeElement';
@@ -54,8 +50,6 @@ function App() {
 
   return (
     <>
-
-
       <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
           <IndexBackground />
@@ -77,15 +71,12 @@ function App() {
             </section>
           }
         </div>
+        <footer className="colaco-footer">
+          <p>ColaCo All Rights Reserved</p>
+        </footer>
       </main>
-      {/* <footer>
-        <p>ColaCo All Rights Reserved</p>
-      </footer> */}
     </>
-
-
   )
-
 }
 
 export default App;
