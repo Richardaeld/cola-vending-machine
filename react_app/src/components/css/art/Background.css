@@ -1,70 +1,61 @@
+.background-wall-stripe,
+.background-floor-trim,
+.background-floor {
+  position: absolute;
+  z-index: -1;
+}
 
+.background-wall-stripe::after,
+.background-wall-stripe::before,
+.background-floor-trim::before,
+.background-floor::before {
+  content: "";
+  font-size: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+/*------------------  Wall Stripe  ------------------*/
 .background-wall-stripe {
-    position: absolute;
     background-color: #7cdedf;
-    width: 100vw;
     height:10vh;
     top: 30%;
   }
-  
+
   .background-wall-stripe::before {
-    content: "";
-    font-size: 0;
     background-color: #6EC3C4;
-    position: absolute;
     top: 0px;
-    left: 0;
-    width: 100%;
     height: 10px;
   }
-  
+
   .background-wall-stripe::after {
-    content: "";
-    font-size: 0;
     background-color: #6EC3C4;
-    position: absolute;
     bottom: 0px;
-    left: 0;
-    width:100%;
     height: 10px;
   }
-  
+/*------------------  Floor Carpet  ------------------*/
+
   .background-floor {
-    position: absolute;
-    z-index: -1;
     background-color: #fde896;
-    width:100%;
     height: 10vh;
     bottom: 0;
   }
-  
+
   .background-floor::before {
-    content: "";
-    font-size: 0;
     background-color: #7D734A;
-    position: absolute;
-    left: 0;
     bottom: 100%;
-    width: 100%;
     height: 15px;
   }
-  
+/*------------------  Floor Trim  ------------------*/
   .background-floor-trim {
-    position: absolute;
-    z-index: -1;
     background-color: #439091;
-    width:100%;
     height: 45px;
     bottom: 11%;
   }
-  
+
   .background-floor-trim::before {
-    content: "";
-    font-size: 0;
     background-color: #377778;
-    position: absolute;
-    left: 0;
     top: -15px;
-    width: 100%;
     height: 15px;
   }
