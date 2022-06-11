@@ -3,9 +3,12 @@ import React, {useEffect} from 'react';
 import {CardElement} from '@stripe/react-stripe-js';
 import {CardNumberElement} from '@stripe/react-stripe-js';
 import StripeElement from './components/html/elements/StripeElement';
+import VendingMachingContainer from './components/html/elements/VendingMachineContainer';
 import ColaButton from './components/html/elements/ColaButton';
 import VendingSelectionPanel from './components/html/elements/VendingSelectionPanel';
 import VendingSelectionPanelButton from './components/html/elements/VendingSelectionPanelButton';
+import VendingWindowOutput from './components/html/elements/VendingWindowOutput';
+import IndexBackground from './components/html/elements/IndexBackground';
 
 // import StripeElement from './components/html/elements/StripeElement';
 
@@ -49,101 +52,20 @@ function App() {
   // const indexOfFirstCola = indexOfLastCola - colaPerPage;
   // const currentPost = setColaInfo(colaData.slice(indexOfFirstCola, indexOfLastCola));
 
-  function detailsClick(id) {
-    console.log("I am ehre to")
-  }
-
-  function clickCola (id) {
-    setColaInfo(prevCola => {
-      return prevCola.map((cola) => {
-        if (cola.id !== id) {
-          return {...cola, display:!cola.display}
-        } else {
-          setColaDetails(true)
-          return {
-            ...cola,
-            details: true,
-          };
-        }
-      })
-    })
-  }
-
-  function noClick () {
-    console.log("I do nothing")
-  }
-
-  function colaButtonReset() {
-    setColaDetails(false);
-    fetchColaData();
-  }
-
-
-  console.log(colaInfo ,"IM INFO")
-
-  const colaElement = colaInfo.map(cola => (
-      <ColaButton
-          key={cola.id}
-          id={cola.id}
-          name={cola.name}
-          price={cola.price}
-          amount={cola.amount}
-          description={cola.description}
-          details={cola.details}
-          display={cola.display}
-          click={() => clickCola(cola.id)}
-          noClick={() => noClick(cola.id)}
-      />
-  ))
-
-  // -------------------Cola Details
-
-  // console.log("I am cola info", colaInfo)
   return (
     <>
 
 
       <main className="container-fluid main-props position-relative">
         <div className="row justify-content-center m-5 padding-top">
-          {/* Background details */}
-          <div className="background-wall-stripe"></div>
-          <div className="background-floor-trim"></div>
-          <div className="background-floor"></div>
-          {/* Vending Machine Body */}
-          <section className="col-md-12 col-lg-6 vending-body p-3">
-            {/* Body */}
-            <div class=""></div>
-            {/* Legs */}
-            <div class="left-foot"></div>
-            <div class="right-foot"></div>
-
-            {colaDetails &&
-            <div className="text-shadow width-fit">
-                <button className="buy-button" onClick={colaButtonReset}>Go back</button>
-            </div>
-            }
-
-            <div className="row justify-content-between position-relative">
-              <div className="col-9 ms-4">
-                  <h1 className="mt-3 company-name">Pop-<span className="flicker">A</span>-Cola</h1>
-                  <div className="row justify-content-around">
-                    {/* Vending machine window  */}
-                    <div className="vending-window"></div>
-                    <div className="vending-window-background"></div>
-                    {/* Cola Outlet */}
-                    <div className="vending-output">
-                      <p className="text-center">Push</p>
-                    </div>
-                      {/* Cola row */}
-                      <div className=" vending-machine-row depth-shadow"></div>
-                      {colaElement}
-                  </div>
-              </div>
-            {/* Vending machine payment and selection panel */}
-            <VendingSelectionPanel />
-
-            </div>
-          </section>
+          <IndexBackground />
+          <VendingMachingContainer
+            colaInfo={colaInfo}
+            setColaInfo={setColaInfo}
+            colaDetails={colaDetails}
+            setColaDetails={setColaDetails}
+            fetchColaData={fetchColaData}
+          />
 
           {colaDetails &&
             <section className=" col-10 col-md-3 me-3">
