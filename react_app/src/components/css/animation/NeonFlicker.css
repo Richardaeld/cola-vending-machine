@@ -1,15 +1,8 @@
-/*------------------  animation  ------------------*/
-
+/*------------------  Logo Flicker Animation  ------------------*/
 .flicker {
-    /* text-shadow: 1px 0px 0px #41F8D5,
-                  0px 1px 0px #41F8D5,
-                  -1px 0px 0px #41F8D5,
-                  0px -1px 0px #41F8D5,
-                  2px 2px 2px #010203,
-                  4px 4px 4px #010203; */
     animation: flicker-animation 3s infinite alternate;
   }
-  
+
   @keyframes flicker-animation {
       40% {
         text-shadow: 1px 0px 0px #41F8D5,
@@ -22,9 +15,9 @@
         0px 0px 50px #41F8D5,
         0px 0px 75px #41F8D5,
         0px 0px 100px #41F8D5,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
+
       42% {
         text-shadow: 1px 0px 0px #30B89F,
         0px 1px 0px #30B89F,
@@ -36,9 +29,9 @@
         0px 0px 50px transparent,
         0px 0px 75px transparent,
         0px 0px 100px transparent,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
+
       43%{
         text-shadow: 1px 0px 0px #41F8D5,
         0px 1px 0px #41F8D5,
@@ -50,9 +43,9 @@
         0px 0px 50px #41F8D5,
         0px 0px 75px #41F8D5,
         0px 0px 100px #41F8D5,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
+
       59%{
         text-shadow: 1px 0px 0px #41F8D5,
         0px 1px 0px #41F8D5,
@@ -64,9 +57,9 @@
         0px 0px 50px #41F8D5,
         0px 0px 75px #41F8D5,
         0px 0px 100px #41F8D5,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
+
       60%{
         text-shadow: 1px 0px 0px #30B89F,
         0px 1px 0px #30B89F,
@@ -78,9 +71,9 @@
         0px 0px 50px transparent,
         0px 0px 75px transparent,
         0px 0px 100px transparent,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
+
       100% {
         text-shadow: 1px 0px 0px #30B89F,
         0px 1px 0px #30B89F,
@@ -92,7 +85,6 @@
         0px 0px 50px transparent,
         0px 0px 75px transparent,
         0px 0px 100px transparent,
-        /* 2px 2px 2px #010203, */
         4px 4px 4px #010203;
       }
   }
