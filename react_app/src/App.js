@@ -108,7 +108,7 @@ function App() {
           {/* Vending Machine Body */}
           <section className="col-md-12 col-lg-6 vending-body p-3">
             {/* Body */}
-            <div class="vending-body-solid-backgound"></div>
+            <div class=""></div>
             {/* Legs */}
             <div class="left-foot"></div>
             <div class="right-foot"></div>
@@ -136,12 +136,12 @@ function App() {
                   </div>
               </div>
             {/* Vending machine payment and selection panel */}
-            <div className="col-2 cola-body-payment-panel">
+            <div className="col-2 cola-body-payment-panel flex-center">
               <div className="card-input depth-shadow"></div>
               <div className="coin-input depth-shadow"></div>
               <div className="coin-return depth-shadow"></div>
               <div className="display-screen depth-shadow"></div>
-              <div className="card-reader depth-shadow">
+              <div className="card-reader flex-center depth-shadow">
                 <p>Card</p>
               </div>
               <div className="coin-output depth-shadow"></div>
