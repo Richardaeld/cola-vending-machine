@@ -280,7 +280,7 @@
   /* Vending Cola Output */
   .vending-output {
     position: absolute;
-    background-color: #a8a8a8;
+    background-color: #555454;
     height: 5rem;
     bottom: 1rem;
     width:25rem;
@@ -293,6 +293,6 @@
 
   .vending-output p {
     font-size: 3rem;
-    color: #555454;
-    text-shadow: 2px 2px 1px #010203;
+    color: #a8a8a8;
+    text-shadow: 3px 3px 2px #010203;
   }
