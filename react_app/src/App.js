@@ -4,6 +4,9 @@ import {CardElement} from '@stripe/react-stripe-js';
 import {CardNumberElement} from '@stripe/react-stripe-js';
 import StripeElement from './components/html/elements/StripeElement';
 import ColaButton from './components/html/elements/ColaButton';
+import VendingSelectionPanel from './components/html/elements/VendingSelectionPanel';
+import VendingSelectionPanelButton from './components/html/elements/VendingSelectionPanelButton';
+
 // import StripeElement from './components/html/elements/StripeElement';
 
 function App() {
@@ -75,6 +78,9 @@ function App() {
     fetchColaData();
   }
 
+
+  console.log(colaInfo ,"IM INFO")
+
   const colaElement = colaInfo.map(cola => (
       <ColaButton
           key={cola.id}
@@ -91,8 +97,6 @@ function App() {
   ))
 
   // -------------------Cola Details
-
-
 
   // console.log("I am cola info", colaInfo)
   return (
@@ -136,35 +140,7 @@ function App() {
                   </div>
               </div>
             {/* Vending machine payment and selection panel */}
-            <div className="col-2 cola-body-payment-panel flex-center">
-              <div className="card-input depth-shadow"></div>
-              <div className="coin-input depth-shadow"></div>
-              <div className="coin-return depth-shadow"></div>
-              <div className="display-screen depth-shadow"></div>
-              <div className="card-reader flex-center depth-shadow">
-                <p>Card</p>
-              </div>
-              <div className="coin-output depth-shadow"></div>
-
-              <div className="selection-input">
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-                <div className="selection-button depth-shadow"></div>
-              </div>
-            </div>
+            <VendingSelectionPanel />
 
             </div>
           </section>
