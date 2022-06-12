@@ -56,6 +56,9 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
 
+    console.log("I am CREDS", username, "username", password, "password")
+
+
     if(!(username && password)) {
         return res.status(400).json({ message: 'Please enter both name and password' });
     }

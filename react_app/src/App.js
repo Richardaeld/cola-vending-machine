@@ -189,14 +189,14 @@ function App() {
               </form> */}
 
               <Register />
-              <form action="http://localhost:5000/user/auth/login" method="POST" className="login-form mt-4">
+              {/* <form action="http://localhost:5000/user/auth/login" method="POST" className="login-form mt-4">
                 <h3>Login</h3>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" />
                 <label for="password">Password</label>
                 <input id="password" name="password" type="text" />
                 <button type="submit" name="submit" value="submit" className="mt-3">submit</button>
-              </form>
+              </form> */}
 
 
 
