@@ -6,7 +6,7 @@ import StripeElement from './components/html/elements/StripeElement';
 import VendingMachingContainer from './components/html/elements/VendingMachineContainer';
 import IndexBackground from './components/html/elements/IndexBackground';
 import ColaButton from './components/html/elements/ColaButton';
-
+import Register from './Register'
 // import StripeElement from './components/html/elements/StripeElement';
 
 function App() {
@@ -146,6 +146,17 @@ function App() {
     />
   ))
 
+  // const [loginData, setLoginData] = React.useState([])
+  const useLocalStorage = (key, initValue) => {
+    const [value, setValue] = useState(JSON.parse(localStorage.getItem(key)) || initValue);
+
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value])
+
+    return [value, setValue];
+  }
+
   return (
     <>
       <main className="container-fluid main-props position-relative">
@@ -167,22 +178,23 @@ function App() {
               {/* stripe */}
               <StripeElement />
 
-              <form action="" className="login-form mt-4">
+
+              {/* <form action="" className="login-form mt-4">
                 <h3>Registration</h3>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" />
                 <label for="password">Password</label>
                 <input id="password" name="passwoed" type="text" />
                 <button type="submit" name="submit" value="submit" className="mt-3">submit</button>
-              </form>
+              </form> */}
 
-
-              <form action="" className="login-form mt-4">
+              <Register />
+              <form action="http://localhost:5000/user/auth/login" method="POST" className="login-form mt-4">
                 <h3>Login</h3>
                 <label for="username">Username</label>
                 <input id="username" name="username" type="text" />
                 <label for="password">Password</label>
-                <input id="password" name="passwoed" type="text" />
+                <input id="password" name="password" type="text" />
                 <button type="submit" name="submit" value="submit" className="mt-3">submit</button>
               </form>
 
