@@ -50,13 +50,39 @@ export default function Register (props) {
         setErrMsg('');
     }, [user, pass, matchPass])
 
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // extra security layer
+        const v1 = USER_REGEX.test(user);
+        const v2 = PASS_REGEX.test(pass);
+        if (!v1 || !v2) {
+            setErrMsg("Invalid Entry");
+            return;
+        }
+        console.log(user, pass);
+        SetSuccess(true)
+    }
+
     return (
+
+        <>
+        {success ? (
+            <section>
+                <h1>Success!</h1>
+                <p>
+                    <a href="#">Sign In</a>
+                </p>
+            </section>
+        ) : (
+
+
         <section>
             <p ref={effRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
                 {errMsg}
             </p>
             <h2>Register</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 {/* username */}
                 <label htmlFor="username">
                     Username
@@ -149,8 +175,19 @@ export default function Register (props) {
                 <button disabled={!validName || !validPass || !validMatch ? true : false}>
                     Register
                 </button>
-
             </form>
+
+            <p>
+                Already Registered?<br />
+                <span className="line">
+                    <a href="#">Sign In</a>
+                </span>
+            </p>
+
         </section>
+
+    )}
+    </>
+
     )
 }
