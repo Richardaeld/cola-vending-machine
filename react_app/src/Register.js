@@ -22,9 +22,37 @@ export default function Register (props) {
     const [matchPass, setMatchPass] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false);
-    return (
-        <>
 
-        </>
+    const [errMsg, setErrMsg] = useState('');
+    const [success, SetSuccess] = useState('');
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+    useEffect(() => {
+        const result = USER_REGEX.test(user);
+        console.log(result);
+        console.log(user);
+        setValidName(result);
+    }, [user])
+
+    useEffect(() => {
+        const result = PASS_REGEX.test(pass);
+        console.log(result);
+        console.log(pass);
+        setValidPass(result);
+        const match = pass === matchPass;
+        setValidMatch(match);
+    }, [pass, matchPass])
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [user, pass, matchPass])
+
+    return (
+        <section>
+
+        </section>
     )
 }
