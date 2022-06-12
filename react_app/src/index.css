@@ -78,6 +78,17 @@ body {
 
 /*------------------  Cola Template  ------------------*/
 
+.details-background {
+  /* background-color: #faf9f6; */
+}
+
+.purchase-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #EBBC1E;
+}
+
 
 
 .text-shadow {
@@ -175,6 +186,12 @@ body {
 .stripe-style input {
   font-size: 10rem!important;
 }
+/*------------------  Login Form  ------------------*/
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /*------------------  Footer  ------------------*/
 .colaco-footer {

@@ -4,33 +4,33 @@ import VendingMachineLegs from "./VendingMachineLegs"
 
 export default function VendingMachingContainer (props) {
 
-    function clickCola (id) {
-        props.setColaInfo(prevCola => {
-          return prevCola.map((cola) => {
-            if (cola.id !== id) {
-              return {...cola, display:!cola.display}
-            } else {
-              props.setColaDetails(true)
-              return {
-                ...cola,
-                details: true,
-              };
-            }
-          })
-        })
-      }
+    // function clickCola (id) {
+    //     props.setColaInfo(prevCola => {
+    //       return prevCola.map((cola) => {
+    //         if (cola.id !== id) {
+    //           return {...cola, display:!cola.display}
+    //         } else {
+    //           props.setColaDetails(true)
+    //           return {
+    //             ...cola,
+    //             details: true,
+    //           };
+    //         }
+    //       })
+    //     })
+    //   }
 
     function colaButtonReset() {
     props.setColaDetails(false);
     props.fetchColaData();
     }
 
-    function noClick () {
-    console.log("I do nothing")
-    }
+    // function noClick () {
+    // console.log("I do nothing")
+    // }
 
     return (
-        <section className="col-md-12 col-lg-6 vending-body p-3">
+        <section className="col-md-12 col-lg-10 col-xl-8 vending-body p-3">
             <VendingMachineLegs />
 
             {props.colaDetails &&
@@ -43,9 +43,10 @@ export default function VendingMachingContainer (props) {
 
                 {/* Vending Machine Header, Window, and Cola Output */}
                 <VendingWindowOutput
+                    colaElement={props.colaElement}
                     colaInfo={props.colaInfo}
-                    clickCola={clickCola}
-                    noClick={noClick}
+                    clickCola={props.clickCola}
+                    noClick={props.noClick}
                 />
 
                 {/* Vending machine payment and selection panel */}

@@ -29,43 +29,45 @@ export default function ColaButton (props) {
     }
 
     return (
-        <>
 
-            <div class="col-6 col-md-3 position-relative" style={styles} onClick={props.details ? props.noClick : props.click}>
+            <div className={(!props.details ? "col-6 col-md-3 position-relative" : "col-12 col-md-12 position-relative purchase-background")} style={styles} onClick={props.details ? props.noClick : props.click}>
             {/* <div class="col-6 col-md-3 flex-stretch reduce-9" style={styles}> */}
-            <div className="cola-holder"></div>
+            <div className={(props.details ? "" : "cola-holder")}></div>
                 {/* body */}
                 {/* <div className="cola-template-container row justify-content-center"> */}
                 <div className="row justify-content-center cola-container">
-                    {/* Header */}
+                    {/* Name */}
                     <div class="cola-header flex-center">
                         <h3 className="cola-name text-center mb-0 cola-header-text">{props.name}</h3>
                     </div>
-                    {/* in-stock */}
-                    {/* <div className="text-center flex-around cola-button-text">
-                        <span className="d-block">{props.amount > 0 ? "In stock" : "Out of Stock"} </span>
-                    </div> */}
-                    {/* Price */}
-                    {/* <div className="text-center mt-2 mb-4 flex-around cola-button-text">
-                        <span className="d-block">${ props.price.toFixed(2)}</span>
-                    </div> */}
 
-                    {/* {props.details &&
-                                <div className="text-center mt-2 mb-4 flex-around">
-                                    <span>{props.description}</span>
-                                </div>
-                    } */}
 
                     {/* Purchase Button */}
-                    {/* {props.details && */}
-                        {/* <> */}
+                    {props.details &&
+                        <div className="details-background">
+                            {/* in-stock */}
+                            <div className="text-center flex-around cola-button-text">
+                                <span className="d-block">{props.amount > 0 ? "In stock" : "Out of Stock"} </span>
+                            </div>
+
+                            {/* Price */}
+                            <div className="text-center mt-2 mb-4 flex-around cola-button-text">
+                                <span className="d-block">${ props.price.toFixed(2)}</span>
+                            </div>
+
+                            {props.details &&
+                                        <div className="text-center mt-2 mb-4 flex-around">
+                                            <span>{props.description}</span>
+                                        </div>
+                            }
+
                             {/* Will be real button */}
-                            {/* <div className="buy-button-position w-100">
+                            <div className="buy-button-position w-100">
                                 <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
-                            </div> */}
+                            </div>
 
                             {/* Proof of concept */}
-                            {/* <div className="buy-button-position  w-100">
+                            <div className="buy-button-position  w-100">
                                 <a className="buy-button mb-4 px-4 py-1 text-shadow"
                                     href={`data:text/json;charset=utf-8, ${encodeURIComponent(
                                         JSON.stringify(jsonObj)
@@ -74,18 +76,17 @@ export default function ColaButton (props) {
                                         >
                                     {`Download ${props.name}`}
                                 </a>
-                            </div> */}
+                            </div>
 
                             {/* Proof of concept */}
-                            {/* <div className="buy-button-position  w-100">
+                            <div className="buy-button-position  w-100">
                                 <button className="buy-button mb-4 px-4 py-1 text-shadow" onClick={RemoveOneCola}>Cola Decrement</button>
-                            </div> */}
-                        {/* </> */}
-                    {/* } */}
+                            </div>
+                        </div>
+                    }
                 </div>
         </div>
 
-      </>
 
     )
 }
