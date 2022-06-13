@@ -8,17 +8,26 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js';
+import {AuthProvider} from './context/AuthProvider'
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Elements
+
+  <AuthProvider>
+
+
+    {/* <Elements
       stripe={stripePromise}
-    >
+    > */}
       <App />
-    </Elements>
+    {/* </Elements> */}
+
+    </AuthProvider>
+
+
   </React.StrictMode>
 );
 
