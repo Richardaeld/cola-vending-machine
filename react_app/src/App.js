@@ -7,6 +7,7 @@ import VendingMachingContainer from './components/html/elements/VendingMachineCo
 import IndexBackground from './components/html/elements/IndexBackground';
 import ColaButton from './components/html/elements/ColaButton';
 import Register from './Register'
+import Login from './Login'
 // import StripeElement from './components/html/elements/StripeElement';
 
 function App() {
@@ -173,10 +174,10 @@ function App() {
 
           {colaDetails &&
             <section className=" col-10 col-md-3 me-3">
-              <h2>Pay for cola</h2>
+              {/* <h2>Pay for cola</h2> */}
 
               {/* stripe */}
-              <StripeElement />
+              {/* <StripeElement /> */}
 
 
               {/* <form action="" className="login-form mt-4">
@@ -187,8 +188,8 @@ function App() {
                 <input id="password" name="passwoed" type="text" />
                 <button type="submit" name="submit" value="submit" className="mt-3">submit</button>
               </form> */}
-
-              <Register />
+              <Login />
+              {/* <Register /> */}
               {/* <form action="http://localhost:5000/user/auth/login" method="POST" className="login-form mt-4">
                 <h3>Login</h3>
                 <label for="username">Username</label>
