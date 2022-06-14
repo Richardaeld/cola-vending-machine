@@ -109,9 +109,16 @@ export default function Login (props) {
             </form>
 
             <p>
-                Already Registered?<br />
+                Need to  Register?<br />
                 <span className="line">
-                    <a href="#">Sign In</a>
+                    <a href="register">Register</a>
+                </span>
+            </p>
+
+            <p>
+                Back to the Vending Machine?<br />
+                <span className="line">
+                    <a href="/">Back</a>
                 </span>
             </p>
 

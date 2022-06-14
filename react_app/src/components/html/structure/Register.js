@@ -97,7 +97,7 @@ export default function Register (props) {
             <section>
                 <h1>Success!</h1>
                 <p>
-                    <a href="#">Sign In</a>
+                    <a href="login">Sign In</a>
                 </p>
             </section>
         ) : (
@@ -206,7 +206,14 @@ export default function Register (props) {
             <p>
                 Already Registered?<br />
                 <span className="line">
-                    <a href="#">Sign In</a>
+                    <a href="login">Sign In</a>
+                </span>
+            </p>
+
+            <p>
+                Back to the Vending Machine?<br />
+                <span className="line">
+                    <a href="/">Back</a>
                 </span>
             </p>
 

@@ -101,8 +101,13 @@ export default function Home (props) {
     return (
         <>
 
-          <main className="container-fluid main-props position-relative">
             <div className="row justify-content-center m-5 padding-top">
+                <h1>
+                    <a href="login">login</a>
+                </h1>
+                <h1>
+                    <a href="register">Register</a>
+                </h1>
               <IndexBackground />
               <VendingMachingContainer
                 colaElement={colaElement}
@@ -112,7 +117,7 @@ export default function Home (props) {
                 setColaDetails={setColaDetails}
                 fetchColaData={fetchColaData}
               />
-    
+
               {colaDetails &&
                 <section className=" col-10 col-md-3 me-3">
                   {/* <Login /> */}
@@ -121,10 +126,8 @@ export default function Home (props) {
               }
             </div>
             <footer className="colaco-footer">
-                <a href="login"> login</a>
               <p>ColaCo All Rights Reserved</p>
             </footer>
-          </main>
         </>
     )
 }
