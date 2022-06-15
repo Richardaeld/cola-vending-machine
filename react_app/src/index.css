@@ -90,12 +90,13 @@ body {
 
 .purchase-background {
   position: absolute;
+  z-index: 0;
   left:0;
-  z-index: initial;
   width: 100%;
   height: 100%;
   border-radius:  15px;
-  background-color: #EBBC1E;
+  /* background-color: #B05E3F; */
+  background-color: rgba(0,0,0,.25);
 }
 
 

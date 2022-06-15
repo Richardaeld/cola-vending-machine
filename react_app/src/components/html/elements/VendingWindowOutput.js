@@ -23,10 +23,9 @@ export default function VendingWindowOutput (props) {
 
     // find opened cola element
     function findColaDetailsBool() {
+
         const colaNum = props.colaElement.length
 
-
-    
         for (let i=0; i < colaNum; i++) {
             if (props.colaElement[i].props.details === true) {
                 const jsonObj = {
@@ -43,6 +42,13 @@ export default function VendingWindowOutput (props) {
             }
         }
         return {display: false}
+    }
+
+    function colaButtonReset() {
+        console.log("SETCOLA DETAILS")
+        // props.setColaDetails(false)
+        // return findColaDetailsBool(false);
+        return;
     }
 
     // console.log("Im a find", findColaDetailsBool().display)
@@ -70,6 +76,7 @@ export default function VendingWindowOutput (props) {
                                 // amount={findColaDetailsBool().element.amount}
                                 // name={findColaDetailsBool().element.name}
                                 jsonObj={findColaDetailsBool().jsonObj}
+                                colaButtonReset={colaButtonReset}
                             />
                         </div> 
                     :   ""
@@ -83,8 +90,13 @@ export default function VendingWindowOutput (props) {
                     <p className="text-center">Push</p>
                 </div>
                 {/* Cola row */}
-                <div className=" vending-machine-row depth-shadow"></div>
-                {props.colaElement}
+                {!findColaDetailsBool().display ?
+                    <>
+                        <div className=" vending-machine-row depth-shadow"></div>
+                        {props.colaElement}
+                    </>
+                    : ""
+                }
             </div>
         </div>
     )

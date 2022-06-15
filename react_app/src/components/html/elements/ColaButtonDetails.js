@@ -13,8 +13,16 @@ export default function ColaButtonDetails (props) {
         }
     }
 
+
+
     return (
         <div className="">
+            {/* back button */}
+            {/* {props.colaDetails && */}
+            <div className="text-shadow width-fit">
+                <button className="buy-button" onClick={props.colaButtonReset}>Go back</button>
+            </div>
+            {/* } */}
             {/* name */}
             <div class={props.cola.amount > 0 ? "cola-header flex-center" : "cola-out-stock-header out-of-stock-swing flex-center"}>
                 <h3 className={props.cola.amount > 0 ? "cola-name text-center mb-0 cola-header-text" : "cola-name text-center mb-0"}>
@@ -32,7 +40,7 @@ export default function ColaButtonDetails (props) {
                 <span className="d-block">${ props.cola.price.toFixed(2)}</span>
             </div>
 
-            <div className="text-center mt-2 mb-4 flex-around">
+            <div className="text-center mt-2 mb-4 flex-around cola-button-text">
                 <span>{props.cola.description}</span>
             </div>
 

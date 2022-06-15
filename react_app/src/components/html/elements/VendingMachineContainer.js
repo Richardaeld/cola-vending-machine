@@ -20,10 +20,10 @@ export default function VendingMachingContainer (props) {
     //     })
     //   }
 
-    function colaButtonReset() {
-    props.setColaDetails(false);
-    props.fetchColaData();
-    }
+    // function colaButtonReset() {
+    // props.setColaDetails(false);
+    // props.fetchColaData();
+    // }
 
     // function noClick () {
     // console.log("I do nothing")
@@ -33,11 +33,11 @@ export default function VendingMachingContainer (props) {
         <section className="col-11 col-sm-10 col-md-10 col-lg-9 col-xl-6 vending-body p-3">
             <VendingMachineLegs />
 
-            {props.colaDetails &&
+            {/* {props.colaDetails &&
             <div className="text-shadow width-fit">
                 <button className="buy-button" onClick={colaButtonReset}>Go back</button>
             </div>
-            }
+            } */}
 
             <div className="row justify-content-between position-relative">
 
@@ -47,6 +47,8 @@ export default function VendingMachingContainer (props) {
                     colaInfo={props.colaInfo}
                     clickCola={props.clickCola}
                     noClick={props.noClick}
+                    setColaDetails={props.setColaDetails()}
+                    // colaButtonReset={colaButtonReset()}
                 />
 
                 {/* Vending machine payment and selection panel */}
