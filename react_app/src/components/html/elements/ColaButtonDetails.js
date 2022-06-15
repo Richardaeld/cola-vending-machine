@@ -13,16 +13,12 @@ export default function ColaButtonDetails (props) {
         }
     }
 
-
-
     return (
         <div className="">
             {/* back button */}
-            {/* {props.colaDetails && */}
             <div className="text-shadow width-fit">
                 <button className="buy-button" onClick={props.colaButtonReset}>Go back</button>
             </div>
-            {/* } */}
             {/* name */}
             <div class={props.cola.amount > 0 ? "cola-header flex-center" : "cola-out-stock-header out-of-stock-swing flex-center"}>
                 <h3 className={props.cola.amount > 0 ? "cola-name text-center mb-0 cola-header-text" : "cola-name text-center mb-0"}>
@@ -39,17 +35,17 @@ export default function ColaButtonDetails (props) {
             <div className="text-center mt-2 mb-4 flex-around cola-button-text">
                 <span className="d-block">${ props.cola.price.toFixed(2)}</span>
             </div>
-
+            {/* Cola Description */}
             <div className="text-center mt-2 mb-4 flex-around cola-button-text">
                 <span>{props.cola.description}</span>
             </div>
 
-            {/* Will be real button */}
+            {/* Buy Now button */}
             <div className="buy-button-position w-100">
                 <button className="buy-button mb-4 px-4 py-1 text-shadow">Buy now</button>
             </div>
 
-            {/* Proof of concept */}
+            {/* Download Cola */}
             <div className="buy-button-position  w-100">
                 <a className="buy-button mb-4 px-4 py-1 text-shadow"
                     href={`data:text/json;charset=utf-8, ${encodeURIComponent(

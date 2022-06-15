@@ -3,24 +3,6 @@ import ColaButtonDetails from './ColaButtonDetails';
 
 export default function VendingWindowOutput (props) {
 
-    // const colaElement = props.colaInfo.map(cola => (
-    //     <ColaButton
-    //         key={cola.id}
-    //         id={cola.id}
-    //         name={cola.name}
-    //         price={cola.price}
-    //         amount={cola.amount}
-    //         description={cola.description}
-    //         details={cola.details}
-    //         display={cola.display}
-    //         click={() => props.clickCola(cola.id)}
-    //         noClick={() => props.noClick(cola.id)}
-    //     />
-    // ))
-
-
-    // console.log("Im cola element", props.colaElement[0].props.details)
-
     // find opened cola element
     function findColaDetailsBool() {
 
@@ -51,14 +33,6 @@ export default function VendingWindowOutput (props) {
         return;
     }
 
-    // console.log("Im a find", findColaDetailsBool().display)
-    // console.log("Im a find", findColaDetailsBool().cola)
-    // console.log("Im a find", findColaDetailsBool().element)
-
-    // console.log("Im a find", findColaDetailsBool())
-
-    // console.log("Im a find", findColaDetailsBool().element.price)
-
     return (
         <div className="col-9 ms-4">
             <h1 className="mt-3 company-name">Pop-<span className="flicker">A</span>-Cola</h1>
@@ -69,21 +43,14 @@ export default function VendingWindowOutput (props) {
                     ?   <div className="purchase-background">
                             <ColaButtonDetails
                                 cola={findColaDetailsBool().element}
-                                // price={findColaDetailsBool().element.price}
-                                // id={findColaDetailsBool().element.id}
-                                // description={findColaDetailsBool().element.description}
-                                // details={findColaDetailsBool().element.details}
-                                // amount={findColaDetailsBool().element.amount}
-                                // name={findColaDetailsBool().element.name}
                                 jsonObj={findColaDetailsBool().jsonObj}
                                 colaButtonReset={colaButtonReset}
                             />
-                        </div> 
+                        </div>
                     :   ""
                 }
 
                 </div>
-                {/* {props.colaElement.details ? : <h1>alksjf;lasjd;fsakjdf;lkasjd</h1>} */}
                 <div className="vending-window-background"></div>
                 {/* Cola Outlet */}
                 <div className="vending-output flex-center">
