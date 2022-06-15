@@ -50,12 +50,12 @@
 /*------------------  Floor Trim  ------------------*/
   .background-floor-trim {
     background-color: #439091;
-    height: 45px;
-    bottom: 11%;
+    height: 2%;
+    bottom: calc(15px + 10vh);
   }
 
   .background-floor-trim::before {
     background-color: #377778;
-    top: -15px;
+    top: 0;
     height: 15px;
   }
