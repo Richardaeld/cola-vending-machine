@@ -37,8 +37,10 @@ export default function ColaButton (props) {
                 {/* <div className="cola-template-container row justify-content-center"> */}
                 <div className="row justify-content-center cola-container">
                     {/* Name */}
-                    <div class="cola-header flex-center">
-                        <h3 className="cola-name text-center mb-0 cola-header-text">{props.name}</h3>
+                    <div class={props.amount > 0 ? "cola-header flex-center" : "cola-out-stock-header out-of-stock-swing flex-center"}>
+                        <h3 className={props.amount > 0 ? "cola-name text-center mb-0 cola-header-text" : "cola-name text-center mb-0"}>
+                            {props.amount > 0 ? props.name : "Out Of Stock"}
+                        </h3>
                     </div>
 
 

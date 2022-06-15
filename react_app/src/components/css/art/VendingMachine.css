@@ -77,7 +77,7 @@
   /* Holder For Merchandise */
   .cola-holder {
     position: absolute;
-    z-index: 4;
+    z-index: 1;
     width: 100px;
     height: 100px;
     transform: rotate(45deg);
