@@ -206,7 +206,7 @@
     top:50%;
     height: 40px;
     /* width: 80px; */
-    width: 90%;
+    width: 50%;
     background-color: #c2c2c2;
   }
   .card-reader p {
@@ -335,6 +335,9 @@
     }
     .company-name {
       font-size: 2.5rem;
+    }
+    .card-reader {
+      width:70%;
     }
   }
   @media (max-width: 767.98px) {
