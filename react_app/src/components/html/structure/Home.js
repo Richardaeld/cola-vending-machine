@@ -108,6 +108,9 @@ export default function Home (props) {
                 <h1>
                     <a href="register">Register</a>
                 </h1>
+                <h1>
+                    <a href="register1">Register1</a>
+                </h1>
               <IndexBackground />
               <VendingMachingContainer
                 colaElement={colaElement}
