@@ -4,7 +4,7 @@ export default function VendingSelectionPanel (props) {
 
     // Creates the selection pad keys
     let rangeNum = []
-    for(let key=0; key<16; key++) {
+    for(let key=0; key<36; key++) {
         rangeNum.push({key})
     }
 
