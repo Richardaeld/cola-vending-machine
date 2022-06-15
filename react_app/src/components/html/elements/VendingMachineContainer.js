@@ -30,7 +30,7 @@ export default function VendingMachingContainer (props) {
     // }
 
     return (
-        <section className="col-md-12 col-lg-10 col-xl-8 vending-body p-3">
+        <section className="col-11 col-sm-10 col-md-10 col-lg-9 col-xl-6 vending-body p-3">
             <VendingMachineLegs />
 
             {props.colaDetails &&

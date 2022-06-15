@@ -18,7 +18,11 @@ code {
 }
 
 main {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100vh;
+  /* min-height: 100vh; */
+  /* max-height: 100vh; */
+  /* height: 140rem; */
 }
 
 /*------------------  general  ------------------*/
@@ -28,7 +32,7 @@ body {
   z-index: -2;
   background-color: #B7f7f7;
   font-family: 'Oswald', sans-serif;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 

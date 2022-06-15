@@ -25,7 +25,7 @@ export default function VendingWindowOutput (props) {
                 <div className="vending-window"></div>
                 <div className="vending-window-background"></div>
                 {/* Cola Outlet */}
-                <div className="vending-output">
+                <div className="vending-output flex-center">
                     <p className="text-center">Push</p>
                 </div>
                 {/* Cola row */}
